@@ -11,9 +11,10 @@ import {
   View,
 } from 'react-native';
 import {COLORS, SIZES} from '../constants';
-import data from '../data/quiz';
+import data from '../data/quiz/es';
 
 const Quiz = () => {
+  const langugage = 'es';
   const allQuestions = data;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState<string | null>(null);
@@ -155,20 +156,20 @@ const Quiz = () => {
           <View style={styles.resultContainer}>
             <View style={styles.result}>
               <Text style={styles.resultTitle}>
-                {score > allQuestions.length / 2
-                  ? 'Congratulations!'
-                  : 'Oops!'
-                }
+                {score > allQuestions.length / 2 ? 'Congratulations!' : 'Oops!'}
               </Text>
               <View style={styles.resultRatio}>
-                <Text style={[
-                  styles.resultCorrect,
-                  {
-                    color: score > (allQuestions.length / 2)
-                      ? COLORS.success
-                      : COLORS.error
-                  },
-                ]}>
+                <Text
+                  style={[
+                    styles.resultCorrect,
+                    {
+                      color:
+                        score > allQuestions.length / 2
+                          ? COLORS.success
+                          : COLORS.error,
+                    },
+                  ]}
+                >
                   {score}
                 </Text>
                 <Text style={styles.resultTotal}>/ {allQuestions.length}</Text>
