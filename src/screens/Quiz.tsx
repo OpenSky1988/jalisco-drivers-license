@@ -1,21 +1,31 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Animated,
   Image,
-  Modal,
   SafeAreaView,
+  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
-import {COLORS, SIZES} from '../constants';
+import NextButton from '../components/NextButton';
+import ProgressBar from '../components/ProgressBar';
+import Question from '../components/Question';
+import QuestionOptions from '../components/QuestionOptions';
+import ResultsModal from '../components/ResultsModal';
+import { COLORS, SIZES } from '../constants';
 import data from '../data/quiz/es';
 
-const Quiz = () => {
-  const langugage = 'es';
-  const allQuestions = data;
+export interface IQuestion {
+  id: number;
+  question: string;
+  options: string[];
+  correct_option: string;
+}
+
+const Quiz: React.FC = () => {
+  // const langugage = 'es';
+  const allQuestions: IQuestion[] = data;
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [currentOptionSelected, setCurrentOptionSelected] = useState<string | null>(null);
   const [correctOption, setCorrectOption] = useState<string | null>(null);
@@ -23,6 +33,14 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showScoreModal, setShowScoreModal] = useState(false);
+
+  const animateProgress = (toValue: number) => {
+    Animated.timing(progress, {
+      toValue,
+      duration: 1000,
+      useNativeDriver: false,
+    }).start();
+  };
 
   const validateAnswer = (selectedOption: string) => {
     let correct_option = allQuestions[currentQuestionIndex].correct_option;
@@ -49,11 +67,8 @@ const Quiz = () => {
       setIsOptionsDisabled(false);
       setShowNextButton(false);
     }
-    Animated.timing(progress, {
-      toValue: currentQuestionIndex + 1,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
+
+    animateProgress(currentQuestionIndex + 1);
   };
 
   const restartQuiz = () => {
@@ -67,130 +82,41 @@ const Quiz = () => {
     setIsOptionsDisabled(false);
     setShowNextButton(false);
 
-    Animated.timing(progress, {
-      toValue: 0,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  };
-
-  const renderQuestion = () => (
-    <View style={styles.questionContainer}>
-      <View style={styles.questionCounter}>
-        <Text style={styles.questionCurrentIndex}>
-          {currentQuestionIndex + 1}
-        </Text>
-        <Text style={styles.questionTotal}>/ {allQuestions.length}</Text>
-      </View>
-      <Text style={styles.questionText}>
-        {allQuestions[currentQuestionIndex]?.question}
-      </Text>
-    </View>
-  );
-
-  const renderOptions = () => (
-    <View>
-      {allQuestions[currentQuestionIndex]?.options.map((option: string) => (
-        <TouchableOpacity
-          onPress={() => validateAnswer(option)}
-          disabled={isOptionsDisabled}
-          key={option}
-          style={[
-            styles.questionOption,
-            {
-              borderColor: option === correctOption
-                ? COLORS.success
-                : option === currentOptionSelected
-                  ? COLORS.error
-                  : COLORS.secondary + '40',
-              backgroundColor: option === correctOption
-                ? COLORS.success + '20'
-                : option === currentOptionSelected
-                  ? COLORS.error + '20'
-                  : COLORS.secondary + '20',
-            },
-          ]}
-        >
-          <Text style={styles.questionOptionText}>{option}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
-
-  const renderNextButton = () => {
-    return showNextButton ? (
-      <TouchableOpacity onPress={handleNext} style={styles.nextButton}>
-        <Text style={styles.nextButtonText}>Next</Text>
-      </TouchableOpacity>
-    ) : null;
+    animateProgress(0);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [progress, setProgress] = useState(new Animated.Value(0));
 
-  const progressAnim = progress.interpolate({
-    inputRange: [0, allQuestions.length],
-    outputRange: ['0%', '100%'],
-  });
-
-  const renderProgressBar = () => (
-    <View style={styles.progressBarContainer}>
-      <Animated.View style={[styles.progressBar, {width: progressAnim}]} />
-    </View>
-  );
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
-      <View style={styles.container}>
-        {renderProgressBar()}
-        {renderQuestion()}
-        {renderOptions()}
-        {renderNextButton()}
-
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={showScoreModal}
-        >
-          <View style={styles.resultContainer}>
-            <View style={styles.result}>
-              <Text style={styles.resultTitle}>
-                {score > allQuestions.length / 2 ? 'Congratulations!' : 'Oops!'}
-              </Text>
-              <View style={styles.resultRatio}>
-                <Text
-                  style={[
-                    styles.resultCorrect,
-                    {
-                      color:
-                        score > allQuestions.length / 2
-                          ? COLORS.success
-                          : COLORS.error,
-                    },
-                  ]}
-                >
-                  {score}
-                </Text>
-                <Text style={styles.resultTotal}>/ {allQuestions.length}</Text>
-              </View>
-
-              <TouchableOpacity
-                onPress={restartQuiz}
-                style={styles.retryQuizButton}
-              >
-                <Text style={styles.retryQuizButtonText}>Retry Quiz</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
-
-        <Image
-          source={require('../assets/images/DottedBG.png')}
-          style={styles.bottomBackgroundImage}
-          resizeMode="contain"
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.container}>
+          <ProgressBar progress={progress} questionsLength={allQuestions.length} />
+          <Question allQuestions={allQuestions} currentQuestionIndex={currentQuestionIndex} />
+          <QuestionOptions
+            allQuestions={allQuestions}
+            correctOption={correctOption}
+            currentOptionSelected={currentOptionSelected}
+            currentQuestionIndex={currentQuestionIndex}
+            isOptionsDisabled={isOptionsDisabled}
+            validateAnswer={validateAnswer}
+          />
+          <NextButton handleNext={handleNext} showNextButton={showNextButton} />
+          <ResultsModal
+            questionsLength={allQuestions.length}
+            restartQuiz={restartQuiz}
+            score={score}
+            showScoreModal={showScoreModal}
+          />
+          <Image
+            source={require('../assets/images/DottedBG.png')}
+            style={styles.bottomBackgroundImage}
+            resizeMode="contain"
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -205,91 +131,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: COLORS.background,
     position: 'relative',
+    minHeight: '100%',
   },
-
-  // -------------------------------------
-  questionContainer: {
-    marginVertical: 40,
-  },
-
-  // -------------------------------------
-  questionCounter: {
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-  },
-  questionCurrentIndex: {
-    color: COLORS.white,
-    fontSize: 20,
-    marginRight: 2,
-    opacity: 0.6,
-  },
-  questionTotal: {
-    color: COLORS.white,
-    fontSize: 18,
-    opacity: 0.6,
-  },
-  questionText: {
-    color: COLORS.white,
-    fontSize: 30,
-  },
-
-  // -------------------------------------
-  questionOption: {
-    alignItems: 'center',
-    borderRadius: 20,
-    borderWidth: 3,
-    flexDirection: 'row',
-    height: 60,
-    justifyContent: 'space-between',
-    marginVertical: 10,
-    paddingHorizontal: 20,
-  },
-  questionOptionText: {
-    color: COLORS.white,
-    fontSize: 20,
-  },
-
-  // -------------------------------------
-  nextButton: {
-    backgroundColor: COLORS.accent,
-    borderRadius: 5,
-    marginTop: 20,
-    padding: 20,
-    width: '100%',
-  },
-  nextButtonText: {
-    color: COLORS.white,
-    fontSize: 20,
-    textAlign: 'center',
-  },
-
-  // -------------------------------------
-  progressBarContainer: {
-    backgroundColor: '#00000020',
-    borderRadius: 20,
-    height: 20,
-    width: '100%',
-  },
-  progressBar: {
-    backgroundColor: COLORS.accent,
-    borderRadius: 20,
-    height: 20,
-  },
-
-  // -------------------------------------
-  retryQuizButton: {
-    backgroundColor: COLORS.accent,
-    borderRadius: 20,
-    padding: 20,
-    width: '100%',
-  },
-  retryQuizButtonText: {
-    color: COLORS.white,
-    fontSize: 20,
-    textAlign: 'center',
-  },
-
-  // -------------------------------------
   bottomBackgroundImage: {
     bottom: 0,
     height: 130,
@@ -299,38 +142,6 @@ const styles = StyleSheet.create({
     right: 0,
     width: SIZES.width,
     zIndex: -1,
-  },
-
-  // -------------------------------------
-  resultContainer: {
-    flex: 1,
-    backgroundColor: COLORS.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  result: {
-    backgroundColor: COLORS.white,
-    width: '90%',
-    borderRadius: 20,
-    padding: 20,
-    alignItems: 'center',
-  },
-  resultTitle: {
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-  resultRatio: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  resultCorrect: {
-    fontSize: 30,
-  },
-  resultTotal: {
-    fontSize: 20,
-    color: COLORS.black,
   },
 });
 
