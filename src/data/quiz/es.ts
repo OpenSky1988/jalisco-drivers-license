@@ -373,6 +373,7 @@ const data = [
   {
     id: 38,
     question: '¿Qué está indicando el agente vial cuando se encuentra en posición lateral o de costado con los brazos hacia abajo en relación a la arteria por la que transitamos?',
+    image: '',
     options: [
       'Siga',
       'Preventiva',
@@ -483,6 +484,7 @@ const data = [
   {
     id: 49,
     question: '¿Qué nos indica un conductor cuando realiza esta señal humana?',
+    image: '',
     options: [
       'Alto',
       'Siga',
@@ -523,6 +525,7 @@ const data = [
   {
     id: 53,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Puente',
       'Estrechamiento asimétrico',
@@ -533,6 +536,7 @@ const data = [
   {
     id: 54,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Prohibido circular maquinaria agrícola',
       'Se autoriza circular con tractor',
@@ -543,6 +547,7 @@ const data = [
   {
     id: 55,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Vuelta continua',
       'Curva',
@@ -573,6 +578,7 @@ const data = [
   {
     id: 58,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Peso restringido',
       'Altura libre restringida',
@@ -583,6 +589,7 @@ const data = [
   {
     id: 59,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Vuelta continua a la derecha',
       'Codo inverso',
@@ -593,6 +600,7 @@ const data = [
   {
     id: 60,
     question: '¿Qué nos indica esta señal?',
+    image: '',
     options: [
       'Desviación',
       'Puente angosto',
@@ -633,6 +641,7 @@ const data = [
   {
     id: 64,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Prohibido estacionarse',
       'Zona de estacionamiento',
@@ -643,6 +652,7 @@ const data = [
   {
     id: 65,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Estrechamiento asimétrico',
       'Circulación al centro',
@@ -663,6 +673,7 @@ const data = [
   {
     id: 67,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'No parar',
       'Cruce de ferrocarril',
@@ -673,6 +684,7 @@ const data = [
   {
     id: 68,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Cruce de ferrocarril',
       'Cruce de caminos',
@@ -683,6 +695,7 @@ const data = [
   {
     id: 69,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Glorieta',
       'Prohibida la vuelta',
@@ -693,6 +706,7 @@ const data = [
   {
     id: 70,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Le ceden a usted el paso',
       'Usted debe ceder el paso',
@@ -703,6 +717,7 @@ const data = [
   {
     id: 71,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Salida',
       'Entronque lateral derecho',
@@ -713,6 +728,7 @@ const data = [
   {
     id: 72,
     question: '¿Qué indica esta señal?',
+    image: '',
     options: [
       'Un solo carril',
       'Circular al centro',
