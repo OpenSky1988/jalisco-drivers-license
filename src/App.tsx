@@ -1,25 +1,32 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Quiz from './screens/Quiz';
 import Menu from './screens/Menu';
+import { store } from './store';
 
 export type TRootStackParamList = {
   Menu: undefined;
-  Quiz: undefined;
+  Quiz: {
+    isRandom?: boolean;
+    isWrongAnswers?: boolean;
+  };
 };
 
-const Stack = createNativeStackNavigator<TRootStackParamList>();
+const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 
 const App: React.FC = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="Quiz" component={Quiz} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Navigator>
+          <Screen name="Menu" component={Menu} />
+          <Screen name="Quiz" component={Quiz} />
+        </Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
