@@ -6,6 +6,7 @@ type TNavigationProps = NativeStackScreenProps<TRootStackParamList, 'Quiz'>;
 
 interface IQuestion {
   id: number;
+  img?: string;
   question: string;
   options: string[];
   correct_option: string;

@@ -3,7 +3,8 @@ import { COLORS } from '../../constants';
 
 const styles = StyleSheet.create({
   questionContainer: {
-    marginVertical: 40,
+    marginTop: 20,
+    marginBottom: 40,
   },
   questionCounter: {
     alignItems: 'flex-end',
