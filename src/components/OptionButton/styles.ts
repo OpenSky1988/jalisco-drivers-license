@@ -4,7 +4,7 @@ import { COLORS } from '../../constants';
 const styles = StyleSheet.create({
   questionOption: {
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 16,
     borderWidth: 3,
     flexDirection: 'row',
     minHeight: 60,

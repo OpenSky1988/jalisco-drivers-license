@@ -4,14 +4,14 @@ import { COLORS } from '../../constants';
 const styles = StyleSheet.create({
   progressBarContainer: {
     backgroundColor: '#00000020',
-    borderRadius: 20,
-    height: 20,
+    borderRadius: 10,
+    height: 10,
     width: '100%',
   },
   progressBar: {
     backgroundColor: COLORS.accent,
-    borderRadius: 20,
-    height: 20,
+    borderRadius: 10,
+    height: 10,
   },
 });
 

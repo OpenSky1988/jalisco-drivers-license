@@ -515,7 +515,7 @@ const data = [
     question: 'What do two continuous lines on a roadway indicate?',
     options: [
       'Permits to surpass with precaution',
-      'pedestrian Zone',
+      'Pedestrian zone',
       'That passing is prohibited in either direction',
     ],
     correct_option: 'That passing is prohibited in either direction',
@@ -535,8 +535,8 @@ const data = [
     question: 'What does this sign indicate?',
     options: [
       'Agricultural machinery is prohibited',
-      'is authorized to circulate with tractor',
-      'can circulate to low velocit',
+      'Is authorized to circulate with tractor',
+      'Can circulate to low velocity',
     ],
     correct_option: 'Agricultural machinery is prohibited',
   },
@@ -585,7 +585,7 @@ const data = [
     question: 'What does this sign indicate?',
     options: [
       'Right turn continue',
-      'inverse Elbow',
+      'Inverse elbow',
       'Connection right winger',
     ],
     correct_option: 'Right turn continue',
@@ -665,7 +665,7 @@ const data = [
     question: 'What does this sign indicate?',
     options: [
       'No stopping',
-      'railroad Crossing',
+      'Railroad crossing',
       'Crossing of roads',
     ],
     correct_option: 'No stopping',
@@ -875,8 +875,8 @@ const data = [
     question: 'For safety, how should we proceed if the road we are traveling on is wet?',
     options: [
       'We should slow down and increase the distance between us and the vehicles in front of us',
-      'we can maintain our normal velocity if are in good condition the brakes and the rims',
-      'we should slow down only in the surrounding area of the cruisers',
+      'We can maintain our normal velocity if are in good condition the brakes and the rims',
+      'We should slow down only in the surrounding area of the cruisers',
     ],
     correct_option: 'We should slow down and increase the distance between us and the vehicles in front of us',
   },
