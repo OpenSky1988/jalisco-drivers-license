@@ -4,16 +4,16 @@ import { COLORS } from '../../constants';
 const styles = StyleSheet.create({
   questionOption: {
     alignItems: 'center',
-    borderRadius: 16,
-    borderWidth: 3,
+    borderRadius: 12,
     flexDirection: 'row',
     minHeight: 60,
     justifyContent: 'space-between',
     marginVertical: 10,
     paddingHorizontal: 20,
+    paddingVertical: 12,
   },
   questionOptionText: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 20,
   },
 });

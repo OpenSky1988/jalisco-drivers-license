@@ -9,21 +9,23 @@ const styles = StyleSheet.create({
   questionCounter: {
     alignItems: 'flex-end',
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 12,
   },
   questionCurrentIndex: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 20,
-    marginRight: 2,
     opacity: 0.6,
   },
   questionTotal: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 18,
     opacity: 0.6,
   },
   questionText: {
-    color: COLORS.white,
+    color: COLORS.black,
     fontSize: 30,
+    fontWeight: '700',
   },
 });
 

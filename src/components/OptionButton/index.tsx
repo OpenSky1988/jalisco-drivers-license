@@ -52,10 +52,10 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ option }) => {
               ? COLORS.error
               : COLORS.secondary + '40',
           backgroundColor: isCorrect
-            ? COLORS.success + '20'
+            ? COLORS.success
             : isSelected
-              ? COLORS.error + '20'
-              : COLORS.secondary + '20',
+              ? COLORS.error
+              : COLORS.secondary + '30',
         },
       ]}
     >
