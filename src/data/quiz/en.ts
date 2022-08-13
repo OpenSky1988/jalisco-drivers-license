@@ -115,10 +115,10 @@ const data = [
     question: 'If a vehicle is found to have no registration, current plates, hologram, or the driver has no license, it is required',
     options: [
       'To expect the annual exchange',
-      'To conclude operation of the vehicle while obtaining the necessarydocument(s)',
+      'To conclude operation of the vehicle while obtaining the necessary document(s)',
       'To travel with permission to circulate indefinitely',
     ],
-    correct_option: 'To conclude operation of the vehicle while obtaining the necessarydocument(s)',
+    correct_option: 'To conclude operation of the vehicle while obtaining the necessary document(s)',
   },
   {
     id: 13,
@@ -576,7 +576,7 @@ const data = [
     options: [
       'Weight restricted',
       'Height restricted',
-      'symmetrical Narrowin',
+      'Symmetrical narrowing',
     ],
     correct_option: 'Height restricted',
   },

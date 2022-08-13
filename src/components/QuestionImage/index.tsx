@@ -12,7 +12,7 @@ const QuestionImage: React.FC = () => {
   const questionImage = images[questionId as unknown as keyof typeof images];
 
   if (questionImage) {
-    return <Image style={styles.image} source={questionImage} />;
+    return <Image style={styles.image} resizeMode="contain" source={questionImage} />;
   }
 
   return null;

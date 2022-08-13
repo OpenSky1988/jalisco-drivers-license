@@ -2,10 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   image: {
-    borderRadius: 16,
-    height: 180,
+    borderRadius: 12,
     marginTop: 40,
     width: '100%',
+    height: undefined,
+    aspectRatio: 1,
   },
 });
 

@@ -7,10 +7,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
+    backgroundColor: COLORS.white,
     flex: 1,
-    paddingVertical: 40,
+    paddingBottom: 40,
+    paddingTop: 20,
     paddingHorizontal: 16,
-    backgroundColor: COLORS.background,
     position: 'relative',
     minHeight: '100%',
   },
