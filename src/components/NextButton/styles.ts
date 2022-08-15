@@ -4,8 +4,8 @@ import { COLORS } from '../../constants';
 const styles = StyleSheet.create({
   nextButton: {
     backgroundColor: COLORS.accent,
-    borderRadius: 5,
-    marginTop: 20,
+    borderRadius: 16,
+    marginTop: 40,
     padding: 20,
     width: '100%',
   },

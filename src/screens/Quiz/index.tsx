@@ -11,12 +11,14 @@ import QuestionOptions from '../../components/QuestionOptions';
 import ResultsModal from '../../components/ResultsModal';
 import { COLORS } from '../../constants';
 import data from '../../data/quiz/en';
-import { restartQuiz, setQuestions } from '../../store/slices/questions';
+import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
 import { shuffleArray } from '../../utils';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
 import { get } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
   const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
@@ -32,6 +34,8 @@ const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
   const progress = useRef(new Animated.Value(0));
+
+  const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
   // const langugage = 'es';
 
   useFocusEffect(
@@ -62,6 +66,17 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
     }).start();
   };
 
+  const handleNext = () => {
+    dispatch(
+      nextQuestion({
+        currentQuestionIndex,
+        questionsNumber: questionList.length - 1,
+      }),
+    );
+
+    animateProgress(currentQuestionIndex + 1);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
@@ -70,8 +85,8 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
           <ProgressBar progress={progress.current} />
           <QuestionImage />
           <Question />
-          <QuestionOptions />
-          <NextButton animateProgress={animateProgress} />
+          <QuestionOptions handleNext={handleNext} />
+          <NextButton handleNext={handleNext} />
           <ResultsModal />
         </View>
       </ScrollView>

@@ -13,7 +13,7 @@ import { updateAnswer } from '../../store/slices/questions';
 import styles from './styles';
 import { IOptionButtonProps } from './types';
 
-const OptionButton: React.FC<IOptionButtonProps> = ({ option }) => {
+const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option }) => {
   const dispatch = useDispatch();
   const {
     correctOption,
@@ -26,6 +26,9 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ option }) => {
   const isCorrect = option === correctOption;
   const isSelected = option === currentOptionSelected;
 
+  const backgroundColor = isCorrect ? COLORS.success : isSelected ? COLORS.error : COLORS.secondary;
+  const textColor = isCorrect ? COLORS.white : isSelected ? COLORS.white : COLORS.black;
+
   const validateAnswer = async () => {
     const { correct_option, id } = questionList[currentQuestionIndex];
 
@@ -33,6 +36,7 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ option }) => {
 
     if (correct_option === option) {
       await decreaseWrongAnswersInDeviceStorage(id);
+      setTimeout(handleNext, 200);
     } else {
       await increaseWrongAnswersInDeviceStorage(id);
     }
@@ -43,23 +47,9 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ option }) => {
       onPress={validateAnswer}
       disabled={isOptionsDisabled}
       key={option}
-      style={[
-        styles.questionOption,
-        {
-          borderColor: isCorrect
-            ? COLORS.success
-            : isSelected
-              ? COLORS.error
-              : COLORS.secondary + '40',
-          backgroundColor: isCorrect
-            ? COLORS.success
-            : isSelected
-              ? COLORS.error
-              : COLORS.secondary + '30',
-        },
-      ]}
+      style={[styles.questionOption, { backgroundColor }]}
     >
-      <Text style={styles.questionOptionText}>{option}</Text>
+      <Text style={[styles.questionOptionText, { color: textColor }]}>{option}</Text>
     </TouchableOpacity>
   );
 };

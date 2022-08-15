@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   questionText: {
     color: COLORS.black,
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: '700',
   },
 });
