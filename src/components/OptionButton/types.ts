@@ -1,4 +1,5 @@
 interface IOptionButtonProps {
+  handleNext: () => void;
   option: string;
 }
 

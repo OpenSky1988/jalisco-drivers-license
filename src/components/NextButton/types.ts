@@ -1,5 +1,5 @@
 interface INextButtonProps {
-  animateProgress: (toValue: number) => void;
+  handleNext: () => void;
 }
 
 export type { INextButtonProps };

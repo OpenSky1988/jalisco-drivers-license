@@ -3,10 +3,12 @@ import { TRootStackParamList } from '../../App';
 
 type TProps = NativeStackScreenProps<TRootStackParamList, 'Menu'>;
 
-interface IRouteItem {
-  text: string;
+interface IMenuRouteItem {
+  title: string;
+  subtitle?: string;
   to: keyof TRootStackParamList;
+  backgroundColor: string;
   params?: { [key: string]: unknown };
 }
 
-export type { TProps, IRouteItem };
+export type { TProps, IMenuRouteItem };

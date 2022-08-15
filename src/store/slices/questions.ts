@@ -77,7 +77,7 @@ const questions = createSlice({
         correctOption,
         isOptionsDisabled: true,
         score: isCorrect ? state.score + 1 : state.score,
-        showNextButton: true,
+        showNextButton: !isCorrect,
       });
     },
   },
