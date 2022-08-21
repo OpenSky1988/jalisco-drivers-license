@@ -30,11 +30,12 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option }) => {
   const textColor = isCorrect ? COLORS.white : isSelected ? COLORS.white : COLORS.black;
 
   const validateAnswer = async () => {
-    const { correct_option, id } = questionList[currentQuestionIndex];
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    const { correctOption, id } = questionList[currentQuestionIndex];
 
-    dispatch(updateAnswer({ correctOption: correct_option, selectedOption: option }));
+    dispatch(updateAnswer({ correctOption, selectedOption: option }));
 
-    if (correct_option === option) {
+    if (correctOption === option) {
       await decreaseWrongAnswersInDeviceStorage(id);
       setTimeout(handleNext, 200);
     } else {

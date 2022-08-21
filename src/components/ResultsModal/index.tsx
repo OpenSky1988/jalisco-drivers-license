@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { COLORS } from '../../constants';
 import { RootState } from '../../store';
 import { restartQuiz } from '../../store/slices/questions';
 import styles from './styles';
+import { IResultsModalProps } from './types';
+import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 
-const ResultsModal: React.FC = () => {
+const ResultsModal: React.FC<IResultsModalProps> = ({ testTypeKey }) => {
   const dispatch = useDispatch();
   const { questionList, score, showScoreModal } = useSelector(
     (state: RootState) => state.questions,
   );
 
-  const isTestSuccessfull = score > questionList.length / 2;
+  const isSuccessfull = calculateTestSuccess(score, questionList);
+
+  useEffect(() => {
+    (async () => {
+      if (testTypeKey && testTypeKey !== DEVICE_STORE_KEYS.MISTAKES && isSuccessfull) {
+        await updateSuccessfullAttemts(testTypeKey);
+      }
+    })();
+  }, [isSuccessfull, score, testTypeKey]);
 
   const restart = () => dispatch(restartQuiz());
 
@@ -21,13 +32,13 @@ const ResultsModal: React.FC = () => {
     <Modal animationType="slide" transparent={true} visible={showScoreModal}>
       <View style={styles.resultContainer}>
         <View style={styles.result}>
-          <Text style={styles.resultTitle}>{isTestSuccessfull ? 'Congratulations!' : 'Oops!'}</Text>
+          <Text style={styles.resultTitle}>{isSuccessfull ? 'Congratulations!' : 'Oops!'}</Text>
           <View style={styles.resultRatio}>
             <Text
               style={[
                 styles.resultCorrect,
                 {
-                  color: isTestSuccessfull ? COLORS.success : COLORS.error,
+                  color: isSuccessfull ? COLORS.success : COLORS.error,
                 },
               ]}
             >
