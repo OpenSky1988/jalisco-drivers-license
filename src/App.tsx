@@ -10,8 +10,7 @@ import { store } from './store';
 export type TRootStackParamList = {
   Menu: undefined;
   Quiz: {
-    isRandom?: boolean;
-    isWrongAnswers?: boolean;
+    testTypeKey?: string;
   };
 };
 

@@ -1,20 +1,22 @@
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { COLORS } from '../../constants';
 import { IMenuRouteItem } from './types';
 
 const menuRoutes: IMenuRouteItem[] = [
   {
     title: 'Ordered Quiz',
-    subtitle: `Successfull attempts: ${1}`,
     to: 'Quiz',
     backgroundColor: COLORS.success,
+    params: {
+      testTypeKey: DEVICE_STORE_KEYS.ORDERED,
+    },
   },
   {
     title: 'Randomized Quiz',
-    subtitle: `Successfull attempts: ${1}`,
     to: 'Quiz',
     backgroundColor: COLORS.accent,
     params: {
-      isRandom: true,
+      testTypeKey: DEVICE_STORE_KEYS.RANDOMIZED,
     },
   },
   {
@@ -23,7 +25,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.error,
     params: {
-      isWrongAnswers: true,
+      testTypeKey: DEVICE_STORE_KEYS.MISTAKES,
     },
   },
 ];

@@ -9,7 +9,7 @@ interface IQuestion {
   img?: string;
   question: string;
   options: string[];
-  correct_option: string;
+  correctOption: string;
 }
 
 export type { IQuestion, TNavigationProps };

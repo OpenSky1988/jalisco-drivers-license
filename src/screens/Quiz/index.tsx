@@ -41,13 +41,20 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        if (route.params?.isRandom) {
-          dispatch(setQuestions(shuffleArray(data) as IQuestion[]));
-        } else if (route.params?.isWrongAnswers) {
-          const filteredMistakes = await filterMistakes(data);
-          dispatch(setQuestions(shuffleArray(filteredMistakes) as IQuestion[]));
-        } else {
-          dispatch(setQuestions(data));
+        switch (route.params?.testTypeKey) {
+          case DEVICE_STORE_KEYS.RANDOMIZED: {
+            dispatch(setQuestions(shuffleArray(data) as IQuestion[]));
+            break;
+          }
+          case DEVICE_STORE_KEYS.MISTAKES: {
+            const filteredMistakes = await filterMistakes(data);
+            dispatch(setQuestions(shuffleArray(filteredMistakes) as IQuestion[]));
+            break;
+          }
+          case DEVICE_STORE_KEYS.ORDERED:
+          default: {
+            dispatch(setQuestions(data));
+          }
         }
       })();
 
@@ -55,7 +62,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         dispatch(restartQuiz());
         dispatch(setQuestions([]));
       };
-    }, [route.params?.isRandom, route.params?.isWrongAnswers, dispatch]),
+    }, [route.params?.testTypeKey, dispatch]),
   );
 
   const animateProgress = (toValue: number) => {
@@ -87,7 +94,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
           <Question />
           <QuestionOptions handleNext={handleNext} />
           <NextButton handleNext={handleNext} />
-          <ResultsModal />
+          <ResultsModal testTypeKey={route.params?.testTypeKey} />
         </View>
       </ScrollView>
     </SafeAreaView>
