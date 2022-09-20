@@ -52,7 +52,7 @@ const data = [
   },
   {
     id: 6,
-    question: 'According to the law of the services of highway administration, traffic and transportation, how many people are permitted to be transported in "pick up"',
+    question: 'According to the law of the services of highway administration, traffic and transportation, how many people are permitted to be transported in a "pick up"',
     options: [
       'Only the number of people that include the team of adequate protection',
       'The ones that go seated',
@@ -132,7 +132,7 @@ const data = [
   },
   {
     id: 14,
-    question: 'If you drive a motor vehicle in a state of drunkenness or under the influence of narcotics or psychotropic, you are committing',
+    question: 'If you drive a motor vehicle in a state of drunkenness or under the influence of narcotics or psychotropic, you are committing:',
     options: [
       'Infraction and crime',
       'Abuse of authority',
@@ -152,7 +152,7 @@ const data = [
   },
   {
     id: 16,
-    question: 'It is prohibited to drive a motor vehicle, in the state of jalisco, while using a cellular telephone',
+    question: 'It is prohibited to drive a motor vehicle, in the state of Jalisco, while using a cellular telephone',
     options: [
       'Yes',
       'No',
@@ -162,7 +162,7 @@ const data = [
   },
   {
     id: 17,
-    question: 'In the state of jalisco, it is permitted to transport a child less than three years old in the front seat',
+    question: 'In the state of Jalisco, it is permitted to transport a child less than three years old in the front seat',
     options: [
       'Only when go in arms of an adult on',
       'Only when an adult, carrying placed the seat belt, hold it with the arms',
@@ -172,7 +172,7 @@ const data = [
   },
   {
     id: 18,
-    question: 'It is 12:00 at night and, while driving your vehicle, you arrive at a signal light that has turned red. there is no one else at the crossing and there is no danger to you, other vehicles, or pedestrians. are you obliged to wait for the green light before advancing?',
+    question: 'It is 12:00 at night and, while driving your vehicle, you arrive at a signal light that has turned red. There is no one else at the crossing and there is no danger to you, other vehicles, or pedestrians. Are you obliged to wait for the green light before advancing?',
     options: [
       'Yes, I am obliged to respect the signal without regard to the hour of the day',
       'Not, nobody is observing me, so I can pass me the red light of the signal',
@@ -272,11 +272,11 @@ const data = [
   },
   {
     id: 28,
-    question: 'When an accident occurs and alone there are material damages, which is the corresponding procedure according to the regulation',
+    question: 'When an accident occurs and alone there are material damages, which is the corresponding procedure according to the regulation,',
     options: [
       'To expect the intervention of the authorities of highway Administration so that they testify the exchange of documents with the against part',
       'If drivers have all their documents in order, and agree to a signed waiver, the vehicles will not be seized',
-      'To expect the intervention of the authorities of highway Administration to raise the inventory of the vehicle before they be carried it al yard',
+      'To expect the intervention of the authorities of highway Administration to raise the inventory of the vehicle before they be carried it to yard',
     ],
     correctOption: 'If drivers have all their documents in order, and agree to a signed waiver, the vehicles will not be seized',
   },
@@ -362,7 +362,7 @@ const data = [
   },
   {
     id: 37,
-    question: 'What is the maximum speed allowed on a city street where there is no speed limt posted?',
+    question: 'What is the maximum speed allowed on a city street where there is no speed limit posted?',
     options: [
       '40 km/h',
       '50 km/h',
@@ -374,11 +374,11 @@ const data = [
     id: 38,
     question: 'When approaching an intersection, you see a traffic officer with his arms down, facing or with his back to the opposing traffic (as pictured). what is he indicating?',
     options: [
-      'Continu',
+      'Continue',
       'Preventive',
       'High general',
     ],
-    correctOption: 'Continu',
+    correctOption: 'Continue',
   },
   {
     id: 39,
@@ -472,7 +472,7 @@ const data = [
   },
   {
     id: 48,
-    question: ' according to the regulation, they have priority in transit in primary highway administrations',
+    question: 'According to the regulation, they have priority in transit in primary highway administrations',
     options: [
       'The streets and worn',
       'The streets, roads and worn',
@@ -765,7 +765,7 @@ const data = [
     question: 'If, while driving your vehicle, one of the tires blows out or goes flat, what should you do?',
     options: [
       'To apply the pedal of the brakes to reduce the velocity',
-      'Hold the steering wheel tightly, remove your foot from the accelerator, and allow the vehicle timeto slow down before directing it to the right edge of the road',
+      'Hold the steering wheel tightly, remove your foot from the accelerator, and allow the vehicle time to slow down before directing it to the right edge of the road',
       'Quickly to direct the vehicle al right side of the road',
     ],
     correctOption: 'Hold the steering wheel tightly, remove your foot from the accelerator, and allow the vehicle timeto slow down before directing it to the right edge of the road',
@@ -782,7 +782,7 @@ const data = [
   },
   {
     id: 79,
-    question: 'What should be done if the hood of your vehicle comes up while you’redriving?',
+    question: 'What should be done if the hood of your vehicle comes up while you’re driving?',
     options: [
       'To brake quickly',
       'To be directed directly to the right',
@@ -802,7 +802,7 @@ const data = [
   },
   {
     id: 81,
-    question: 'It is frequent, while driving in the streets, to find a driver that follows too close, pressuring us whether with lights or horn. what should be our attitude toward this situation?',
+    question: 'It is frequent, while driving in the streets, to find a driver that follows too close, pressuring us whether with lights or horn. What should be our attitude toward this situation?',
     options: [
       'To accelerate to avoid that even',
       'Light the corresponding turn signal and change lanes carefully',
@@ -886,7 +886,7 @@ const data = [
     options: [
       'Keep the calm, yield a little, move away from them, and think that your safety is more important',
       'To give them reach to indicate them the errors that go committing al to conduct',
-      'To be Located in the same rail to some 7 meters ahead or behind and to commit the same errors so that the other conductor learn',
+      'To be located in the same rail to some 7 meters ahead or behind and to commit the same errors so that the other conductor learn',
     ],
     correctOption: 'Keep the calm, yield a little, move away from them, and think that your safety is more important',
   },
@@ -982,11 +982,11 @@ const data = [
   },
   {
     id: 99,
-    question: 'If we get in our vehicle and see the windshield is dirty, it is recommendable',
+    question: 'If we get in our vehicle and see the windshield is dirty, it is recommendable:',
     options: [
       'To circulate to high speed to clean it and thus we will conduct surer',
       'To clean it with running water and a little soap',
-      'To Uuilize the windshield wipers in dry since we avoid that mud with the land be done or the dust',
+      'To utilize the windshield wipers in dry since we avoid that mud with the land be done or the dust',
     ],
     correctOption: 'To clean it with running water and a little soap',
   },
