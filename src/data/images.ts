@@ -1,6 +1,6 @@
 const images = {
   '38': require('../assets/images/questions/38.png'),
-  '48': require('../assets/images/questions/48.png'),
+  '49': require('../assets/images/questions/49.png'),
   '53': require('../assets/images/questions/53.png'),
   '54': require('../assets/images/questions/54.png'),
   '55': require('../assets/images/questions/55.png'),
