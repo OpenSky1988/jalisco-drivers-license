@@ -14,6 +14,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		82B1294528D98693005955A6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		82B1294628D98693005955A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		82B1294828D98693005955A6 /* libPods-JaliscoDriversLicenseTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-JaliscoDriversLicenseTest.a */; };
+		82B1294A28D98693005955A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		82B1294B28D98693005955A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +47,8 @@
 		5B7EB9410499542E8C5724F5 /* Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig"; path = "Target Support Files/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-JaliscoDriversLicenseTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JaliscoDriversLicenseTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = JaliscoDriversLicenseTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		82B1295228D98693005955A6 /* JaliscoDriversLicenseTest copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JaliscoDriversLicenseTest copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		82B1295328D98693005955A6 /* JaliscoDriversLicenseTest copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "JaliscoDriversLicenseTest copy-Info.plist"; path = "/Users/alexprisazhny/Developer/JaliscoDriversLicense/ios/JaliscoDriversLicenseTest copy-Info.plist"; sourceTree = "<absolute>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig"; path = "Target Support Files/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -60,6 +67,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-JaliscoDriversLicenseTest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B1294728D98693005955A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B1294828D98693005955A6 /* libPods-JaliscoDriversLicenseTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +137,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				82B1295328D98693005955A6 /* JaliscoDriversLicenseTest copy-Info.plist */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -133,6 +149,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* JaliscoDriversLicenseTest.app */,
 				00E356EE1AD99517003FC87E /* JaliscoDriversLicenseTestTests.xctest */,
+				82B1295228D98693005955A6 /* JaliscoDriversLicenseTest copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +211,28 @@
 			productReference = 13B07F961A680F5B00A75B9A /* JaliscoDriversLicenseTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		82B1294128D98693005955A6 /* JaliscoDriversLicenseTest copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82B1294F28D98693005955A6 /* Build configuration list for PBXNativeTarget "JaliscoDriversLicenseTest copy" */;
+			buildPhases = (
+				82B1294228D98693005955A6 /* [CP] Check Pods Manifest.lock */,
+				82B1294328D98693005955A6 /* Start Packager */,
+				82B1294428D98693005955A6 /* Sources */,
+				82B1294728D98693005955A6 /* Frameworks */,
+				82B1294928D98693005955A6 /* Resources */,
+				82B1294C28D98693005955A6 /* Bundle React Native code and images */,
+				82B1294D28D98693005955A6 /* [CP] Embed Pods Frameworks */,
+				82B1294E28D98693005955A6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JaliscoDriversLicenseTest copy";
+			productName = JaliscoDriversLicenseTest;
+			productReference = 82B1295228D98693005955A6 /* JaliscoDriversLicenseTest copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,6 +265,7 @@
 			targets = (
 				13B07F861A680F5B00A75B9A /* JaliscoDriversLicenseTest */,
 				00E356ED1AD99517003FC87E /* JaliscoDriversLicenseTestTests */,
+				82B1294128D98693005955A6 /* JaliscoDriversLicenseTest copy */,
 			);
 		};
 /* End PBXProject section */
@@ -244,6 +284,15 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82B1294928D98693005955A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B1294A28D98693005955A6 /* LaunchScreen.storyboard in Resources */,
+				82B1294B28D98693005955A6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +328,95 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82B1294228D98693005955A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JaliscoDriversLicenseTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82B1294328D98693005955A6 /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		82B1294C28D98693005955A6 /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		82B1294D28D98693005955A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82B1294E28D98693005955A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JaliscoDriversLicenseTest/Pods-JaliscoDriversLicenseTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -415,6 +553,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82B1294428D98693005955A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82B1294528D98693005955A6 /* AppDelegate.mm in Sources */,
+				82B1294628D98693005955A6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -484,6 +631,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QV37437VA;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = JaliscoDriversLicenseTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -510,6 +658,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QV37437VA;
 				INFOPLIST_FILE = JaliscoDriversLicenseTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -522,6 +671,58 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = JaliscoDriversLicenseTest;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		82B1295028D98693005955A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-JaliscoDriversLicenseTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QV37437VA;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "JaliscoDriversLicenseTest copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		82B1295128D98693005955A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-JaliscoDriversLicenseTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2QV37437VA;
+				INFOPLIST_FILE = "JaliscoDriversLicenseTest copy-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -679,6 +880,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		82B1294F28D98693005955A6 /* Build configuration list for PBXNativeTarget "JaliscoDriversLicenseTest copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82B1295028D98693005955A6 /* Debug */,
+				82B1295128D98693005955A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
