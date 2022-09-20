@@ -40,7 +40,7 @@ const Menu: React.FC<TProps> = (navigationProps) => (
   <View style={styles.container}>
     <SafeAreaView>
       {menuRoutes.map((route) => (
-        <MenuButton {...{ ...route, ...navigationProps }} />
+        <MenuButton key={route.title} {...{ ...route, ...navigationProps }} />
       ))}
     </SafeAreaView>
   </View>
