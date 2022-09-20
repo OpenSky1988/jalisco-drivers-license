@@ -24,8 +24,8 @@ const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
   const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
   const wrongAnswersKeys = Object.keys(wrongAnswers);
 
-  const filteredMistakes = questions.filter((question) =>
-    wrongAnswersKeys.includes(`${question.id}`),
+  const filteredMistakes = questions.filter(
+    (question) => wrongAnswersKeys.includes(`${question.id}`) && wrongAnswers[question.id],
   );
 
   return filteredMistakes;
@@ -91,7 +91,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         <View style={styles.container}>
           <ProgressBar progress={progress.current} />
           <QuestionImage />
-          <Question />
+          <Question handleNext={handleNext} testTypeKey={route.params?.testTypeKey} />
           <QuestionOptions handleNext={handleNext} />
           <NextButton handleNext={handleNext} />
           <ResultsModal testTypeKey={route.params?.testTypeKey} />
