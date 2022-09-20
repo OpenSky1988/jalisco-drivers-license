@@ -372,7 +372,7 @@ const data = [
   },
   {
     id: 38,
-    question: 'When approaching an intersection, you see a traffic officer with his arms down, facing or with his back to the opposing traffic (as pictured). what is he indicating?',
+    question: 'When approaching an intersection, you see a traffic officer with his arms down, facing or with his back to the opposing traffic (as pictured). What is he indicating?',
     options: [
       'Continue',
       'Preventive',
