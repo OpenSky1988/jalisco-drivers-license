@@ -1,11 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store';
-import styles from './styles';
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import { increaseWrongAnswersInDeviceStorage } from '../../screens/Quiz/utils';
 
-const Question: React.FC = () => {
+import { RootState } from '../../store';
+
+import styles from './styles';
+import { IQuestionProps } from './types';
+
+const Question: React.FC<IQuestionProps> = ({ handleNext, testTypeKey }) => {
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
+  const [countdown, setCountdown] = useState(20);
+
+  const isMarathon = testTypeKey === DEVICE_STORE_KEYS.MARATHON;
+
+  useEffect(() => {
+    if (isMarathon) {
+      const interval = setInterval(() => setCountdown((prevCountdown) => prevCountdown - 1), 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isMarathon, testTypeKey]);
+
+  useEffect(() => {
+    if (countdown === 0) {
+      (async () => {
+        await increaseWrongAnswersInDeviceStorage(questionList[currentQuestionIndex]?.id);
+        handleNext();
+        setCountdown(20);
+      })();
+    }
+  }, [countdown, currentQuestionIndex, handleNext, questionList]);
 
   return (
     <View style={styles.questionContainer}>
@@ -13,6 +39,11 @@ const Question: React.FC = () => {
         <Text style={styles.questionCurrentIndex}>
           {`Question ${questionList[currentQuestionIndex]?.id}`}
         </Text>
+        {isMarathon && (
+          <View style={styles.countdownContainer}>
+            <Text style={styles.countdown}>{countdown}</Text>
+          </View>
+        )}
         <Text style={styles.questionTotal}>
           {`${currentQuestionIndex + 1} / ${questionList.length}`}
         </Text>

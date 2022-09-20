@@ -3,4 +3,6 @@ export const DEVICE_STORE_KEYS = {
   ORDERED: 'OrderedPassed',
   RANDOMIZED: 'RandomizedPassed',
   WRONG_ANSWERS: 'WrongAnswers',
+  MARATHON: 'Marathon',
+  FAVORITES: 'Favorites',
 };
