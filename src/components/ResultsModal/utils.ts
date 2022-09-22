@@ -1,11 +1,11 @@
 import { get, store } from '../../async-storage';
 import { IQuestion } from '../../screens/Quiz/types';
 
-const updateSuccessfullAttemts = async (testTypeKey: string) => {
+const updateSuccessfullAttemts = async (quizType: string) => {
   try {
-    const currentPassedAttemts = await get(testTypeKey);
+    const currentPassedAttemts = await get(quizType);
 
-    await store(testTypeKey, currentPassedAttemts || 1);
+    await store(quizType, currentPassedAttemts || 1);
   } catch (e) {
     throw new Error(`Update passed tests number error: ${e}`);
   }

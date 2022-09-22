@@ -10,7 +10,7 @@ import styles from './styles';
 import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 
-const ResultsModal: React.FC<IResultsModalProps> = ({ testTypeKey }) => {
+const ResultsModal: React.FC<IResultsModalProps> = ({ quizType }) => {
   const dispatch = useDispatch();
   const { questionList, score, showScoreModal } = useSelector(
     (state: RootState) => state.questions,
@@ -20,11 +20,11 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ testTypeKey }) => {
 
   useEffect(() => {
     (async () => {
-      if (testTypeKey && testTypeKey !== DEVICE_STORE_KEYS.MISTAKES && isSuccessfull) {
-        await updateSuccessfullAttemts(testTypeKey);
+      if (quizType && quizType !== DEVICE_STORE_KEYS.MISTAKES && isSuccessfull) {
+        await updateSuccessfullAttemts(quizType);
       }
     })();
-  }, [isSuccessfull, score, testTypeKey]);
+  }, [isSuccessfull, score, quizType]);
 
   const restart = () => dispatch(restartQuiz());
 

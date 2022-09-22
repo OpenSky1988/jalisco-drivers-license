@@ -7,22 +7,22 @@ import type { IMenuRouteItem, TProps } from './types';
 import { getSubtitle } from './utils';
 
 const MenuButton = ({
-  title,
-  subtitle = '',
-  to,
   backgroundColor,
-  params,
   navigation,
+  params,
+  subtitle = '',
+  title,
+  to,
 }: IMenuRouteItem & TProps) => {
   const navigate = () => navigation.navigate(to, params as undefined);
   const [buttonSubtitle, setButtonSubtitle] = useState(subtitle);
 
   useEffect(() => {
     (async () => {
-      const newSubtitle = await getSubtitle(subtitle, params?.testTypeKey as string);
+      const newSubtitle = await getSubtitle(subtitle, params?.quizType as string);
       setButtonSubtitle(newSubtitle);
     })();
-  }, [params?.testTypeKey, subtitle]);
+  }, [params?.quizType, subtitle]);
 
   return (
     <TouchableOpacity
