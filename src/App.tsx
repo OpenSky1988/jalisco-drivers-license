@@ -6,11 +6,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Quiz from './screens/Quiz';
 import Menu from './screens/Menu';
 import { store } from './store';
+import { BookmarkOutlined } from './components/Icons/BookmarkOutlined';
 
 export type TRootStackParamList = {
   Menu: undefined;
   Quiz: {
-    testTypeKey?: string;
+    quizType?: string;
+    title?: string;
   };
 };
 
@@ -22,7 +24,14 @@ const App: React.FC = () => {
       <NavigationContainer>
         <Navigator>
           <Screen name="Menu" component={Menu} />
-          <Screen name="Quiz" component={Quiz} />
+          <Screen
+            name="Quiz"
+            component={Quiz}
+            options={({ route }) => ({
+              title: route.params.title,
+              headerRight: () => <BookmarkOutlined />,
+            })}
+          />
         </Navigator>
       </NavigationContainer>
     </Provider>
