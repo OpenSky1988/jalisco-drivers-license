@@ -1,0 +1,1 @@
+type SvgProps = typeof Svg;
