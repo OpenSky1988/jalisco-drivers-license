@@ -8,7 +8,8 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.success,
     params: {
-      testTypeKey: DEVICE_STORE_KEYS.ORDERED,
+      quizType: DEVICE_STORE_KEYS.ORDERED,
+      title: 'Ordered Quiz',
     },
   },
   {
@@ -16,7 +17,8 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.accent,
     params: {
-      testTypeKey: DEVICE_STORE_KEYS.RANDOMIZED,
+      quizType: DEVICE_STORE_KEYS.RANDOMIZED,
+      title: 'Randomized Quiz',
     },
   },
   {
@@ -25,7 +27,8 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.black,
     params: {
-      testTypeKey: DEVICE_STORE_KEYS.MARATHON,
+      quizType: DEVICE_STORE_KEYS.MARATHON,
+      title: 'Marathon',
     },
   },
   {
@@ -34,7 +37,8 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.error,
     params: {
-      testTypeKey: DEVICE_STORE_KEYS.MISTAKES,
+      quizType: DEVICE_STORE_KEYS.MISTAKES,
+      title: 'Mistakes',
     },
   },
   {
@@ -43,7 +47,8 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     backgroundColor: COLORS.success,
     params: {
-      testTypeKey: DEVICE_STORE_KEYS.FAVORITES,
+      quizType: DEVICE_STORE_KEYS.FAVORITES,
+      title: 'Favorites',
     },
   },
 ];

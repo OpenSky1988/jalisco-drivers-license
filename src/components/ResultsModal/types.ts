@@ -1,5 +1,5 @@
 interface IResultsModalProps {
-  testTypeKey?: string;
+  quizType?: string;
 }
 
 export type { IResultsModalProps };

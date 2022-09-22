@@ -41,7 +41,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        switch (route.params?.testTypeKey) {
+        switch (route.params?.quizType) {
           case DEVICE_STORE_KEYS.RANDOMIZED: {
             dispatch(setQuestions(shuffleArray(data) as IQuestion[]));
             break;
@@ -62,7 +62,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         dispatch(restartQuiz());
         dispatch(setQuestions([]));
       };
-    }, [route.params?.testTypeKey, dispatch]),
+    }, [route.params?.quizType, dispatch]),
   );
 
   const animateProgress = (toValue: number) => {
@@ -91,10 +91,10 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         <View style={styles.container}>
           <ProgressBar progress={progress.current} />
           <QuestionImage />
-          <Question handleNext={handleNext} testTypeKey={route.params?.testTypeKey} />
+          <Question handleNext={handleNext} quizType={route.params?.quizType} />
           <QuestionOptions handleNext={handleNext} />
           <NextButton handleNext={handleNext} />
-          <ResultsModal testTypeKey={route.params?.testTypeKey} />
+          <ResultsModal quizType={route.params?.quizType} />
         </View>
       </ScrollView>
     </SafeAreaView>

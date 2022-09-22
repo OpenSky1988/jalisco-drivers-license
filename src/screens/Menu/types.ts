@@ -4,11 +4,11 @@ import { TRootStackParamList } from '../../App';
 type TProps = NativeStackScreenProps<TRootStackParamList, 'Menu'>;
 
 interface IMenuRouteItem {
-  title: string;
-  subtitle?: string;
-  to: keyof TRootStackParamList;
   backgroundColor: string;
   params?: { [key: string]: unknown };
+  title: string;
+  to: keyof TRootStackParamList;
+  subtitle?: string;
 }
 
 export type { TProps, IMenuRouteItem };

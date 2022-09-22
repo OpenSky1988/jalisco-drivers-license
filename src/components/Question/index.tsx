@@ -9,11 +9,11 @@ import { RootState } from '../../store';
 import styles from './styles';
 import { IQuestionProps } from './types';
 
-const Question: React.FC<IQuestionProps> = ({ handleNext, testTypeKey }) => {
+const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
   const [countdown, setCountdown] = useState(20);
 
-  const isMarathon = testTypeKey === DEVICE_STORE_KEYS.MARATHON;
+  const isMarathon = quizType === DEVICE_STORE_KEYS.MARATHON;
 
   useEffect(() => {
     if (isMarathon) {
@@ -21,7 +21,7 @@ const Question: React.FC<IQuestionProps> = ({ handleNext, testTypeKey }) => {
 
       return () => clearInterval(interval);
     }
-  }, [isMarathon, testTypeKey]);
+  }, [isMarathon, quizType]);
 
   useEffect(() => {
     if (countdown === 0) {
