@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react';
 import { Modal, Text, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { COLORS } from '../../constants';
 import { RootState } from '../../store';
-import { restartQuiz } from '../../store/slices/questions';
 import styles from './styles';
 import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 
-const ResultsModal: React.FC<IResultsModalProps> = ({ quizType }) => {
-  const dispatch = useDispatch();
+const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
   const { questionList, score, showScoreModal } = useSelector(
     (state: RootState) => state.questions,
   );
@@ -26,8 +24,6 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ quizType }) => {
     })();
   }, [isSuccessfull, score, quizType]);
 
-  const restart = () => dispatch(restartQuiz());
-
   return (
     <Modal animationType="slide" transparent={true} visible={showScoreModal}>
       <View style={styles.resultContainer}>
@@ -37,9 +33,7 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ quizType }) => {
             <Text
               style={[
                 styles.resultCorrect,
-                {
-                  color: isSuccessfull ? COLORS.success : COLORS.error,
-                },
+                { color: isSuccessfull ? COLORS.success : COLORS.error },
               ]}
             >
               {score}
@@ -47,8 +41,11 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ quizType }) => {
             <Text style={styles.resultTotal}>/ {questionList.length}</Text>
           </View>
 
-          <TouchableOpacity onPress={restart} style={styles.retryQuizButton}>
-            <Text style={styles.retryQuizButtonText}>Retry Quiz</Text>
+          <TouchableOpacity onPress={handleRestart} style={styles.modalButton}>
+            <Text style={styles.modalButtonText}>Retry Quiz</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleFinish} style={styles.modalButton}>
+            <Text style={styles.modalButtonText}>Menu</Text>
           </TouchableOpacity>
         </View>
       </View>

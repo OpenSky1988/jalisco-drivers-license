@@ -34,13 +34,14 @@ const styles = StyleSheet.create({
   },
 
   // -------------------------------------
-  retryQuizButton: {
+  modalButton: {
     backgroundColor: COLORS.accent,
     borderRadius: 20,
+    marginVertical: 10,
     padding: 20,
     width: '100%',
   },
-  retryQuizButtonText: {
+  modalButtonText: {
     color: COLORS.white,
     fontSize: 20,
     textAlign: 'center',

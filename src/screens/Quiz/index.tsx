@@ -1,9 +1,8 @@
 import React, { useCallback, useRef } from 'react';
 import { Animated, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
@@ -14,27 +13,13 @@ import { COLORS } from '../../constants';
 import data from '../../data/quiz/en';
 import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
-import { shuffleArray } from '../../utils';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
-import { filterFavorites, filterMistakes } from './utils';
-
-const questionsOrganizer = {
-  [DEVICE_STORE_KEYS.FAVORITES]: async (questionsData: IQuestion[]) => {
-    const filteredFavorites = await filterFavorites(questionsData);
-    return shuffleArray(filteredFavorites);
-  },
-  [DEVICE_STORE_KEYS.MARATHON]: (questionsData: IQuestion[]) => questionsData,
-  [DEVICE_STORE_KEYS.MISTAKES]: async (questionsData: IQuestion[]) => {
-    const filteredMistakes = await filterMistakes(questionsData);
-    return shuffleArray(filteredMistakes);
-  },
-  [DEVICE_STORE_KEYS.ORDERED]: (questionsData: IQuestion[]) => questionsData,
-  [DEVICE_STORE_KEYS.RANDOMIZED]: (questionsData: IQuestion[]) => shuffleArray(questionsData),
-};
+import { questionsPrepper } from './utils';
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const progress = useRef(new Animated.Value(0));
 
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
@@ -43,8 +28,8 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        const organizedQuestions = await questionsOrganizer[route.params?.quizType as string](data);
-        dispatch(setQuestions(organizedQuestions as IQuestion[]));
+        const preparedQuestions = await questionsPrepper[route.params?.quizType as string](data);
+        dispatch(setQuestions(preparedQuestions as IQuestion[]));
       })();
 
       return () => {
@@ -73,6 +58,13 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
     animateProgress(currentQuestionIndex + 1);
   };
 
+  const handleFinish = () => navigation.navigate('Menu' as never);
+
+  const handleRestart = () => {
+    dispatch(restartQuiz());
+    animateProgress(0);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
@@ -83,7 +75,11 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
           <Question handleNext={handleNext} quizType={route.params?.quizType} />
           <QuestionOptions handleNext={handleNext} />
           <NextButton handleNext={handleNext} />
-          <ResultsModal quizType={route.params?.quizType} />
+          <ResultsModal
+            handleFinish={handleFinish}
+            handleRestart={handleRestart}
+            quizType={route.params?.quizType}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>

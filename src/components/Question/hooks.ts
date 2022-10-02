@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -18,13 +17,12 @@ const useCountdown = (isMarathon: boolean): [countdown: number, clearCountdown: 
 };
 
 const useBookmarked = (currentQuestionId: number): boolean => {
-  const navigation = useNavigation();
   const { favorites } = useSelector((state: RootState) => state.questions);
   const [isBookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
     setBookmarked(favorites?.includes(currentQuestionId) || false);
-  }, [currentQuestionId, favorites, navigation]);
+  }, [currentQuestionId, favorites]);
 
   return isBookmarked;
 };
