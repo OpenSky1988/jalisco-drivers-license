@@ -1,5 +1,6 @@
 import { get, store } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import { shuffleArray } from '../../utils';
 import { IQuestion } from './types';
 
 const updateWrongAnswersInDeviceStorage = async (
@@ -31,7 +32,7 @@ const decreaseWrongAnswersInDeviceStorage = async (currentQuestionIndex: number)
 };
 
 const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
-  const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
+  const wrongAnswers = (await get(DEVICE_STORE_KEYS.WRONG_ANSWERS)) || {};
   const wrongAnswersKeys = Object.keys(wrongAnswers);
 
   const filteredMistakes = questions.filter(
@@ -48,9 +49,24 @@ const filterFavorites = async (questions: IQuestion[]): Promise<IQuestion[]> => 
   return filteredFavorites;
 };
 
+const questionsPrepper = {
+  [DEVICE_STORE_KEYS.FAVORITES]: async (questionsData: IQuestion[]) => {
+    const filteredFavorites = await filterFavorites(questionsData);
+    return shuffleArray(filteredFavorites);
+  },
+  [DEVICE_STORE_KEYS.MARATHON]: (questionsData: IQuestion[]) => questionsData,
+  [DEVICE_STORE_KEYS.MISTAKES]: async (questionsData: IQuestion[]) => {
+    const filteredMistakes = await filterMistakes(questionsData);
+    return shuffleArray(filteredMistakes);
+  },
+  [DEVICE_STORE_KEYS.ORDERED]: (questionsData: IQuestion[]) => questionsData,
+  [DEVICE_STORE_KEYS.RANDOMIZED]: (questionsData: IQuestion[]) => shuffleArray(questionsData),
+};
+
 export {
   decreaseWrongAnswersInDeviceStorage,
   filterFavorites,
   filterMistakes,
   increaseWrongAnswersInDeviceStorage,
+  questionsPrepper,
 };
