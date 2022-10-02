@@ -12,7 +12,7 @@ const tryParseJSONObject = (jsonString: string | null) => {
   try {
     const obj = jsonString && JSON.parse(jsonString);
 
-    if (obj && typeof obj === 'object') {
+    if (obj && (typeof obj === 'object' || Array.isArray(obj))) {
       return obj;
     }
   } catch (e) {
@@ -22,7 +22,6 @@ const tryParseJSONObject = (jsonString: string | null) => {
   return false;
 };
 
-const isObject = (value: unknown) =>
-  typeof value === 'object' && !Array.isArray(value) && value !== null;
+const isObject = (value: unknown) => typeof value === 'object' && value !== null;
 
 export { isObject, shuffleArray, tryParseJSONObject };

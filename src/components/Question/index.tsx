@@ -1,37 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
+
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { increaseWrongAnswersInDeviceStorage } from '../../screens/Quiz/utils';
-
 import { RootState } from '../../store';
+import BookmarkButton from '../BookmarkButton';
+import { useBookmarked, useCountdown } from './hooks';
 
 import styles from './styles';
 import { IQuestionProps } from './types';
 
 const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
+  const navigation = useNavigation();
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
-  const [countdown, setCountdown] = useState(20);
 
   const isMarathon = quizType === DEVICE_STORE_KEYS.MARATHON;
+  const [countdown, clearCountdown] = useCountdown(isMarathon);
+
+  const currentQuestionId = questionList[currentQuestionIndex]?.id;
+  const isBookmarked = useBookmarked(currentQuestionId);
 
   useEffect(() => {
-    if (isMarathon) {
-      const interval = setInterval(() => setCountdown((prevCountdown) => prevCountdown - 1), 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isMarathon, quizType]);
+    navigation.setOptions({
+      headerRight: () => (
+        <BookmarkButton currentQuestionId={currentQuestionId} isBookmarked={isBookmarked} />
+      ),
+    });
+  }, [currentQuestionId, isBookmarked, navigation]);
 
   useEffect(() => {
     if (countdown === 0) {
       (async () => {
-        await increaseWrongAnswersInDeviceStorage(questionList[currentQuestionIndex]?.id);
+        await increaseWrongAnswersInDeviceStorage(currentQuestionId);
         handleNext();
-        setCountdown(20);
+        clearCountdown();
       })();
     }
-  }, [countdown, currentQuestionIndex, handleNext, questionList]);
+  }, [
+    countdown,
+    currentQuestionId,
+    currentQuestionIndex,
+    handleNext,
+    questionList,
+    clearCountdown,
+  ]);
 
   return (
     <View style={styles.questionContainer}>

@@ -7,6 +7,7 @@ interface QuestionsState {
   currentQuestionIndex: number;
   isOptionsDisabled: boolean;
   questionList: IQuestion[];
+  favorites: number[];
   score: number;
   showNextButton: boolean;
   showScoreModal: boolean;
@@ -18,6 +19,7 @@ const initialState = {
   currentQuestionIndex: 0,
   isOptionsDisabled: false,
   questionList: [],
+  favorites: [],
   score: 0,
   showNextButton: false,
   showScoreModal: false,
@@ -27,21 +29,6 @@ const questions = createSlice({
   name: 'questions',
   initialState,
   reducers: {
-    setQuestions(state, action: PayloadAction<IQuestion[]>) {
-      state.questionList = action.payload;
-    },
-    restartQuiz(state) {
-      return (state = {
-        ...state,
-        correctOption: null,
-        currentOptionSelected: null,
-        currentQuestionIndex: 0,
-        isOptionsDisabled: false,
-        score: 0,
-        showNextButton: false,
-        showScoreModal: false,
-      });
-    },
     nextQuestion(
       state,
       action: PayloadAction<{
@@ -67,6 +54,24 @@ const questions = createSlice({
         showNextButton: false,
       });
     },
+    restartQuiz(state) {
+      return (state = {
+        ...state,
+        correctOption: null,
+        currentOptionSelected: null,
+        currentQuestionIndex: 0,
+        isOptionsDisabled: false,
+        score: 0,
+        showNextButton: false,
+        showScoreModal: false,
+      });
+    },
+    setFavorites(state, action: PayloadAction<number[]>) {
+      state.favorites = action.payload;
+    },
+    setQuestions(state, action: PayloadAction<IQuestion[]>) {
+      state.questionList = action.payload;
+    },
     updateAnswer(state, action: PayloadAction<{ correctOption: string; selectedOption: string }>) {
       const { correctOption, selectedOption } = action.payload;
       const isCorrect = selectedOption === correctOption;
@@ -83,5 +88,6 @@ const questions = createSlice({
   },
 });
 
-export const { nextQuestion, restartQuiz, setQuestions, updateAnswer } = questions.actions;
+export const { nextQuestion, restartQuiz, setFavorites, setQuestions, updateAnswer } =
+  questions.actions;
 export default questions.reducer;

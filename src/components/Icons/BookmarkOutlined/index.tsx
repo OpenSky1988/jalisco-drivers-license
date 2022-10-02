@@ -11,4 +11,4 @@ const BookmarkOutlined: React.FC<SvgProps> = (props) => (
   </Svg>
 );
 
-export { BookmarkOutlined };
+export default BookmarkOutlined;

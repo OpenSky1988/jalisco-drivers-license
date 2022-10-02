@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { get } from '../../async-storage';
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import { setFavorites } from '../../store/slices/questions';
 
 import menuRoutes from './routes';
 import styles from './styles';
@@ -14,8 +18,17 @@ const MenuButton = ({
   title,
   to,
 }: IMenuRouteItem & TProps) => {
-  const navigate = () => navigation.navigate(to, params as undefined);
+  const dispatch = useDispatch();
   const [buttonSubtitle, setButtonSubtitle] = useState(subtitle);
+
+  const navigate = () => navigation.navigate(to, params as undefined);
+
+  useEffect(() => {
+    (async () => {
+      const favorites = await get(DEVICE_STORE_KEYS.FAVORITES);
+      dispatch(setFavorites(favorites));
+    })();
+  }, [dispatch]);
 
   useEffect(() => {
     (async () => {

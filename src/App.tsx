@@ -5,8 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Quiz from './screens/Quiz';
 import Menu from './screens/Menu';
-import { store } from './store';
-import { BookmarkOutlined } from './components/Icons/BookmarkOutlined';
+import { store as reduxStore } from './store';
 
 export type TRootStackParamList = {
   Menu: undefined;
@@ -18,24 +17,19 @@ export type TRootStackParamList = {
 
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 
-const App: React.FC = () => {
-  return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Navigator>
-          <Screen name="Menu" component={Menu} />
-          <Screen
-            name="Quiz"
-            component={Quiz}
-            options={({ route }) => ({
-              title: route.params.title,
-              headerRight: () => <BookmarkOutlined />,
-            })}
-          />
-        </Navigator>
-      </NavigationContainer>
-    </Provider>
-  );
-};
+const App: React.FC = () => (
+  <Provider store={reduxStore}>
+    <NavigationContainer>
+      <Navigator>
+        <Screen name="Menu" component={Menu} />
+        <Screen
+          name="Quiz"
+          component={Quiz}
+          options={({ route }) => ({ title: route.params.title })}
+        />
+      </Navigator>
+    </NavigationContainer>
+  </Provider>
+);
 
 export default App;
