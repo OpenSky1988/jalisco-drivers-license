@@ -23,7 +23,7 @@ const useBookmarked = (currentQuestionId: number): boolean => {
   const [isBookmarked, setBookmarked] = useState(false);
 
   useEffect(() => {
-    setBookmarked(favorites?.includes(currentQuestionId));
+    setBookmarked(favorites?.includes(currentQuestionId) || false);
   }, [currentQuestionId, favorites, navigation]);
 
   return isBookmarked;
