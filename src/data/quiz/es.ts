@@ -8,7 +8,7 @@ const data = [
       'Porte placas sobrepuestas',
       'Dé vuelta a la derecha con semáforo en rojo',
     ],
-    correctOption: 'Porte placas sobrepuestas',
+    correctOptionNumber: 1,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const data = [
       'Se tienen más riesgos en caso de accidente por no poder salir rápido del vehículo',
       'Se evita la multa correspondiente solamente en carreteras federales',
     ],
-    correctOption: 'Se disminuye la posibilidad de lesiones y/o muerte en caso de accidentes y se evita ser multado',
+    correctOptionNumber: 0,
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const data = [
       'Suspensión de licencia por quince días, además de las multas correspondientes',
       'Arresto administrativo inconmutable de 36 horas, además de las multas correspondientes',
     ],
-    correctOption: 'Arresto administrativo inconmutable de 36 horas, además de las multas correspondientes',
+    correctOptionNumber: 2,
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const data = [
       'Al 50% de descuento',
       'Al 25% de descuento',
     ],
-    correctOption: 'Al 50% de descuento',
+    correctOptionNumber: 1,
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const data = [
       'Falso',
       'Sólo al transporte público',
     ],
-    correctOption: 'Cierto',
+    correctOptionNumber: 0,
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const data = [
       'Las que vayan sentada',
       'Solamente las especificadas en la tarjeta de circulación',
     ],
-    correctOption: 'Solamente las especificadas en la tarjeta de circulación',
+    correctOptionNumber: 2,
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const data = [
       'Infraccionar a los malos conductores',
       'Regir el tránsito en las vías públicas del Estado de Jalisco, abiertas a la circulación, que no sean de competencia federal',
     ],
-    correctOption: 'Regir el tránsito en las vías públicas del Estado de Jalisco, abiertas a la circulación, que no sean de competencia federal',
+    correctOptionNumber: 2,
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const data = [
       'Detención del vehículo',
       'Suspensión de la licencia',
     ],
-    correctOption: 'Multa',
+    correctOptionNumber: 0,
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ const data = [
       'Tener el vehículo su parabrisas estrellado de tal manera que dificulte la visibilidad',
       'Dar vuelta a la derecha con semáforo en rojo con precaución, previo alto total y otorgando preferencia al peatón',
     ],
-    correctOption: 'Tener el vehículo su parabrisas estrellado de tal manera que dificulte la visibilidad',
+    correctOptionNumber: 1,
   },
   {
     id: 10,
@@ -98,7 +98,7 @@ const data = [
       '25 metros',
       '50 metros',
     ],
-    correctOption: '10 metros',
+    correctOptionNumber: 0,
   },
   {
     id: 11,
@@ -108,7 +108,7 @@ const data = [
       'Sí, cuando porten placas de otro estado',
       'Falso',
     ],
-    correctOption: 'Falso',
+    correctOptionNumber: 2,
   },
   {
     id: 12,
@@ -118,7 +118,7 @@ const data = [
       'Obtener el permiso correspondiente para circular en tanto concluyen los trámites para la obtención de dicha documentación',
       'Transitar con permiso para circular por tiempo indefinido',
     ],
-    correctOption: 'Obtener el permiso correspondiente para circular en tanto concluyen los trámites para la obtención de dicha documentación',
+    correctOptionNumber: 1,
   },
   {
     id: 13,
@@ -128,7 +128,7 @@ const data = [
       'Sólo para los vehículos públicos',
       'Sólo en época de lluvias, en caso de emergencia o en vehículos oficiales',
     ],
-    correctOption: 'Cierto, porque así lo dispone la ley de tránsito',
+    correctOptionNumber: 0,
   },
   {
     id: 14,
@@ -138,7 +138,7 @@ const data = [
       'Abuso de autoridad',
       'Infracción y falta administrativa',
     ],
-    correctOption: 'Infracción y falta administrativa',
+    correctOptionNumber: 2,
   },
   {
     id: 15,
@@ -148,7 +148,7 @@ const data = [
       'Circular con placas de otro estado',
       'Circular con los hologramas de años anteriores',
     ],
-    correctOption: 'Circular con placas ocultas, total o parcialmente',
+    correctOptionNumber: 0,
   },
   {
     id: 16,
@@ -158,7 +158,7 @@ const data = [
       'No',
       'Salvo que se utilicen aditamentos para manos libres',
     ],
-    correctOption: 'Salvo que se utilicen aditamentos para manos libres',
+    correctOptionNumber: 2,
   },
   {
     id: 17,
@@ -168,7 +168,7 @@ const data = [
       'Sólo cuando un adulto, llevando puesto el cinturón de seguridad, lo sujete con los brazos',
       'Sólo en los vehículos que no cuenten con asientos traseros, siempre y cuando vaya en asiento de seguridad adecuado',
     ],
-    correctOption: 'Sólo en los vehículos que no cuenten con asientos traseros, siempre y cuando vaya en asiento de seguridad adecuado',
+    correctOptionNumber: 2,
   },
   {
     id: 18,
@@ -178,7 +178,7 @@ const data = [
       'No, nadie me está observando, así que puedo pasarme la luz roja del semáforo',
       'No, la Ley de Vialidad me otorga el beneficio de pasarme las luces rojas después de las 12:00 de la noche',
     ],
-    correctOption: 'Sí, estoy obligado a respetar el semáforo sin importar la hora del día',
+    correctOptionNumber: 0,
   },
   {
     id: 19,
@@ -188,7 +188,7 @@ const data = [
       'Acelerar y pasar primero',
       'Permitirle el paso, colocarse en el extremo de la vialidad y hacer alto',
     ],
-    correctOption: 'Permitirle el paso, colocarse en el extremo de la vialidad y hacer alto',
+    correctOptionNumber: 2,
   },
   {
     id: 20,
@@ -198,7 +198,7 @@ const data = [
       'Preventiva',
       'Alto',
     ],
-    correctOption: 'Alto',
+    correctOptionNumber: 2,
   },
   {
     id: 21,
@@ -208,7 +208,7 @@ const data = [
       'Chofer',
       'Conductor de Servicios de Transporte Público',
     ],
-    correctOption: 'Chofer',
+    correctOptionNumber: 1,
   },
   {
     id: 22,
@@ -218,7 +218,7 @@ const data = [
       'No, porque la ley y reglamento de tránsito solamente lo permiten a la derecha',
       'Sí, siempre y cuando se provenga de una Avenida o Calzada con doble sentido de circulación, se ingrese a una calle de un solo sentido, previo alto total, respetando la prelación de paso del peatón, y que no sea vehículo de servicio colectivo público de pasajeros',
     ],
-    correctOption: 'Sí, siempre y cuando se provenga e ingrese a calles de un solo sentido de circulación, previo alto total, respetando la prelación de paso del peatón, sin que exista señalamiento que lo prohíba y que no sea vehículo de servicio colectivo público de pasajeros',
+    correctOptionNumber: 0,
   },
   {
     id: 23,
@@ -228,7 +228,7 @@ const data = [
       'Necesarios para efectuar el refrendo',
       'Que se requieren para la obtención de la licencia',
     ],
-    correctOption: 'Intransferibles que identifican al vehículo',
+    correctOptionNumber: 0,
   },
   {
     id: 24,
@@ -238,7 +238,7 @@ const data = [
       'No, porque no son Autoridades de Vialidad',
       'Sólo cuando los acompaña un agente vial',
     ],
-    correctOption: 'Sí estamos obligados',
+    correctOptionNumber: 0,
   },
   {
     id: 25,
@@ -248,7 +248,7 @@ const data = [
       'Vehículos oficiales de los ayuntamientos y policía federal',
       'Vehículos de traslado de valores',
     ],
-    correctOption: 'Vehículos de emergencia en servicio con códigos y sirena encendidos',
+    correctOptionNumber: 0,
   },
   {
     id: 26,
@@ -258,7 +258,7 @@ const data = [
       'Seguir avanzando a velocidad constante si la calle es de norte a sur',
       'Disminuir la velocidad al acercarme al, crucero sin hacer alto total, para cruzar más rápido',
     ],
-    correctOption: 'Seguir avanzando a velocidad constante si la calle es de norte a sur',
+    correctOptionNumber: 1,
   },
   {
     id: 27,
@@ -268,7 +268,7 @@ const data = [
       'Vuelta a la izquierda',
       'Preventiva simple',
     ],
-    correctOption: 'Vuelta a la izquierda',
+    correctOptionNumber: 1,
   },
   {
     id: 28,
@@ -278,7 +278,7 @@ const data = [
       'Si los conductores cuentan con todos sus documentos en regla, celebran convenio y firman desistimiento no se incautarán los vehículos',
       'Esperar la intervención de las autoridades de Vialidad para levantar el inventario del vehículo antes de que se lo lleven al corralón',
     ],
-    correctOption: 'Si los conductores cuentan con todos sus documentos en regla, celebran convenio y firman desistimiento no se incautarán los vehículos',
+    correctOptionNumber: 1,
   },
   {
     id: 29,
@@ -288,7 +288,7 @@ const data = [
       'Si es el único espacio disponible en el estacionamiento',
       'Si se estaciona sólo por unos cuantos minutos',
     ],
-    correctOption: 'Si es o transporta a un discapacitado y el vehículo cuenta con el engomado correspondiente',
+    correctOptionNumber: 0,
   },
   {
     id: 30,
@@ -298,7 +298,7 @@ const data = [
       'Sí está permitido',
       'Si no está pintado de color amarillo sí se puede estacionar',
     ],
-    correctOption: 'No está permitido bajo ninguna circunstancia',
+    correctOptionNumber: 0,
   },
   {
     id: 31,
@@ -308,7 +308,7 @@ const data = [
       'Brazo, antebrazo y mano extendidos horizontalmente',
       'Brazo horizontalmente, antebrazo hacia arriba y mano con los dedos extendidos hacia la derecha',
     ],
-    correctOption: 'Brazo, antebrazo y mano extendidos horizontalmente',
+    correctOptionNumber: 1,
   },
   {
     id: 32,
@@ -318,7 +318,7 @@ const data = [
       'Ceder el paso a peatones, y otorgar la prelación de paso a los vehículos en circulación',
       'Incorporarse a velocidad regular sin importar que obligue al conductor que se cruza a que frene bruscamente ya que el reglamento le da la preferencia de paso',
     ],
-    correctOption: 'Ceder el paso a peatones, y otorgar la prelación de paso a los vehículos en circulación',
+    correctOptionNumber: 1,
   },
   {
     id: 33,
@@ -328,7 +328,7 @@ const data = [
       'El que siga de frente sobre el que da vuelta a la izquierda',
       'Usted que va a girar a la izquierda',
     ],
-    correctOption: 'El que siga de frente sobre el que da vuelta a la izquierda',
+    correctOptionNumber: 1,
   },
   {
     id: 34,
@@ -338,7 +338,7 @@ const data = [
       'Los dos debemos de bajarnos',
       'El agente vial y se acercará por el lado del conductor portando casco y gafete de identificación',
     ],
-    correctOption: 'El agente vial y se acercará por el lado del conductor portando casco y gafete de identificación',
+    correctOptionNumber: 2,
   },
   {
     id: 35,
@@ -348,7 +348,7 @@ const data = [
       'Solo en carreteras federales',
       'Falso',
     ],
-    correctOption: 'Cierto',
+    correctOptionNumber: 0,
   },
   {
     id: 36,
@@ -358,7 +358,7 @@ const data = [
       '15 km/h',
       '25 km/h',
     ],
-    correctOption: '25 km/h',
+    correctOptionNumber: 2,
   },
   {
     id: 37,
@@ -368,7 +368,7 @@ const data = [
       '50 km/h',
       '60 km/h',
     ],
-    correctOption: '50 km/h',
+    correctOptionNumber: 1,
   },
   {
     id: 38,
@@ -378,7 +378,7 @@ const data = [
       'Preventiva',
       'Alto general',
     ],
-    correctOption: 'Siga',
+    correctOptionNumber: 0,
   },
   {
     id: 39,
@@ -388,7 +388,7 @@ const data = [
       'A la izquierda, en cualquier dirección respecto a la corriente circulatoria',
       'A la izquierda en dirección a la corriente circulatoria, salvo prohibición expresa o que se autorice en su caso en ambas aceras en cordón o en batería',
     ],
-    correctOption: 'A la izquierda en dirección a la corriente circulatoria, salvo prohibición expresa o que se autorice en su caso en ambas aceras en cordón o en batería',
+    correctOptionNumber: 2,
   },
   {
     id: 40,
@@ -398,7 +398,7 @@ const data = [
       'Preventivas',
       'Restrictivas',
     ],
-    correctOption: 'Preventivas',
+    correctOptionNumber: 1,
   },
   {
     id: 41,
@@ -408,7 +408,7 @@ const data = [
       'Cuando, como resultado de un accidente vial, sólo existan daños materiales en bienes inmuebles propiedad de particulares',
       'Solamente cuando no tengan seguro vigente los involucrados en un accidente vial',
     ],
-    correctOption: 'Cuando haya lesionados en un accidente, alguno de los conductores se encuentre en estado de ebriedad, o existan daños a bienes propiedad del Municipio, Estado o Federación',
+    correctOptionNumber: 0,
   },
   {
     id: 42,
@@ -418,7 +418,7 @@ const data = [
       'Póliza de seguro para garantizar daños a terceros en sus bienes y sus personas por una suma asegurada de cuando menos 6000 días de salario mínimo',
       'Póliza de seguro que garantice daños a terceros en sus bienes y sus personas por cuando menos 1000 días de salario mínimo',
     ],
-    correctOption: 'Póliza de seguro para garantizar daños a terceros en sus bienes y sus personas por una suma asegurada de cuando menos 6000 días de salario mínimo',
+    correctOptionNumber: 1,
   },
   {
     id: 43,
@@ -428,7 +428,7 @@ const data = [
       'Incorporarse a la glorieta circulando a 40 km/h, tocando previamente el claxon para llamar la atención y evitar un accidente',
       'Hacer alto total antes de mezclarse con la circulación, dando preferencia a los que ya transitan en ella',
     ],
-    correctOption: 'Hacer alto total antes de mezclarse con la circulación, dando preferencia a los que ya transitan en ella',
+    correctOptionNumber: 2,
   },
   {
     id: 44,
@@ -438,7 +438,7 @@ const data = [
       'Hacer alto total y continuar la circulación después de cerciorarse que no se aproximen otros vehículos por la arteria transversal',
       'Disminuir la velocidad antes de entrar en la intersección y continuar con las precauciones necesarias',
     ],
-    correctOption: 'Hacer alto total y continuar la circulación después de cerciorarse que no se aproximen otros vehículos por la arteria transversal',
+    correctOptionNumber: 1,
   },
   {
     id: 45,
@@ -448,7 +448,7 @@ const data = [
       'Que usted debe aumentar la velocidad para prevenir un accidente',
       'Que usted debe de utilizar el claxon y avanzar',
     ],
-    correctOption: 'El lapso que existe para despejar la intersección cuando algún vehículo haya entrado a ella o se encuentre muy próximo y no le sea posible detenerse inmediatamente por el riesgo de producirse un impacto por alcance',
+    correctOptionNumber: 0,
   },
   {
     id: 46,
@@ -458,7 +458,7 @@ const data = [
       'Al semáforo',
       'A los demás conductores',
     ],
-    correctOption: 'Al agente vial',
+    correctOptionNumber: 0,
   },
   {
     id: 47,
@@ -468,7 +468,7 @@ const data = [
       'No existe diferencia alguna',
       'La diferencia es su tamaño y también que las señales Restrictivas son de color azul con blanco y las preventivas verdes con blanco',
     ],
-    correctOption: 'Además de sus colores, las señales restrictivas indican cierto tipo de limitaciones o prohibiciones con relación al tránsito vehicular y al uso de las vías públicas, mientras que las preventivas advierten la existencia o la naturaleza de algún peligro, o el cambio de situación en una vía pública',
+    correctOptionNumber: 0,
   },
   {
     id: 48,
@@ -478,7 +478,7 @@ const data = [
       'Las calles, caminos y calzadas',
       'Avenidas, calzadas, viaductos y pares viales de primera magnitud, sobre todas las demás arterias',
     ],
-    correctOption: 'Avenidas, calzadas, viaductos y pares viales de primera magnitud, sobre todas las demás arterias',
+    correctOptionNumber: 2,
   },
   {
     id: 49,
@@ -488,7 +488,7 @@ const data = [
       'Siga',
       'Vuelta a la izquierda',
     ],
-    correctOption: 'Alto',
+    correctOptionNumber: 0,
   },
   {
     id: 50,
@@ -498,7 +498,7 @@ const data = [
       'Precaución',
       'Acelerar',
     ],
-    correctOption: 'Siga',
+    correctOptionNumber: 0,
   },
   {
     id: 51,
@@ -508,7 +508,7 @@ const data = [
       'Exclusivo para vehículos oficiales',
       'Que el estacionamiento en ese lugar está prohibido',
     ],
-    correctOption: 'Que el estacionamiento en ese lugar está prohibido',
+    correctOptionNumber: 2,
   },
   {
     id: 52,
@@ -518,7 +518,7 @@ const data = [
       'Zona peatonal',
       'Que por cada sentido de circulación hay más de un carril y se prohíbe rebasar',
     ],
-    correctOption: 'Que por cada sentido de circulación hay más de un carril y se prohíbe rebasar',
+    correctOptionNumber: 2,
   },
   {
     id: 53,
@@ -528,7 +528,7 @@ const data = [
       'Estrechamiento asimétrico',
       'Incorporación al tránsito',
     ],
-    correctOption: 'Estrechamiento asimétrico',
+    correctOptionNumber: 1,
   },
   {
     id: 54,
@@ -538,7 +538,7 @@ const data = [
       'Se autoriza circular con tractor',
       'Puede circular a baja velocidad',
     ],
-    correctOption: 'Prohibido circular maquinaria agrícola',
+    correctOptionNumber: 0,
   },
   {
     id: 55,
@@ -548,7 +548,7 @@ const data = [
       'Curva',
       'Curva inversa',
     ],
-    correctOption: 'Curva',
+    correctOptionNumber: 1,
   },
   {
     id: 56,
@@ -558,7 +558,7 @@ const data = [
       'Antes de la línea blanca marcada para “alto”',
       'En un lugar cerca de la intersección siempre que haga alto total',
     ],
-    correctOption: 'Antes de la línea blanca marcada para “alto”',
+    correctOptionNumber: 1,
   },
   {
     id: 57,
@@ -568,7 +568,7 @@ const data = [
       'Indica a los conductores el lugar donde deben estacionarse',
       'Son áreas neutrales',
     ],
-    correctOption: 'A quien circula por la línea continua se le prohíbe rebasar y a quien circula por la línea discontinua se le permite rebasar',
+    correctOptionNumber: 0,
   },
   {
     id: 58,
@@ -578,7 +578,7 @@ const data = [
       'Altura libre restringida',
       'Estrechamiento simétrico',
     ],
-    correctOption: 'Altura libre restringida',
+    correctOptionNumber: 1,
   },
   {
     id: 59,
@@ -588,7 +588,7 @@ const data = [
       'Codo inverso',
       'Entronque lateral derecho',
     ],
-    correctOption: 'Vuelta continua a la derecha',
+    correctOptionNumber: 0,
   },
   {
     id: 60,
@@ -598,7 +598,7 @@ const data = [
       'Puente angosto',
       'Circulación al centro',
     ],
-    correctOption: 'Puente angosto',
+    correctOptionNumber: 1,
   },
   {
     id: 61,
@@ -608,7 +608,7 @@ const data = [
       'Sirven para separar carriles',
       'Delimitan el espacio del acotamiento para circular con seguridad',
     ],
-    correctOption: 'Delimitan el espacio del acotamiento para circular con seguridad',
+    correctOptionNumber: 2,
   },
   {
     id: 62,
@@ -618,7 +618,7 @@ const data = [
       'Los faros delanteros',
       'La bobina',
     ],
-    correctOption: 'El alternador',
+    correctOptionNumber: 0,
   },
   {
     id: 63,
@@ -628,7 +628,7 @@ const data = [
       'Odómetro en mal estado',
       'Falta de aceite en el diferencial',
     ],
-    correctOption: 'Falta de agua y banda floja',
+    correctOptionNumber: 0,
   },
   {
     id: 64,
@@ -638,7 +638,7 @@ const data = [
       'Zona de estacionamiento',
       'Prohibido seguir de frente',
     ],
-    correctOption: 'Prohibido estacionarse',
+    correctOptionNumber: 0,
   },
   {
     id: 65,
@@ -648,7 +648,7 @@ const data = [
       'Circulación al centro',
       'Anchura restringida',
     ],
-    correctOption: 'Anchura restringida',
+    correctOptionNumber: 2,
   },
   {
     id: 66,
@@ -658,7 +658,7 @@ const data = [
       'Trapos, Focos, Bandas, Mangueras, Cinta aislante, Bobina y Liquido para frenos',
       'Cables para pasar corriente, Lámpara, Gato, Llave de cruz, Pinzas, Franela, Desarmadores de cruz y planos Manómetro para llantas',
     ],
-    correctOption: 'Cables para pasar corriente, Lámpara, Gato, Llave de cruz, Pinzas, Franela, Desarmadores de cruz y planos Manómetro para llantas',
+    correctOptionNumber: 2,
   },
   {
     id: 67,
@@ -668,7 +668,7 @@ const data = [
       'Cruce de ferrocarril',
       'Cruce de caminos',
     ],
-    correctOption: 'No parar',
+    correctOptionNumber: 0,
   },
   {
     id: 68,
@@ -678,7 +678,7 @@ const data = [
       'Cruce de caminos',
       'No parar',
     ],
-    correctOption: 'Cruce de caminos',
+    correctOptionNumber: 1,
   },
   {
     id: 69,
@@ -688,7 +688,7 @@ const data = [
       'Prohibida la vuelta',
       'Prohibido el retorno',
     ],
-    correctOption: 'Prohibido el retorno',
+    correctOptionNumber: 2,
   },
   {
     id: 70,
@@ -698,7 +698,7 @@ const data = [
       'Usted debe ceder el paso',
       'Los dos tienen el paso',
     ],
-    correctOption: 'Usted debe ceder el paso',
+    correctOptionNumber: 1,
   },
   {
     id: 71,
@@ -708,7 +708,7 @@ const data = [
       'Entronque lateral derecho',
       'Incorporación de tránsito',
     ],
-    correctOption: 'Salida',
+    correctOptionNumber: 0,
   },
   {
     id: 72,
@@ -718,7 +718,7 @@ const data = [
       'Circular al centro',
       'Anchura libre',
     ],
-    correctOption: 'Anchura libre',
+    correctOptionNumber: 2,
   },
   {
     id: 73,
@@ -728,7 +728,7 @@ const data = [
       'Encender luces de emergencia, mover el vehículo a la extrema derecha de manera que no obstruya la circulación y colocar las señales preventivas correspondientes',
       'Encender luces de emergencia y esperar en el lugar a que llegue la ayuda del mecánico',
     ],
-    correctOption: 'Encender luces de emergencia, mover el vehículo a la extrema derecha de manera que no obstruya la circulación y colocar las señales preventivas correspondientes',
+    correctOptionNumber: 1,
   },
   {
     id: 74,
@@ -738,7 +738,7 @@ const data = [
       '2 a 5 segundos',
       '30 a 40 segundos',
     ],
-    correctOption: '2 a 5 segundos',
+    correctOptionNumber: 1,
   },
   {
     id: 75,
@@ -748,7 +748,7 @@ const data = [
       'Amortiguadores, extinguidor y refacción',
       'Aceite, agua, llantas, luces, espejos y combustible',
     ],
-    correctOption: 'Aceite, agua, llantas, luces, espejos y combustible',
+    correctOptionNumber: 2,
   },
   {
     id: 76,
@@ -758,7 +758,7 @@ const data = [
       'Disminuir la velocidad',
       'Activar intermitentes',
     ],
-    correctOption: 'Disminuir la velocidad',
+    correctOptionNumber: 1,
   },
   {
     id: 77,
@@ -768,7 +768,7 @@ const data = [
       'Sujetar con fuerza el volante, quitar el pie del acelerador y dejar que el vehículo vaya perdiendo velocidad antes que lo dirija al borde derecho del camino',
       'Rápidamente dirigir el vehículo al lado derecho del camino',
     ],
-    correctOption: 'Sujetar con fuerza el volante, quitar el pie del acelerador y dejar que el vehículo vaya perdiendo velocidad antes que lo dirija al borde derecho del camino',
+    correctOptionNumber: 1,
   },
   {
     id: 78,
@@ -778,7 +778,7 @@ const data = [
       'Por alcance',
       'El de frente',
     ],
-    correctOption: 'El de frente',
+    correctOptionNumber: 2,
   },
   {
     id: 79,
@@ -788,7 +788,7 @@ const data = [
       'Dirigirse directamente a la derecha',
       'Sacar la cabeza por la ventanilla, bajar la velocidad y orillarse a la derecha',
     ],
-    correctOption: 'Sacar la cabeza por la ventanilla, bajar la velocidad y orillarse a la derecha',
+    correctOptionNumber: 2,
   },
   {
     id: 80,
@@ -798,7 +798,7 @@ const data = [
       'Disminuir la velocidad si el semáforo cambió a preventiva y frenar antes de la línea blanca',
       'Frenar después de haber pasado la zona peatonal',
     ],
-    correctOption: 'Disminuir la velocidad si el semáforo cambió a preventiva y frenar antes de la línea blanca',
+    correctOptionNumber: 1,
   },
   {
     id: 81,
@@ -808,7 +808,7 @@ const data = [
       'Cambiar cuidadosamente de carril, previo encendido de las direccionales correspondientes',
       'Continuar manejando por mi carril y dejar que el otro conductor me rebase',
     ],
-    correctOption: 'Cambiar cuidadosamente de carril, previo encendido de las direccionales correspondientes',
+    correctOptionNumber: 1,
   },
   {
     id: 82,
@@ -818,7 +818,7 @@ const data = [
       'Observar hacia los lados y continuar la marcha a la misma velocidad',
       'Acelerar para que me cedan el paso ya que llegué primero',
     ],
-    correctOption: 'Disminuir la velocidad, quitar el pie del acelerador, posarlo suavemente en el freno, detenerse, ver hacia los lados y avanzar con cuidado',
+    correctOptionNumber: 0,
   },
   {
     id: 83,
@@ -828,7 +828,7 @@ const data = [
       'Tranquilos y descuidados',
       'Agresivos, Ofensivos, Defensivos',
     ],
-    correctOption: 'Agresivos, Ofensivos, Defensivos',
+    correctOptionNumber: 2,
   },
   {
     id: 84,
@@ -838,7 +838,7 @@ const data = [
       'Disminuir la velocidad, bajar un poco el cristal del lado del conductor de tal forma que permita entrada de aire y encender el radio a alto volumen',
       'Detenernos a descansar durante al menos 20 minutos y hacer algunos ejercicios físicos antes de continuar nuestro viaje',
     ],
-    correctOption: 'Detenernos a descansar durante al menos 20 minutos y hacer algunos ejercicios físicos antes de continuar nuestro viaje',
+    correctOptionNumber: 2,
   },
   {
     id: 85,
@@ -848,7 +848,7 @@ const data = [
       'Conducir con precaución, Respetar las zonas peatonales, conducir en sus cinco sentidos',
       'Un conductor responsable, un peatón precavido y un pasajero atento',
     ],
-    correctOption: 'El tiempo, el tráfico, el vehículo, el camino y la iluminación',
+    correctOptionNumber: 0,
   },
   {
     id: 86,
@@ -858,7 +858,7 @@ const data = [
       'Disminuir la velocidad dentro de la curva',
       'Tomar con suavidad el volante y continuar con la velocidad normal',
     ],
-    correctOption: 'Antes de entrar, disminuir la velocidad y acelerar paulatinamente dentro de la curva',
+    correctOptionNumber: 0,
   },
   {
     id: 87,
@@ -868,7 +868,7 @@ const data = [
       'Abrir las puertas y echarle agua para apagarlo',
       'Apagar el fuego con el extinguidor de incendios de su auto',
     ],
-    correctOption: 'Apagar el fuego con el extinguidor de incendios de su auto',
+    correctOptionNumber: 2,
   },
   {
     id: 88,
@@ -878,7 +878,7 @@ const data = [
       'Podemos mantener nuestra velocidad normal si están en buen estado los frenos y las llantas',
       'Debemos disminuir la velocidad solamente en las inmediaciones de los cruceros',
     ],
-    correctOption: 'Debemos disminuir la velocidad de circulación y darle mayor distancia al vehículo que nos antecede',
+    correctOptionNumber: 0,
   },
   {
     id: 89,
@@ -888,7 +888,7 @@ const data = [
       'Darles alcance para indicarles los errores que van cometiendo al conducir',
       'Ubicarse en el mismo carril a unos 7 metros adelante o atrás y cometer los mismos errores para que el otro conductor aprenda',
     ],
-    correctOption: 'Guardar la calma, ceder un poco, alejarse y pensar que su seguridad es lo más importante',
+    correctOptionNumber: 0,
   },
   {
     id: 90,
@@ -898,7 +898,7 @@ const data = [
       'Disminuir la velocidad frenando moderadamente para evitar el accidente con el vehículo que le sigue',
       'Sonar tres veces la bocina para que el conductor que le sigue lo escuche',
     ],
-    correctOption: 'Disminuir la velocidad frenando moderadamente para evitar el accidente con el vehículo que le sigue',
+    correctOptionNumber: 1,
   },
   {
     id: 91,
@@ -908,7 +908,7 @@ const data = [
       'Toca el claxon insistentemente y cambia de carril intempestivamente',
       'Espera su turno indicado por el semáforo, no se desespera y busca vías alternas',
     ],
-    correctOption: 'Espera su turno indicado por el semáforo, no se desespera y busca vías alternas',
+    correctOptionNumber: 2,
   },
   {
     id: 92,
@@ -918,7 +918,7 @@ const data = [
       'Cuando el dibujo de las llantas está muy profundo',
       'Cuando las llantas están calientes por el sol y transitamos a 80 Km/h',
     ],
-    correctOption: 'Cuando el dibujo de las llantas es menor de 1mm de profundidad',
+    correctOptionNumber: 0,
   },
   {
     id: 93,
@@ -928,7 +928,7 @@ const data = [
       'Sujetar con firmeza el volante, quitar el pie del acelerador y volver al pavimento',
       'Volver rápidamente al pavimento a su velocidad normal',
     ],
-    correctOption: 'Sujetar con firmeza el volante, quitar el pie del acelerador y volver al pavimento',
+    correctOptionNumber: 1,
   },
   {
     id: 94,
@@ -938,7 +938,7 @@ const data = [
       'Conducir un vehículo respetando las normas de vialidad para prevenir accidentes a pesar de los errores de los demás',
       'Conducir a baja velocidad a pesar de los retrasos en los horarios',
     ],
-    correctOption: 'Conducir un vehículo respetando las normas de vialidad para prevenir accidentes a pesar de los errores de los demás',
+    correctOptionNumber: 1,
   },
   {
     id: 95,
@@ -948,7 +948,7 @@ const data = [
       'Disminuir la velocidad, observar la circulación de la calle que cruzaré además de su semáforo y, si me corresponde el siga, cruzar con precaución',
       'Pasar lo más rápido que se pueda, evitando chocar con los demás vehículos',
     ],
-    correctOption: 'Disminuir la velocidad, observar la circulación de la calle que cruzaré además de su semáforo y, si me corresponde el siga, cruzar con precaución',
+    correctOptionNumber: 1,
   },
   {
     id: 96,
@@ -958,7 +958,7 @@ const data = [
       'Anticiparse a imprevistos, sobrecalentamiento y daño del motor, así como accidentes viales',
       'Se previenen conflictos viales y conductores arrollados',
     ],
-    correctOption: 'Anticiparse a imprevistos, sobrecalentamiento y daño del motor, así como accidentes viales',
+    correctOptionNumber: 1,
   },
   {
     id: 97,
@@ -968,7 +968,7 @@ const data = [
       'Conducir con precaución, excediendo la velocidad solo cuando necesite hacerlo',
       'Evitar accidentes al conducir, respetando el señalamiento vial a menos que por necesidad personal requiera no respetar los que considere menos importantes',
     ],
-    correctOption: 'Respetar los derechos y obligaciones de los demás usuarios de las vías públicas, así como las señales de tránsito e indicaciones de los Agente viales',
+    correctOptionNumber: 0,
   },
   {
     id: 98,
@@ -978,7 +978,7 @@ const data = [
       'Evitar que el vehículo estorbe a los demás conductores, poner el freno de mano, asegurar las llantas con un bloque de madera después colocar en forma segura el gato, aflojar las tuercas de la llanta sólo media vuelta, subir el gato de tal forma que la llanta se eleve 3 cm, cambiar la llanta, bajar el gato y apretar fuerte las tuercas, quitar bloques de madera',
       'Subir el vehículo preferentemente a la banqueta colocar el gato en cualquier punto del vehículo y subirlo lo más alto posible luego aflojar las tuercas deteniendo la llanta con los pies para evitar que de vueltas, cambiar la llanta, quitar gato y circular con seguridad',
     ],
-    correctOption: 'Evitar que el vehículo estorbe a los demás conductores, poner el freno de mano, asegurar las llantas con un bloque de madera después colocar en forma segura el gato, aflojar las tuercas de la llanta sólo media vuelta, subir el gato de tal forma que la llanta se eleve 3 cm, cambiar la llanta, bajar el gato y apretar fuerte las tuercas, quitar bloques de madera',
+    correctOptionNumber: 1,
   },
   {
     id: 99,
@@ -988,7 +988,7 @@ const data = [
       'Limpiarlo de preferencia con agua corriente y un poco de jabón',
       'Utilizar los limpiabrisas en seco ya que evitamos que se haga lodo con la tierra o el polvo',
     ],
-    correctOption: 'Limpiarlo de preferencia con agua corriente y un poco de jabón',
+    correctOptionNumber: 1,
   },
   {
     id: 100,
@@ -998,7 +998,7 @@ const data = [
       'Realmente no es importante',
       'Sí es necesario por seguridad sin importar la distancia',
     ],
-    correctOption: 'Sí es necesario por seguridad sin importar la distancia',
+    correctOptionNumber: 2,
   },
   {
     id: 101,
@@ -1008,7 +1008,7 @@ const data = [
       'Dejar de acelerar y pasar despacio',
       'Disminuir velocidad, llegar con precaución al cruce procurando ver el semáforo de más cerca y observar detenidamente hacia ambos lados evitando cualquier problema',
     ],
-    correctOption: 'Disminuir velocidad, llegar con precaución al cruce procurando ver el semáforo de más cerca y observar detenidamente hacia ambos lados evitando cualquier problema',
+    correctOptionNumber: 2,
   },
   {
     id: 102,
@@ -1018,7 +1018,7 @@ const data = [
       'Es difícil ver a los peatones a más de 20 metros, por eso se debe de extremar precauciones al circular por zonas urbanas y/o donde haya concentraciones de peatones',
       'Podemos ver a un peatón vestido con ropa amarilla desde una distancia de 80 m',
     ],
-    correctOption: 'Es difícil ver a los peatones a más de 20 metros, por eso se debe de extremar precauciones al circular por zonas urbanas y/o donde haya concentraciones de peatones',
+    correctOptionNumber: 1,
   },
   {
     id: 103,
@@ -1028,7 +1028,7 @@ const data = [
       'Peligroso sólo para los peatones',
       'Peligroso para todos los usuarios de la vía pública cercanos a quien los usa',
     ],
-    correctOption: 'Peligroso para todos los usuarios de la vía pública cercanos a quien los usa',
+    correctOptionNumber: 2,
   },
 ];
 

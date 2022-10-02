@@ -25,7 +25,7 @@ const MenuButton = ({
 
   useEffect(() => {
     (async () => {
-      const favorites = await get(DEVICE_STORE_KEYS.FAVORITES);
+      const favorites = (await get(DEVICE_STORE_KEYS.FAVORITES)) || [];
       dispatch(setFavorites(favorites));
     })();
   }, [dispatch]);

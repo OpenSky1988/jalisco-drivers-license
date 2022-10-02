@@ -13,17 +13,17 @@ import { updateAnswer } from '../../store/slices/questions';
 import styles from './styles';
 import { IOptionButtonProps } from './types';
 
-const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option }) => {
+const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option, optionIndex }) => {
   const dispatch = useDispatch();
   const {
-    correctOption,
+    correctOptionNumber,
     currentOptionSelected,
     currentQuestionIndex,
     isOptionsDisabled,
     questionList,
   } = useSelector((state: RootState) => state.questions);
 
-  const isCorrect = option === correctOption;
+  const isCorrect = optionIndex === correctOptionNumber;
   const isSelected = option === currentOptionSelected;
 
   const backgroundColor = isCorrect ? COLORS.success : isSelected ? COLORS.error : COLORS.secondary;
@@ -31,11 +31,11 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option }) => {
 
   const validateAnswer = async () => {
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    const { correctOption, id } = questionList[currentQuestionIndex];
+    const { correctOptionNumber, id } = questionList[currentQuestionIndex];
 
-    dispatch(updateAnswer({ correctOption, selectedOption: option }));
+    dispatch(updateAnswer({ correctOptionNumber, selectedOption: option }));
 
-    if (correctOption === option) {
+    if (optionIndex === correctOptionNumber) {
       await decreaseWrongAnswersInDeviceStorage(id);
       setTimeout(handleNext, 200);
     } else {
