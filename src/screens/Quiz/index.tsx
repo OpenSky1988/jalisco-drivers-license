@@ -1,8 +1,9 @@
 import React, { useCallback, useRef } from 'react';
 import { Animated, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFocusEffect } from '@react-navigation/native';
 
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
@@ -11,24 +12,25 @@ import QuestionOptions from '../../components/QuestionOptions';
 import ResultsModal from '../../components/ResultsModal';
 import { COLORS } from '../../constants';
 import data from '../../data/quiz/en';
+import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
 import { shuffleArray } from '../../utils';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
-import { get } from '../../async-storage';
-import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
-import { RootState } from '../../store';
-import { useSelector } from 'react-redux';
+import { filterFavorites, filterMistakes } from './utils';
 
-const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
-  const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
-  const wrongAnswersKeys = Object.keys(wrongAnswers);
-
-  const filteredMistakes = questions.filter(
-    (question) => wrongAnswersKeys.includes(`${question.id}`) && wrongAnswers[question.id],
-  );
-
-  return filteredMistakes;
+const questionsOrganizer = {
+  [DEVICE_STORE_KEYS.FAVORITES]: async (questionsData: IQuestion[]) => {
+    const filteredFavorites = await filterFavorites(questionsData);
+    return shuffleArray(filteredFavorites);
+  },
+  [DEVICE_STORE_KEYS.MARATHON]: (questionsData: IQuestion[]) => questionsData,
+  [DEVICE_STORE_KEYS.MISTAKES]: async (questionsData: IQuestion[]) => {
+    const filteredMistakes = await filterMistakes(questionsData);
+    return shuffleArray(filteredMistakes);
+  },
+  [DEVICE_STORE_KEYS.ORDERED]: (questionsData: IQuestion[]) => questionsData,
+  [DEVICE_STORE_KEYS.RANDOMIZED]: (questionsData: IQuestion[]) => shuffleArray(questionsData),
 };
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
@@ -41,21 +43,8 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        switch (route.params?.quizType) {
-          case DEVICE_STORE_KEYS.RANDOMIZED: {
-            dispatch(setQuestions(shuffleArray(data) as IQuestion[]));
-            break;
-          }
-          case DEVICE_STORE_KEYS.MISTAKES: {
-            const filteredMistakes = await filterMistakes(data);
-            dispatch(setQuestions(shuffleArray(filteredMistakes) as IQuestion[]));
-            break;
-          }
-          case DEVICE_STORE_KEYS.ORDERED:
-          default: {
-            dispatch(setQuestions(data));
-          }
-        }
+        const organizedQuestions = await questionsOrganizer[route.params?.quizType as string](data);
+        dispatch(setQuestions(organizedQuestions as IQuestion[]));
       })();
 
       return () => {
