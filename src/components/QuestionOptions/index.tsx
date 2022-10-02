@@ -11,8 +11,8 @@ const QuestionOptions: React.FC<IQuestionOptionsProps> = ({ handleNext }) => {
 
   return (
     <View>
-      {questionList[currentQuestionIndex]?.options.map((option) => (
-        <OptionButton handleNext={handleNext} key={option} option={option} />
+      {questionList[currentQuestionIndex]?.options.map((option, i) => (
+        <OptionButton handleNext={handleNext} key={option} option={option} optionIndex={i} />
       ))}
     </View>
   );

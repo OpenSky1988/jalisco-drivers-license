@@ -8,7 +8,7 @@ const data = [
       'License plates are expired',
       'Turn over the right with signal in red',
     ],
-    correctOption: 'License plates are expired',
+    correctOptionNumber: 1,
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const data = [
       'Have more risks in case of accident by be not able to leave quickly of the vehicle',
       'The corresponding fine is avoided only in federal highways',
     ],
-    correctOption: 'The possibility of wounds and/or death is diminished in case of accidents and a fine is avoided',
+    correctOptionNumber: 0,
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const data = [
       'Suspension of license for fifteen days, besides the corresponding fines',
       'Arrest for 36 hours and the corresponding fines',
     ],
-    correctOption: 'Arrest for 36 hours and the corresponding fines',
+    correctOptionNumber: 2,
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const data = [
       'A 50% discount',
       'A 25% discount',
     ],
-    correctOption: 'A 50% discount',
+    correctOptionNumber: 1,
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const data = [
       'False',
       'Only on public transportation',
     ],
-    correctOption: 'True',
+    correctOptionNumber: 0,
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const data = [
       'The ones that go seated',
       'Only those specified in the card of circulation',
     ],
-    correctOption: 'Only those specified in the card of circulation',
+    correctOptionNumber: 2,
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const data = [
       'Infraccionar to the conductive evils',
       'To govern the traffic in the public highways of the State of Jalisco, open to the circulation, that is not of federal jurisdiction',
     ],
-    correctOption: 'To govern the traffic in the public highways of the State of Jalisco, open to the circulation, that is not of federal jurisdiction',
+    correctOptionNumber: 2,
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const data = [
       'Detention of the vehicle',
       'Suspension of the license',
     ],
-    correctOption: 'Fines',
+    correctOptionNumber: 0,
   },
   {
     id: 9,
@@ -88,7 +88,7 @@ const data = [
       'To drive a vehicle with its windshield damaged in such a way that it interferes with the visibility',
       'To turn over the right with signal in red with precaution, prior high total and offering preference al pedestrian',
     ],
-    correctOption: 'To drive a vehicle with its windshield damaged in such a way that it interferes with the visibility',
+    correctOptionNumber: 1,
   },
   {
     id: 10,
@@ -98,7 +98,7 @@ const data = [
       '25 meters',
       '50 meters',
     ],
-    correctOption: '10 meters',
+    correctOptionNumber: 0,
   },
   {
     id: 11,
@@ -108,7 +108,7 @@ const data = [
       'Yes, when carry plates of another state',
       'False',
     ],
-    correctOption: 'False',
+    correctOptionNumber: 2,
   },
   {
     id: 12,
@@ -118,7 +118,7 @@ const data = [
       'To conclude operation of the vehicle while obtaining the necessary document(s)',
       'To travel with permission to circulate indefinitely',
     ],
-    correctOption: 'To conclude operation of the vehicle while obtaining the necessary document(s)',
+    correctOptionNumber: 1,
   },
   {
     id: 13,
@@ -128,7 +128,7 @@ const data = [
       'Only for the public vehicles',
       'Only in epoch of rains, in case of emergency or in official vehicles',
     ],
-    correctOption: 'True, because the law of traffic requires it',
+    correctOptionNumber: 0,
   },
   {
     id: 14,
@@ -138,7 +138,7 @@ const data = [
       'Abuse of authority',
       'An infraction and administrative lack',
     ],
-    correctOption: 'An infraction and administrative lack',
+    correctOptionNumber: 2,
   },
   {
     id: 15,
@@ -148,7 +148,7 @@ const data = [
       'To circulate with plates of another state',
       'To circulate with the holograms of previous years',
     ],
-    correctOption: 'To drive with total, or partly hidden plates',
+    correctOptionNumber: 0,
   },
   {
     id: 16,
@@ -158,7 +158,7 @@ const data = [
       'No',
       'Unless hands-free accessories are being used',
     ],
-    correctOption: 'Unless hands-free accessories are being used',
+    correctOptionNumber: 2,
   },
   {
     id: 17,
@@ -168,7 +168,7 @@ const data = [
       'Only when an adult, carrying placed the seat belt, hold it with the arms',
       'Only in the vehicles that have no rear seats, and they must be secured in a car seat',
     ],
-    correctOption: 'Only in the vehicles that have no rear seats, and they must be secured in a car seat',
+    correctOptionNumber: 2,
   },
   {
     id: 18,
@@ -178,7 +178,7 @@ const data = [
       'Not, nobody is observing me, so I can pass me the red light of the signal',
       'Not, the Law of highway Administration offers me the benefit to pass me the red lights after the 12:00 at night',
     ],
-    correctOption: 'Yes, I am obliged to respect the signal without regard to the hour of the day',
+    correctOptionNumber: 0,
   },
   {
     id: 19,
@@ -188,7 +188,7 @@ const data = [
       'To Accelerate and to pass first',
       'Permit him the right-of-way, by pulling to the extreme right of the highway and stop',
     ],
-    correctOption: 'Permit him the right-of-way, by pulling to the extreme right of the highway and stop',
+    correctOptionNumber: 2,
   },
   {
     id: 20,
@@ -198,7 +198,7 @@ const data = [
       'Preventive',
       'Stop',
     ],
-    correctOption: 'Stop',
+    correctOptionNumber: 2,
   },
   {
     id: 21,
@@ -208,7 +208,7 @@ const data = [
       'Chauffeur',
       'Conductive of Services of Public Transportation',
     ],
-    correctOption: 'Chauffeur',
+    correctOptionNumber: 1,
   },
   {
     id: 22,
@@ -218,7 +218,7 @@ const data = [
       'No, because the law and regulation of traffic only permit it to the right',
       'Yes, whenever an Avenue stem from or Worn with double sense of circulation, enter to a street of a single sense, prior high total, respecting the prelación in transit of the pedestrian, and that be not vehicle of collective service public of passengers',
     ],
-    correctOption: 'Yes, as long as they come and enter a one-way street traffic, prior to the light turning red, while respecting the pedestrian crossing priority, without any indication that forbid and which is not public service vehicle collective passengers',
+    correctOptionNumber: 0,
   },
   {
     id: 23,
@@ -228,7 +228,7 @@ const data = [
       'Necessary to perform the I endorse',
       'That are required for the obtaining of the license',
     ],
-    correctOption: 'Not transferable that identify al vehicle',
+    correctOptionNumber: 0,
   },
   {
     id: 24,
@@ -238,7 +238,7 @@ const data = [
       'Not, because are not Authorities of highway Administration',
       'Only when a road agent accompanies them',
     ],
-    correctOption: 'Yes we are obliged',
+    correctOptionNumber: 0,
   },
   {
     id: 25,
@@ -248,7 +248,7 @@ const data = [
       'Official vehicles of the City Hall and federal police',
       'Values transfer vehicles',
     ],
-    correctOption: 'Vehicles of emergency in service with lights and siren',
+    correctOptionNumber: 0,
   },
   {
     id: 26,
@@ -258,7 +258,7 @@ const data = [
       'To continue advancing to constant velocity if the street is of north to south',
       'To slow down al to approach me al, cruiser without doing high total, to cross faster',
     ],
-    correctOption: 'To continue advancing to constant velocity if the street is of north to south',
+    correctOptionNumber: 1,
   },
   {
     id: 27,
@@ -268,7 +268,7 @@ const data = [
       'Return to the left',
       'Preventive simple',
     ],
-    correctOption: 'Return to the left',
+    correctOptionNumber: 1,
   },
   {
     id: 28,
@@ -278,17 +278,17 @@ const data = [
       'If drivers have all their documents in order, and agree to a signed waiver, the vehicles will not be seized',
       'To expect the intervention of the authorities of highway Administration to raise the inventory of the vehicle before they be carried it to yard',
     ],
-    correctOption: 'If drivers have all their documents in order, and agree to a signed waiver, the vehicles will not be seized',
+    correctOptionNumber: 1,
   },
   {
     id: 29,
     question: 'Under what conditions can you park in a space designated for the handicapped?',
     options: [
-      'If you are transporting a disabled person and the vehicle bears the proper sticker ',
+      'If you are transporting a disabled person and the vehicle bears the proper sticker',
       'If is the available only space in the parking',
       'If is stationed only for a few minutes',
     ],
-    correctOption: 'If you are transporting a disabled person and the vehicle bears the proper sticker ',
+    correctOptionNumber: 0,
   },
   {
     id: 30,
@@ -298,7 +298,7 @@ const data = [
       'Yes is permitted',
       'If is not painted of yellow color yes can be stationed',
     ],
-    correctOption: 'It is not permitted under any circumstance',
+    correctOptionNumber: 0,
   },
   {
     id: 31,
@@ -308,7 +308,7 @@ const data = [
       'Arm, forearm and hand extended horizontally',
       'Arm horizontally, forearm up and hand with the fingers extended toward the right',
     ],
-    correctOption: 'Arm, forearm and hand extended horizontally',
+    correctOptionNumber: 1,
   },
   {
     id: 32,
@@ -318,7 +318,7 @@ const data = [
       'Yield to pedestrians, and give circulating traffic the right of way',
       'To be incorporated to regular velocity without importing that oblige al conductive that is crossed to that brake unceremoniously since the regulation gives him the preference in transit',
     ],
-    correctOption: 'Yield to pedestrians, and give circulating traffic the right of way',
+    correctOptionNumber: 1,
   },
   {
     id: 33,
@@ -328,7 +328,7 @@ const data = [
       'The traffic on the street you wish to turn onto',
       'You that is going to rotate to the left',
     ],
-    correctOption: 'The traffic on the street you wish to turn onto',
+    correctOptionNumber: 1,
   },
   {
     id: 34,
@@ -338,7 +338,7 @@ const data = [
       'The two we should descend us',
       'The patrol officer and he will approach the driver’s side of your vehicle, carrying helmet and clasp of identification',
     ],
-    correctOption: 'The patrol officer and he will approach the driver’s side of your vehicle, carrying helmet and clasp of identification',
+    correctOptionNumber: 2,
   },
   {
     id: 35,
@@ -348,7 +348,7 @@ const data = [
       'Alone in federal highways',
       'False',
     ],
-    correctOption: 'Yes',
+    correctOptionNumber: 0,
   },
   {
     id: 36,
@@ -358,7 +358,7 @@ const data = [
       '15 km/h',
       '25 km/h',
     ],
-    correctOption: '25 km/h',
+    correctOptionNumber: 2,
   },
   {
     id: 37,
@@ -368,7 +368,7 @@ const data = [
       '50 km/h',
       '60 km/h',
     ],
-    correctOption: '50 km/h',
+    correctOptionNumber: 1,
   },
   {
     id: 38,
@@ -378,7 +378,7 @@ const data = [
       'Preventive',
       'High general',
     ],
-    correctOption: 'Continue',
+    correctOptionNumber: 0,
   },
   {
     id: 39,
@@ -388,7 +388,7 @@ const data = [
       'To the left, in any direction with respect to the circulatory current',
       'To the left in the direction of traffic, unless expressly prohibited, or while jump-starting a battery',
     ],
-    correctOption: 'To the left in the direction of traffic, unless expressly prohibited, or while jump-starting a battery',
+    correctOptionNumber: 2,
   },
   {
     id: 40,
@@ -398,7 +398,7 @@ const data = [
       'Preventive',
       'Restrictive',
     ],
-    correctOption: 'Preventive',
+    correctOptionNumber: 1,
   },
   {
     id: 41,
@@ -408,7 +408,7 @@ const data = [
       'When, as a consequence of a road accident, only material damages in individuals property real estate goods exist',
       'Only when they have not insurance in force them involved in a road accident',
     ],
-    correctOption: 'When there is an accident with injuries, or damage to property belonging to the Municipality, State, or Confederacy, and one or more drivers are found in state of drunkenness',
+    correctOptionNumber: 0,
   },
   {
     id: 42,
@@ -418,7 +418,7 @@ const data = [
       'Insurance policy to guarantee damages to third parties in its goods and its people by an insured sum of not less than 6000 days of minimum wage',
       'Insurance policy that guarantee damages to third parties in its goods and its people by when less 1000 days of minimum wage',
     ],
-    correctOption: 'Insurance policy to guarantee damages to third parties in its goods and its people by an insured sum of not less than 6000 days of minimum wage',
+    correctOptionNumber: 1,
   },
   {
     id: 43,
@@ -428,7 +428,7 @@ const data = [
       'To be incorporated to the bower circulating to 40 km/h, touching previously the horn to call the attention and to avoid an accident',
       'Come to a total stop before mixing with the traffic, giving preference to the ones that already travel there',
     ],
-    correctOption: 'Come to a total stop before mixing with the traffic, giving preference to the ones that already travel there',
+    correctOptionNumber: 2,
   },
   {
     id: 44,
@@ -438,7 +438,7 @@ const data = [
       'Come to a full stop and continue after confirming it is safe to do so',
       'To slow down before entering the intersection and to continue with the necessary precautions',
     ],
-    correctOption: 'Come to a full stop and continue after confirming it is safe to do so',
+    correctOptionNumber: 1,
   },
   {
     id: 45,
@@ -448,7 +448,7 @@ const data = [
       'That you should enlarge the velocity to prevent an accident',
       'That you should utilize the horn and to advance',
     ],
-    correctOption: 'The interim that exists to clear the intersection when some vehicle has entered or found it impossible to stop immediately, due to the risk of impact from the rear',
+    correctOptionNumber: 0,
   },
   {
     id: 46,
@@ -458,7 +458,7 @@ const data = [
       'The signal',
       'To the others conductive',
     ],
-    correctOption: 'The traffic officer',
+    correctOptionNumber: 0,
   },
   {
     id: 47,
@@ -468,7 +468,7 @@ const data = [
       'Does Not exist differentiates some',
       'The difference is its size and also that the Restrictive signs are of blue color with white and the preventive green with white',
     ],
-    correctOption: 'Besides their colors, the restrictive signs indicate certain type of limitations or prohibitions with relation to the traffic and the use of the public highways, while the preventive notify the existence or the nature of some danger, or the change of situation in a public highway',
+    correctOptionNumber: 0,
   },
   {
     id: 48,
@@ -478,7 +478,7 @@ const data = [
       'The streets, roads and worn',
       'Avenues, worn, viaducts and road peers of first magnitude, on all the other arteries',
     ],
-    correctOption: 'Avenues, worn, viaducts and road peers of first magnitude, on all the other arteries',
+    correctOptionNumber: 2,
   },
   {
     id: 49,
@@ -488,7 +488,7 @@ const data = [
       'Continue',
       'Return to the left',
     ],
-    correctOption: 'Stop',
+    correctOptionNumber: 0,
   },
   {
     id: 50,
@@ -498,7 +498,7 @@ const data = [
       'Precaution',
       'Accelerate',
     ],
-    correctOption: 'Continue',
+    correctOptionNumber: 0,
   },
   {
     id: 51,
@@ -508,7 +508,7 @@ const data = [
       'Exclusive for official vehicles',
       'That parking in that area is prohibited',
     ],
-    correctOption: 'That parking in that area is prohibited',
+    correctOptionNumber: 2,
   },
   {
     id: 52,
@@ -518,7 +518,7 @@ const data = [
       'Pedestrian zone',
       'That passing is prohibited in either direction',
     ],
-    correctOption: 'That passing is prohibited in either direction',
+    correctOptionNumber: 2,
   },
   {
     id: 53,
@@ -528,7 +528,7 @@ const data = [
       'Road narrows ahead',
       'Incorporation al traffic',
     ],
-    correctOption: 'Road narrows ahead',
+    correctOptionNumber: 1,
   },
   {
     id: 54,
@@ -538,7 +538,7 @@ const data = [
       'Is authorized to circulate with tractor',
       'Can circulate to low velocity',
     ],
-    correctOption: 'Agricultural machinery is prohibited',
+    correctOptionNumber: 0,
   },
   {
     id: 55,
@@ -548,7 +548,7 @@ const data = [
       'Curve',
       'Inverse curve',
     ],
-    correctOption: 'Curve',
+    correctOptionNumber: 1,
   },
   {
     id: 56,
@@ -558,7 +558,7 @@ const data = [
       'Before the white line marked for "alto"',
       'In a place near the intersection provided that doing high total',
     ],
-    correctOption: 'Before the white line marked for "alto"',
+    correctOptionNumber: 1,
   },
   {
     id: 57,
@@ -568,7 +568,7 @@ const data = [
       'Indicates the conductors the place where they should be stationed',
       'Are neutral areas',
     ],
-    correctOption: 'Vehicles traveling on the side of the broken line are permitted to pass. Vehicles traveling on the side of the solid line are not permitted to pass',
+    correctOptionNumber: 0,
   },
   {
     id: 58,
@@ -578,7 +578,7 @@ const data = [
       'Height restricted',
       'Symmetrical narrowing',
     ],
-    correctOption: 'Height restricted',
+    correctOptionNumber: 1,
   },
   {
     id: 59,
@@ -588,7 +588,7 @@ const data = [
       'Inverse elbow',
       'Connection right winger',
     ],
-    correctOption: 'Right turn continue',
+    correctOptionNumber: 0,
   },
   {
     id: 60,
@@ -598,7 +598,7 @@ const data = [
       'Narrow bridge',
       'Circulation al central',
     ],
-    correctOption: 'Narrow bridge',
+    correctOptionNumber: 1,
   },
   {
     id: 61,
@@ -608,7 +608,7 @@ const data = [
       'They serve to separate rails',
       'They are boundary lines to indicate the safe driving area on the road',
     ],
-    correctOption: 'They are boundary lines to indicate the safe driving area on the road',
+    correctOptionNumber: 2,
   },
   {
     id: 62,
@@ -618,7 +618,7 @@ const data = [
       'The forward lighthouses',
       'The reel',
     ],
-    correctOption: 'The alternator',
+    correctOptionNumber: 0,
   },
   {
     id: 63,
@@ -628,7 +628,7 @@ const data = [
       'Odometer in badly state',
       'Lack of oil in the differential',
     ],
-    correctOption: 'Lack of water or a loose fan belt',
+    correctOptionNumber: 0,
   },
   {
     id: 64,
@@ -638,7 +638,7 @@ const data = [
       'Zone of parking',
       'Prohibited to continue forward',
     ],
-    correctOption: 'No parking',
+    correctOptionNumber: 0,
   },
   {
     id: 65,
@@ -648,7 +648,7 @@ const data = [
       'Circulation al central',
       'Width restricted',
     ],
-    correctOption: 'Width restricted',
+    correctOptionNumber: 2,
   },
   {
     id: 66,
@@ -658,7 +658,7 @@ const data = [
       'Cloths, Foci, Bands, Hoses, insulating Tape, Reel and I Liquidate for brakes',
       'Jumper cables, Lantern or flashlight, Jack, Lug wrench, Pliers, Cloths, Screwdrivers (phillips and flat), Pressure gauge for tires',
     ],
-    correctOption: 'Jumper cables, Lantern or flashlight, Jack, Lug wrench, Pliers, Cloths, Screwdrivers (phillips and flat), Pressure gauge for tires',
+    correctOptionNumber: 2,
   },
   {
     id: 67,
@@ -668,7 +668,7 @@ const data = [
       'Railroad crossing',
       'Crossing of roads',
     ],
-    correctOption: 'No stopping',
+    correctOptionNumber: 0,
   },
   {
     id: 68,
@@ -678,7 +678,7 @@ const data = [
       'Crossing of roads',
       'Not to stop',
     ],
-    correctOption: 'Crossing of roads',
+    correctOptionNumber: 1,
   },
   {
     id: 69,
@@ -688,7 +688,7 @@ const data = [
       'Prohibited the return',
       'No U-turns',
     ],
-    correctOption: 'No U-turns',
+    correctOptionNumber: 2,
   },
   {
     id: 70,
@@ -698,7 +698,7 @@ const data = [
       'Yield',
       'The two have the step',
     ],
-    correctOption: 'Yield',
+    correctOptionNumber: 1,
   },
   {
     id: 71,
@@ -708,7 +708,7 @@ const data = [
       'Connection right winger',
       'Incorporation of traffic',
     ],
-    correctOption: 'Exit',
+    correctOptionNumber: 0,
   },
   {
     id: 72,
@@ -718,7 +718,7 @@ const data = [
       'To circulate al central',
       'Width free',
     ],
-    correctOption: 'Width free',
+    correctOptionNumber: 2,
   },
   {
     id: 73,
@@ -728,7 +728,7 @@ const data = [
       'Turn on hazard lights, move the vehicle to the far right so that traffic is not blocked and place a hazard sign out',
       'To light hazard lights and to expect in the place to that the aid of the mechanic arrive',
     ],
-    correctOption: 'Turn on hazard lights, move the vehicle to the far right so that traffic is not blocked and place a hazard sign out',
+    correctOptionNumber: 1,
   },
   {
     id: 74,
@@ -738,7 +738,7 @@ const data = [
       '2 to 5 seconds',
       '30 to 40 seconds',
     ],
-    correctOption: '2 to 5 seconds',
+    correctOptionNumber: 1,
   },
   {
     id: 75,
@@ -748,7 +748,7 @@ const data = [
       'Softening, extinguisher and repair',
       'Oil, water, tires, lights, mirrors and gas',
     ],
-    correctOption: 'Oil, water, tires, lights, mirrors and gas',
+    correctOptionNumber: 2,
   },
   {
     id: 76,
@@ -758,7 +758,7 @@ const data = [
       'Slow down',
       'To activate intermittent',
     ],
-    correctOption: 'Slow down',
+    correctOptionNumber: 1,
   },
   {
     id: 77,
@@ -768,7 +768,7 @@ const data = [
       'Hold the steering wheel tightly, remove your foot from the accelerator, and allow the vehicle time to slow down before directing it to the right edge of the road',
       'Quickly to direct the vehicle al right side of the road',
     ],
-    correctOption: 'Hold the steering wheel tightly, remove your foot from the accelerator, and allow the vehicle timeto slow down before directing it to the right edge of the road',
+    correctOptionNumber: 1,
   },
   {
     id: 78,
@@ -778,7 +778,7 @@ const data = [
       'By reach',
       'A front collision',
     ],
-    correctOption: 'A front collision',
+    correctOptionNumber: 2,
   },
   {
     id: 79,
@@ -788,7 +788,7 @@ const data = [
       'To be directed directly to the right',
       'Put your head out the window to observe your surroundings, slow the vehicle down, and edge to the right side of the road',
     ],
-    correctOption: 'Put your head out the window to observe your surroundings, slow the vehicle down, and edge to the right side of the road',
+    correctOptionNumber: 2,
   },
   {
     id: 80,
@@ -798,7 +798,7 @@ const data = [
       'Slow down if the signal changes and stop before crossing the white line',
       'To brake after to have passed the pedestrian zone',
     ],
-    correctOption: 'Slow down if the signal changes and stop before crossing the white line',
+    correctOptionNumber: 1,
   },
   {
     id: 81,
@@ -808,7 +808,7 @@ const data = [
       'Light the corresponding turn signal and change lanes carefully',
       'To continue handling for my rail and to leave that the other conductor surpass me',
     ],
-    correctOption: 'Light the corresponding turn signal and change lanes carefully',
+    correctOptionNumber: 1,
   },
   {
     id: 82,
@@ -818,7 +818,7 @@ const data = [
       'To observe toward the sides and to continue the march to the same velocity',
       'To accelerate so that they yield me since I arrived first',
     ],
-    correctOption: 'Remove your foot from the accelerator and place it on the brake. Come to a comfortable stop, look in all directions, and advance with care',
+    correctOptionNumber: 0,
   },
   {
     id: 83,
@@ -828,7 +828,7 @@ const data = [
       'Tranquil and careless',
       'Aggressive, Offensive, Defensive',
     ],
-    correctOption: 'Aggressive, Offensive, Defensive',
+    correctOptionNumber: 2,
   },
   {
     id: 84,
@@ -838,7 +838,7 @@ const data = [
       'To slow down, to descend a little the crystal of the side of the conductor in such a way that permit air intake and to light the radio to high volume',
       'To stop and rest for at least 20 minutes and to do some physical exercises before continuing our trip',
     ],
-    correctOption: 'To stop and rest for at least 20 minutes and to do some physical exercises before continuing our trip',
+    correctOptionNumber: 2,
   },
   {
     id: 85,
@@ -848,7 +848,7 @@ const data = [
       'To conduct with precaution, to Respect the pedestrian zones, to conduct in its five senses',
       'A responsible conductor, a pedestrian precavido and an attentive passenger',
     ],
-    correctOption: 'The time, the traffic, the vehicle, the road, and the lighting',
+    correctOptionNumber: 0,
   },
   {
     id: 86,
@@ -858,7 +858,7 @@ const data = [
       'To slow down inside the curve',
       'To take with smoothness the steering wheel and to continue with the normal velocity',
     ],
-    correctOption: 'Before entering, slow down and then accelerate gradually inside the curve',
+    correctOptionNumber: 0,
   },
   {
     id: 87,
@@ -868,7 +868,7 @@ const data = [
       'To open the doors and to throw him water to put out',
       'Put out the fire with the fire extinguisher in the car',
     ],
-    correctOption: 'Put out the fire with the fire extinguisher in the car',
+    correctOptionNumber: 2,
   },
   {
     id: 88,
@@ -878,7 +878,7 @@ const data = [
       'We can maintain our normal velocity if are in good condition the brakes and the rims',
       'We should slow down only in the surrounding area of the cruisers',
     ],
-    correctOption: 'We should slow down and increase the distance between us and the vehicles in front of us',
+    correctOptionNumber: 0,
   },
   {
     id: 89,
@@ -888,7 +888,7 @@ const data = [
       'To give them reach to indicate them the errors that go committing al to conduct',
       'To be located in the same rail to some 7 meters ahead or behind and to commit the same errors so that the other conductor learn',
     ],
-    correctOption: 'Keep the calm, yield a little, move away from them, and think that your safety is more important',
+    correctOptionNumber: 0,
   },
   {
     id: 90,
@@ -898,7 +898,7 @@ const data = [
       'Slow down, braking moderately, to avoid an accident with the other vehicles',
       'To sound three times the horn so that the conductor that him continues he listen him',
     ],
-    correctOption: 'Slow down, braking moderately, to avoid an accident with the other vehicles',
+    correctOptionNumber: 1,
   },
   {
     id: 91,
@@ -908,7 +908,7 @@ const data = [
       'Touches the horn insistently and changes of rail at a bad time',
       'Wait patiently with his signal indicator on. They are not despaired and seek an alternate way',
     ],
-    correctOption: 'Wait patiently with his signal indicator on. They are not despaired and seek an alternate way',
+    correctOptionNumber: 2,
   },
   {
     id: 92,
@@ -918,7 +918,7 @@ const data = [
       'When the drawing of the rims is very deep',
       'When the rims are hot by the sun and we travel to 80 km/h',
     ],
-    correctOption: 'When the tread of the tires is less than 1mm in depth',
+    correctOptionNumber: 0,
   },
   {
     id: 93,
@@ -928,7 +928,7 @@ const data = [
       'Hold the steering wheel firmly, remove your foot from the accelerator, and return to the pavement carefully',
       'To return quickly al pavement to its normal velocity',
     ],
-    correctOption: 'Hold the steering wheel firmly, remove your foot from the accelerator, and return to the pavement carefully',
+    correctOptionNumber: 1,
   },
   {
     id: 94,
@@ -938,7 +938,7 @@ const data = [
       'Drive a vehicle, respecting the norms of highway administration to prevent accidents, in spite of the errors of others',
       'To conduct to low velocity in spite of the delays in the schedules',
     ],
-    correctOption: 'Drive a vehicle, respecting the norms of highway administration to prevent accidents, in spite of the errors of others',
+    correctOptionNumber: 1,
   },
   {
     id: 95,
@@ -948,7 +948,7 @@ const data = [
       'Slow down and observe the movement of traffic at the signal. If it corresponds to the direction you’re traveling, proceed with caution',
       'To pass the faster than be able, avoiding to collide with the other vehicles',
     ],
-    correctOption: 'Slow down and observe the movement of traffic at the signal. If it corresponds to the direction you’re traveling, proceed with caution',
+    correctOptionNumber: 1,
   },
   {
     id: 96,
@@ -958,7 +958,7 @@ const data = [
       'To avoid unexpected overheating and damage to the motor, as well as road accidents',
       'Road conflicts they are prevented and conductors rolled',
     ],
-    correctOption: 'To avoid unexpected overheating and damage to the motor, as well as road accidents',
+    correctOptionNumber: 1,
   },
   {
     id: 97,
@@ -968,7 +968,7 @@ const data = [
       'To conduct with precaution, exceeding the alone velocity when need to do it',
       'To avoid accidents al to conduct, respecting the road fixing unless by personal need require not to respect the ones that consider less important',
     ],
-    correctOption: 'Respect the rights and obligations of the other users of the public highways, as well as the Traffic signs and indications of the Traffic Officers',
+    correctOptionNumber: 0,
   },
   {
     id: 98,
@@ -978,7 +978,7 @@ const data = [
       'Ensure that the vehicle does not hinder other drivers, apply the parking brake, secure the wheels with a block of wood before applying the jack. Loosen the lug nuts slightly, then raise the jack to an elevation of approximately 3 cm. Change the tire and tighten the lug nuts moderately, descend the jack and tighten the nuts firmly, then remove blocks of wood',
       'To rise the vehicle preferably to the stool to place the cat in any point of the vehicle and to rise it it more high possible then to loosen the nuts stopping the rim with the feet to avoid that of returns, to change the rim, to remove cat and to circulate with security',
     ],
-    correctOption: 'Ensure that the vehicle does not hinder other drivers, apply the parking brake, secure the wheels with a block of wood before applying the jack. Loosen the lug nuts slightly, then raise the jack to an elevation of approximately 3 cm. Change the tire and tighten the lug nuts moderately, descend the jack and tighten the nuts firmly, then remove blocks of wood',
+    correctOptionNumber: 1,
   },
   {
     id: 99,
@@ -988,7 +988,7 @@ const data = [
       'To clean it with running water and a little soap',
       'To utilize the windshield wipers in dry since we avoid that mud with the land be done or the dust',
     ],
-    correctOption: 'To clean it with running water and a little soap',
+    correctOptionNumber: 1,
   },
   {
     id: 100,
@@ -998,7 +998,7 @@ const data = [
       'Really is not important',
       'Yes it is necessary for safety, without regard to the distance',
     ],
-    correctOption: 'Yes it is necessary for safety, without regard to the distance',
+    correctOptionNumber: 2,
   },
   {
     id: 101,
@@ -1008,7 +1008,7 @@ const data = [
       'To stop accelerating and to pass slowly',
       'Diminish speed, and proceed with caution, trying to see the signal more clearly and observe the surrounding traffic, avoiding any problem',
     ],
-    correctOption: 'Diminish speed, and proceed with caution, trying to see the signal more clearly and observe the surrounding traffic, avoiding any problem',
+    correctOptionNumber: 2,
   },
   {
     id: 102,
@@ -1018,7 +1018,7 @@ const data = [
       'It is difficult to see the pedestrians at more than 20 meters, therefore you should use maximum caution when driving by urban zones and/or where there is concentrations of pedestrians',
       'We can see a pedestrian dressed with yellow clothes since a distance of 80 m',
     ],
-    correctOption: 'It is difficult to see the pedestrians at more than 20 meters, therefore you should use maximum caution when driving by urban zones and/or where there is concentrations of pedestrians',
+    correctOptionNumber: 1,
   },
   {
     id: 103,
@@ -1028,7 +1028,7 @@ const data = [
       'Dangerous only for the pedestrians',
       'Dangerous for all the road users close to the one using them',
     ],
-    correctOption: 'Dangerous for all the road users close to the one using them',
+    correctOptionNumber: 2,
   },
 ];
 

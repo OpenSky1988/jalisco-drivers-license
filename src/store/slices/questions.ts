@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IQuestion } from '../../screens/Quiz/types';
 
 interface QuestionsState {
-  correctOption: string | null;
+  correctOptionNumber: number | null;
   currentOptionSelected: string | null;
   currentQuestionIndex: number;
   isOptionsDisabled: boolean;
@@ -14,7 +14,7 @@ interface QuestionsState {
 }
 
 const initialState = {
-  correctOption: null,
+  correctOptionNumber: null,
   currentOptionSelected: null,
   currentQuestionIndex: 0,
   isOptionsDisabled: false,
@@ -49,7 +49,7 @@ const questions = createSlice({
         ...state,
         currentQuestionIndex: action.payload.currentQuestionIndex + 1,
         currentOptionSelected: null,
-        correctOption: null,
+        correctOptionNumber: null,
         isOptionsDisabled: false,
         showNextButton: false,
       });
@@ -57,7 +57,7 @@ const questions = createSlice({
     restartQuiz(state) {
       return (state = {
         ...state,
-        correctOption: null,
+        correctOptionNumber: null,
         currentOptionSelected: null,
         currentQuestionIndex: 0,
         isOptionsDisabled: false,
@@ -72,14 +72,20 @@ const questions = createSlice({
     setQuestions(state, action: PayloadAction<IQuestion[]>) {
       state.questionList = action.payload;
     },
-    updateAnswer(state, action: PayloadAction<{ correctOption: string; selectedOption: string }>) {
-      const { correctOption, selectedOption } = action.payload;
+    updateAnswer(
+      state,
+      action: PayloadAction<{ correctOptionNumber: number; selectedOption: string }>,
+    ) {
+      const { correctOptionNumber, selectedOption } = action.payload;
+      const { questionList, currentQuestionIndex } = state;
+
+      const correctOption = questionList[currentQuestionIndex].options[correctOptionNumber];
       const isCorrect = selectedOption === correctOption;
 
       return (state = {
         ...state,
         currentOptionSelected: selectedOption,
-        correctOption,
+        correctOptionNumber,
         isOptionsDisabled: true,
         score: isCorrect ? state.score + 1 : state.score,
         showNextButton: !isCorrect,
