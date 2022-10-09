@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 
 import { RootState } from '../../store';
 
-const useCountdown = (isMarathon: boolean): [countdown: number, clearCountdown: () => void] => {
+const useCountdown = (
+  isMarathon: boolean,
+): [countdown: number, clearCountdown: (countdown: number) => void] => {
   const [countdown, setCountdown] = useState(20);
 
   useEffect(() => {
@@ -13,7 +15,7 @@ const useCountdown = (isMarathon: boolean): [countdown: number, clearCountdown: 
     }
   }, [isMarathon]);
 
-  return [countdown, () => setCountdown(20)];
+  return [countdown, setCountdown];
 };
 
 const useBookmarked = (currentQuestionId: number): boolean => {

@@ -17,7 +17,7 @@ const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
 
   const isMarathon = quizType === DEVICE_STORE_KEYS.MARATHON;
-  const [countdown, clearCountdown] = useCountdown(isMarathon);
+  const [countdown, setCountdown] = useCountdown(isMarathon);
 
   const currentQuestionId = questionList[currentQuestionIndex]?.id;
   const isBookmarked = useBookmarked(currentQuestionId);
@@ -31,21 +31,18 @@ const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
   }, [currentQuestionId, isBookmarked, navigation]);
 
   useEffect(() => {
+    setCountdown(20);
+  }, [currentQuestionId, setCountdown]);
+
+  useEffect(() => {
     if (countdown === 0) {
       (async () => {
         await increaseWrongAnswersInDeviceStorage(currentQuestionId);
         handleNext();
-        clearCountdown();
+        setCountdown(20);
       })();
     }
-  }, [
-    countdown,
-    currentQuestionId,
-    currentQuestionIndex,
-    handleNext,
-    questionList,
-    clearCountdown,
-  ]);
+  }, [countdown, currentQuestionId, currentQuestionIndex, handleNext, questionList, setCountdown]);
 
   return (
     <View style={styles.questionContainer}>
