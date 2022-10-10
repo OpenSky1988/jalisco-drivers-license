@@ -3,6 +3,7 @@ import { Animated, SafeAreaView, ScrollView, StatusBar, View } from 'react-nativ
 import { useDispatch, useSelector } from 'react-redux';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
+import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
@@ -10,12 +11,23 @@ import QuestionImage from '../../components/QuestionImage';
 import QuestionOptions from '../../components/QuestionOptions';
 import ResultsModal from '../../components/ResultsModal';
 import { COLORS } from '../../constants';
-import data from '../../data/quiz/en';
+import data from '../../data/quiz';
 import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
 import { questionsPrepper } from './utils';
+import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
+
+const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
+  switch (OSlanguage) {
+    case 'es':
+      return 'es';
+    case 'en':
+    default:
+      return 'en';
+  }
+};
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
@@ -23,12 +35,17 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const progress = useRef(new Animated.Value(0));
 
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
-  // const langugage = 'es';
 
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        const preparedQuestions = await questionsPrepper[route.params?.quizType as string](data);
+        const OSlanguage = RNLanguageDetector.detect() as string;
+        const language = getQuizLanguage(OSlanguage);
+
+        const quizType = route.params?.quizType as keyof typeof DEVICE_STORE_KEYS;
+        const quizData = data[language];
+
+        const preparedQuestions = await questionsPrepper(quizType)(quizData);
         dispatch(setQuestions(preparedQuestions as IQuestion[]));
       })();
 

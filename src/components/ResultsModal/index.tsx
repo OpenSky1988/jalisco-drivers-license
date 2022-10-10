@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -10,6 +11,8 @@ import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 
 const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
+  const { t } = useTranslation();
+
   const { questionList, score, showScoreModal } = useSelector(
     (state: RootState) => state.questions,
   );
@@ -28,7 +31,9 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
     <Modal animationType="slide" transparent={true} visible={showScoreModal}>
       <View style={styles.resultContainer}>
         <View style={styles.result}>
-          <Text style={styles.resultTitle}>{isSuccessfull ? 'Congratulations!' : 'Oops!'}</Text>
+          <Text style={styles.resultTitle}>
+            {isSuccessfull ? t('result_modal.success') : t('result_modal.failure')}
+          </Text>
           <View style={styles.resultRatio}>
             <Text
               style={[
@@ -42,10 +47,10 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
           </View>
 
           <TouchableOpacity onPress={handleRestart} style={styles.modalButton}>
-            <Text style={styles.modalButtonText}>Retry Quiz</Text>
+            <Text style={styles.modalButtonText}>{t('result_modal.retry')}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleFinish} style={styles.modalButton}>
-            <Text style={styles.modalButtonText}>Menu</Text>
+            <Text style={styles.modalButtonText}>{t('result_modal.menu')}</Text>
           </TouchableOpacity>
         </View>
       </View>
