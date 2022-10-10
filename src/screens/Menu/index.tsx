@@ -49,14 +49,16 @@ const MenuButton = ({
   );
 };
 
-const Menu: React.FC<TProps> = (navigationProps) => (
-  <View style={styles.container}>
-    <SafeAreaView>
-      {menuRoutes.map((route) => (
-        <MenuButton key={route.title} {...{ ...route, ...navigationProps }} />
-      ))}
-    </SafeAreaView>
-  </View>
-);
+const Menu: React.FC<TProps> = (navigationProps) => {
+  return (
+    <View style={styles.container}>
+      <SafeAreaView>
+        {menuRoutes.map((route) => (
+          <MenuButton key={route.title} {...{ ...route, ...navigationProps }} />
+        ))}
+      </SafeAreaView>
+    </View>
+  );
+};
 
 export default Menu;

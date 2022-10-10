@@ -1,0 +1,35 @@
+{
+  "menu": {
+    "successful_attemps": "Intentos exitosos: {{attemptsNumber}}"
+  },
+  "quiz_screen": {
+    "question": "Pregunta {{questionId}}",
+    "next": "Próximo"
+  },
+  "result_modal": {
+    "success": "¡Felicidades!",
+    "failure": "¡Intentar otra vez!",
+    "retry": "Reintentar cuestionario",
+    "menu": "Menú"
+  },
+  "routes": {
+    "ordered_quiz": {
+      "title": "Cuestionario ordenado"
+    },
+    "randomized_quiz": {
+      "title": "Cuestionario aleatorio"
+    },
+    "marathon": {
+      "title": "Maratón",
+      "subtitle": "Responde en 20 segundos"
+    },
+    "mistakes": {
+      "title": "Errores",
+      "subtitle": "Trabaja a través de ellos"
+    },
+    "favorites": {
+      "title": "Favoritos",
+      "subtitle": "Su propia selección"
+    }
+  }
+}

@@ -49,18 +49,22 @@ const filterFavorites = async (questions: IQuestion[]): Promise<IQuestion[]> => 
   return filteredFavorites;
 };
 
-const questionsPrepper = {
-  [DEVICE_STORE_KEYS.FAVORITES]: async (questionsData: IQuestion[]) => {
-    const filteredFavorites = await filterFavorites(questionsData);
-    return shuffleArray(filteredFavorites);
-  },
-  [DEVICE_STORE_KEYS.MARATHON]: (questionsData: IQuestion[]) => questionsData,
-  [DEVICE_STORE_KEYS.MISTAKES]: async (questionsData: IQuestion[]) => {
-    const filteredMistakes = await filterMistakes(questionsData);
-    return shuffleArray(filteredMistakes);
-  },
-  [DEVICE_STORE_KEYS.ORDERED]: (questionsData: IQuestion[]) => questionsData,
-  [DEVICE_STORE_KEYS.RANDOMIZED]: (questionsData: IQuestion[]) => shuffleArray(questionsData),
+const questionsPrepper = (quizType: keyof typeof DEVICE_STORE_KEYS) => {
+  const questionPreppers = {
+    [DEVICE_STORE_KEYS.FAVORITES]: async (questionsData: IQuestion[]) => {
+      const filteredFavorites = await filterFavorites(questionsData);
+      return shuffleArray(filteredFavorites);
+    },
+    [DEVICE_STORE_KEYS.MARATHON]: (questionsData: IQuestion[]) => questionsData,
+    [DEVICE_STORE_KEYS.MISTAKES]: async (questionsData: IQuestion[]) => {
+      const filteredMistakes = await filterMistakes(questionsData);
+      return shuffleArray(filteredMistakes);
+    },
+    [DEVICE_STORE_KEYS.ORDERED]: (questionsData: IQuestion[]) => questionsData,
+    [DEVICE_STORE_KEYS.RANDOMIZED]: (questionsData: IQuestion[]) => shuffleArray(questionsData),
+  };
+
+  return questionPreppers[quizType];
 };
 
 export {

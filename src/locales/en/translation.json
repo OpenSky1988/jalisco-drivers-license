@@ -1,0 +1,35 @@
+{
+  "menu": {
+    "successful_attemps": "Successful attempts: {{attemptsNumber}}"
+  },
+  "quiz_screen": {
+    "question": "Question {{questionId}}",
+    "next": "Next"
+  },
+  "result_modal": {
+    "success": "Congratulations!",
+    "failure": "Try again!",
+    "retry": "Retry Quiz",
+    "menu": "Menu"
+  },
+  "routes": {
+    "ordered_quiz": {
+      "title": "Ordered Quiz"
+    },
+    "randomized_quiz": {
+      "title": "Randomized Quiz"
+    },
+    "marathon": {
+      "title": "Marathon",
+      "subtitle": "Answer within 20 seconds"
+    },
+    "mistakes": {
+      "title": "Mistakes",
+      "subtitle": "Work them through"
+    },
+    "favorites": {
+      "title": "Favorites",
+      "subtitle": "Your own selection"
+    }
+  }
+}

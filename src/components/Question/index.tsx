@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 
@@ -14,6 +15,7 @@ import { IQuestionProps } from './types';
 
 const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
   const navigation = useNavigation();
+  const { t } = useTranslation();
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
 
   const isMarathon = quizType === DEVICE_STORE_KEYS.MARATHON;
@@ -48,7 +50,7 @@ const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
     <View style={styles.questionContainer}>
       <View style={styles.questionCounter}>
         <Text style={styles.questionCurrentIndex}>
-          {`Question ${questionList[currentQuestionIndex]?.id}`}
+          {t('quiz_screen.question', { questionId: questionList[currentQuestionIndex]?.id })}
         </Text>
         {isMarathon && (
           <View style={styles.countdownContainer}>
