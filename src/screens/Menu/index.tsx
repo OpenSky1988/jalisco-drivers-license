@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useRoute } from '@react-navigation/native';
-import { Layout, Text, TopNavigation } from '@ui-kitten/components';
+import { Layout, Text, TopNavigation, useTheme } from '@ui-kitten/components';
 
 import { get } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
@@ -13,16 +13,10 @@ import styles from './styles';
 import type { IMenuRouteItem, TProps } from './types';
 import { getSubtitle } from './utils';
 
-const MenuButton = ({
-  backgroundColor,
-  navigation,
-  params,
-  subtitle = '',
-  title,
-  to,
-}: IMenuRouteItem & TProps) => {
+const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRouteItem & TProps) => {
   const dispatch = useDispatch();
   const [buttonSubtitle, setButtonSubtitle] = useState(subtitle);
+  const theme = useTheme();
 
   const navigate = () => navigation.navigate(to, params as undefined);
 
@@ -41,7 +35,10 @@ const MenuButton = ({
   }, [params?.quizType, subtitle]);
 
   return (
-    <TouchableOpacity style={[styles.menuButton, { backgroundColor }]} onPress={navigate}>
+    <TouchableOpacity
+      onPress={navigate}
+      style={[styles.menuButton, { backgroundColor: theme['color-primary-500'] }]}
+    >
       <Text style={styles.menuButtonTitle}>{title}</Text>
       <Text style={styles.menuButtonSubtitle}>{buttonSubtitle}</Text>
     </TouchableOpacity>

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { Text } from '@ui-kitten/components';
+import { Text, useTheme } from '@ui-kitten/components';
 
 import { COLORS } from '../../constants';
 import {
@@ -16,6 +16,8 @@ import { IOptionButtonProps } from './types';
 
 const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option, optionIndex }) => {
   const dispatch = useDispatch();
+  const theme = useTheme();
+
   const {
     correctOptionNumber,
     currentOptionSelected,
@@ -27,7 +29,11 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option, option
   const isCorrect = optionIndex === correctOptionNumber;
   const isSelected = option === currentOptionSelected;
 
-  const backgroundColor = isCorrect ? COLORS.success : isSelected ? COLORS.error : COLORS.secondary;
+  const backgroundColor = isCorrect
+    ? theme['color-success-500']
+    : isSelected
+    ? theme['color-danger-500']
+    : theme['color-basic-transparent-300'];
   const isTextWhite = isCorrect || isSelected;
 
   const validateAnswer = async () => {

@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
 
   // -------------------------------------
   modalButton: {
-    backgroundColor: COLORS.accent,
     borderRadius: 20,
     marginVertical: 10,
     padding: 20,
