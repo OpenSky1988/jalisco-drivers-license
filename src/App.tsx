@@ -1,5 +1,5 @@
 import React from 'react';
-import { Appearance } from 'react-native';
+import { useColorScheme } from 'react-native';
 import { Provider } from 'react-redux';
 import * as eva from '@eva-design/eva';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,7 +16,7 @@ import { store as reduxStore } from './store';
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 
 const App: React.FC = () => {
-  const colorScheme = Appearance.getColorScheme() || 'light';
+  const colorScheme = useColorScheme() || 'light';
 
   return (
     <>
