@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../constants';
 
 const styles = StyleSheet.create({
   questionOption: {
@@ -13,7 +12,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   questionOptionText: {
-    color: COLORS.black,
     fontSize: 20,
   },
 });

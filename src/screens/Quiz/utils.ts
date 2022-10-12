@@ -67,7 +67,18 @@ const questionsPrepper = (quizType: keyof typeof DEVICE_STORE_KEYS) => {
   return questionPreppers[quizType];
 };
 
+const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
+  switch (OSlanguage) {
+    case 'es':
+      return 'es';
+    case 'en':
+    default:
+      return 'en';
+  }
+};
+
 export {
+  getQuizLanguage,
   decreaseWrongAnswersInDeviceStorage,
   filterFavorites,
   filterMistakes,

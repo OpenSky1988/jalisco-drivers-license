@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { useRoute } from '@react-navigation/native';
+import { Layout, Text, TopNavigation } from '@ui-kitten/components';
+
 import { get } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import { setFavorites } from '../../store/slices/questions';
-
 import menuRoutes from './routes';
 import styles from './styles';
 import type { IMenuRouteItem, TProps } from './types';
@@ -38,11 +41,7 @@ const MenuButton = ({
   }, [params?.quizType, subtitle]);
 
   return (
-    <TouchableOpacity
-      key={title}
-      style={[styles.menuButton, { backgroundColor }]}
-      onPress={navigate}
-    >
+    <TouchableOpacity style={[styles.menuButton, { backgroundColor }]} onPress={navigate}>
       <Text style={styles.menuButtonTitle}>{title}</Text>
       <Text style={styles.menuButtonSubtitle}>{buttonSubtitle}</Text>
     </TouchableOpacity>
@@ -50,14 +49,17 @@ const MenuButton = ({
 };
 
 const Menu: React.FC<TProps> = (navigationProps) => {
+  const route = useRoute();
+
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        {menuRoutes.map((route) => (
-          <MenuButton key={route.title} {...{ ...route, ...navigationProps }} />
+    <ThemedSafeAreaView>
+      <TopNavigation title={route.name} alignment="center" />
+      <Layout style={styles.container}>
+        {menuRoutes.map((routeItem) => (
+          <MenuButton key={routeItem.title} {...{ ...routeItem, ...navigationProps }} />
         ))}
-      </SafeAreaView>
-    </View>
+      </Layout>
+    </ThemedSafeAreaView>
   );
 };
 

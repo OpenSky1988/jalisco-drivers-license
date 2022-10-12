@@ -4,12 +4,10 @@ import { COLORS } from '../../constants';
 const styles = StyleSheet.create({
   resultContainer: {
     flex: 1,
-    backgroundColor: COLORS.primary,
     alignItems: 'center',
     justifyContent: 'center',
   },
   result: {
-    backgroundColor: COLORS.white,
     width: '90%',
     borderRadius: 20,
     padding: 20,
@@ -30,7 +28,6 @@ const styles = StyleSheet.create({
   },
   resultTotal: {
     fontSize: 20,
-    color: COLORS.black,
   },
 
   // -------------------------------------

@@ -1,20 +1,18 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Text } from '@ui-kitten/components';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { increaseWrongAnswersInDeviceStorage } from '../../screens/Quiz/utils';
 import { RootState } from '../../store';
-import BookmarkButton from '../BookmarkButton';
-import { useBookmarked, useCountdown } from './hooks';
+import { useCountdown } from './hooks';
 
 import styles from './styles';
 import { IQuestionProps } from './types';
 
 const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
-  const navigation = useNavigation();
   const { t } = useTranslation();
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
 
@@ -22,15 +20,6 @@ const Question: React.FC<IQuestionProps> = ({ handleNext, quizType }) => {
   const [countdown, setCountdown] = useCountdown(isMarathon);
 
   const currentQuestionId = questionList[currentQuestionIndex]?.id;
-  const isBookmarked = useBookmarked(currentQuestionId);
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <BookmarkButton currentQuestionId={currentQuestionId} isBookmarked={isBookmarked} />
-      ),
-    });
-  }, [currentQuestionId, isBookmarked, navigation]);
 
   useEffect(() => {
     setCountdown(20);
