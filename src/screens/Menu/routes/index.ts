@@ -1,7 +1,7 @@
-import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
-import { COLORS } from '../../constants';
-import { IMenuRouteItem } from './types';
-import i18n from '../../locales/i18n';
+import { DEVICE_STORE_KEYS } from '../../../async-storage/deviceStoreKeys';
+import { COLORS } from '../../../constants';
+import { IMenuRouteItem } from '../types';
+import i18n from '../../../locales/i18n';
 
 const { t } = i18n;
 

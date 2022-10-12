@@ -25,17 +25,14 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   questionCurrentIndex: {
-    color: COLORS.black,
     fontSize: 20,
     opacity: 0.6,
   },
   questionTotal: {
-    color: COLORS.black,
     fontSize: 18,
     opacity: 0.6,
   },
   questionText: {
-    color: COLORS.black,
     fontSize: 26,
     fontWeight: '700',
   },

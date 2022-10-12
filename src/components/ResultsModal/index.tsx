@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Modal, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Layout, Text } from '@ui-kitten/components';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { COLORS } from '../../constants';
@@ -29,7 +30,7 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
 
   return (
     <Modal animationType="slide" transparent={true} visible={showScoreModal}>
-      <View style={styles.resultContainer}>
+      <Layout style={styles.resultContainer}>
         <View style={styles.result}>
           <Text style={styles.resultTitle}>
             {isSuccessfull ? t('result_modal.success') : t('result_modal.failure')}
@@ -53,7 +54,7 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
             <Text style={styles.modalButtonText}>{t('result_modal.menu')}</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Layout>
     </Modal>
   );
 };

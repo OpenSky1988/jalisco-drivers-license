@@ -1,33 +1,26 @@
 import React, { useCallback, useRef } from 'react';
-import { Animated, SafeAreaView, ScrollView, StatusBar, View } from 'react-native';
+import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { Layout, TopNavigation } from '@ui-kitten/components';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
+import { useBookmarked } from '../../components/Question/hooks';
 import QuestionImage from '../../components/QuestionImage';
 import QuestionOptions from '../../components/QuestionOptions';
 import ResultsModal from '../../components/ResultsModal';
-import { COLORS } from '../../constants';
+import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import data from '../../data/quiz';
 import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
+import { useBackAction, useBookmarkAction } from './hooks';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
-import { questionsPrepper } from './utils';
-import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
-
-const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
-  switch (OSlanguage) {
-    case 'es':
-      return 'es';
-    case 'en':
-    default:
-      return 'en';
-  }
-};
+import { getQuizLanguage, questionsPrepper } from './utils';
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
@@ -35,6 +28,9 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const progress = useRef(new Animated.Value(0));
 
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
+
+  const currentQuestionId = questionList[currentQuestionIndex]?.id;
+  const isBookmarked = useBookmarked(currentQuestionId);
 
   useFocusEffect(
     useCallback(() => {
@@ -82,11 +78,19 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
     animateProgress(0);
   };
 
+  const BookmarkAction = useBookmarkAction(currentQuestionId, isBookmarked);
+  const BackAction = useBackAction();
+
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
+    <ThemedSafeAreaView>
+      <TopNavigation
+        title={route.params.title}
+        alignment="center"
+        accessoryLeft={BackAction}
+        accessoryRight={BookmarkAction}
+      />
       <ScrollView>
-        <View style={styles.container}>
+        <Layout style={styles.container}>
           <ProgressBar progress={progress.current} />
           <QuestionImage />
           <Question handleNext={handleNext} quizType={route.params?.quizType} />
@@ -97,9 +101,9 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
             handleRestart={handleRestart}
             quizType={route.params?.quizType}
           />
-        </View>
+        </Layout>
       </ScrollView>
-    </SafeAreaView>
+    </ThemedSafeAreaView>
   );
 };
 

@@ -1,5 +1,4 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { TRootStackParamList } from '../../App';
 
 type TProps = NativeStackScreenProps<TRootStackParamList, 'Menu'>;
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { Text } from '@ui-kitten/components';
 
 import { COLORS } from '../../constants';
 import {
@@ -27,7 +28,7 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option, option
   const isSelected = option === currentOptionSelected;
 
   const backgroundColor = isCorrect ? COLORS.success : isSelected ? COLORS.error : COLORS.secondary;
-  const textColor = isCorrect ? COLORS.white : isSelected ? COLORS.white : COLORS.black;
+  const isTextWhite = isCorrect || isSelected;
 
   const validateAnswer = async () => {
     // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -50,7 +51,9 @@ const OptionButton: React.FC<IOptionButtonProps> = ({ handleNext, option, option
       key={option}
       style={[styles.questionOption, { backgroundColor }]}
     >
-      <Text style={[styles.questionOptionText, { color: textColor }]}>{option}</Text>
+      <Text style={[styles.questionOptionText, ...(isTextWhite ? [{ color: COLORS.white }] : [])]}>
+        {option}
+      </Text>
     </TouchableOpacity>
   );
 };

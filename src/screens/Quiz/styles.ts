@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-import { COLORS, SIZES } from '../../constants';
+import { SIZES } from '../../constants';
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
   container: {
-    backgroundColor: COLORS.white,
     flex: 1,
     paddingBottom: 40,
     paddingTop: 20,
