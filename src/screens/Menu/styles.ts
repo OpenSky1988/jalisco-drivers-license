@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   menuButton: {
-    backgroundColor: COLORS.secondary,
     borderRadius: 16,
     flexDirection: 'column',
     justifyContent: 'space-between',

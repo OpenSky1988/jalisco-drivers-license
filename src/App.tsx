@@ -12,6 +12,7 @@ import './locales/i18n';
 import Quiz from './screens/Quiz';
 import Menu from './screens/Menu';
 import { store as reduxStore } from './store';
+import theme from './theme/custom-theme.json';
 
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 
@@ -21,7 +22,7 @@ const App: React.FC = () => {
   return (
     <>
       <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva[colorScheme]}>
+      <ApplicationProvider {...eva} theme={{ ...eva[colorScheme], ...theme }}>
         <Provider store={reduxStore}>
           <NavigationContainer>
             <Navigator screenOptions={{ headerShown: false }}>

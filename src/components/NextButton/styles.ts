@@ -3,7 +3,6 @@ import { COLORS } from '../../constants';
 
 const styles = StyleSheet.create({
   nextButton: {
-    backgroundColor: COLORS.accent,
     borderRadius: 16,
     marginTop: 40,
     padding: 20,
