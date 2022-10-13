@@ -1,5 +1,7 @@
+import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
 import { get, store } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import data from '../../data/quiz';
 import { shuffleArray } from '../../utils';
 import { IQuestion } from './types';
 
@@ -77,6 +79,16 @@ const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
   }
 };
 
+const setupQuiz = async (quizType: keyof typeof DEVICE_STORE_KEYS): Promise<IQuestion[]> => {
+  const OSlanguage = RNLanguageDetector.detect() as string;
+  const language = getQuizLanguage(OSlanguage);
+  const quizData = data[language];
+
+  const preparedQuestions = await questionsPrepper(quizType)(quizData);
+
+  return preparedQuestions as IQuestion[];
+};
+
 export {
   getQuizLanguage,
   decreaseWrongAnswersInDeviceStorage,
@@ -84,4 +96,5 @@ export {
   filterMistakes,
   increaseWrongAnswersInDeviceStorage,
   questionsPrepper,
+  setupQuiz,
 };

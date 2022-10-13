@@ -1,7 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Layout, TopNavigation } from '@ui-kitten/components';
 
@@ -14,13 +13,12 @@ import QuestionImage from '../../components/QuestionImage';
 import QuestionOptions from '../../components/QuestionOptions';
 import ResultsModal from '../../components/ResultsModal';
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
-import data from '../../data/quiz';
 import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
 import { useBackAction, useBookmarkAction } from './hooks';
 import styles from './styles';
 import type { IQuestion, TNavigationProps } from './types';
-import { getQuizLanguage, questionsPrepper } from './utils';
+import { setupQuiz } from './utils';
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
@@ -31,17 +29,12 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
 
   const currentQuestionId = questionList[currentQuestionIndex]?.id;
   const isBookmarked = useBookmarked(currentQuestionId);
+  const quizType = route.params?.quizType as keyof typeof DEVICE_STORE_KEYS;
 
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        const OSlanguage = RNLanguageDetector.detect() as string;
-        const language = getQuizLanguage(OSlanguage);
-
-        const quizType = route.params?.quizType as keyof typeof DEVICE_STORE_KEYS;
-        const quizData = data[language];
-
-        const preparedQuestions = await questionsPrepper(quizType)(quizData);
+        const preparedQuestions = await setupQuiz(quizType);
         dispatch(setQuestions(preparedQuestions as IQuestion[]));
       })();
 
@@ -49,7 +42,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         dispatch(restartQuiz());
         dispatch(setQuestions([]));
       };
-    }, [route.params?.quizType, dispatch]),
+    }, [quizType, dispatch]),
   );
 
   const animateProgress = (toValue: number) => {
@@ -73,7 +66,10 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
 
   const handleFinish = () => navigation.navigate('Menu' as never);
 
-  const handleRestart = () => {
+  const handleRestart = async () => {
+    const preparedQuestions = await setupQuiz(quizType);
+
+    dispatch(setQuestions(preparedQuestions as IQuestion[]));
     dispatch(restartQuiz());
     animateProgress(0);
   };
