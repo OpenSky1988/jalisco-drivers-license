@@ -5,7 +5,7 @@ const updateSuccessfullAttemts = async (quizType: string) => {
   try {
     const currentPassedAttemts = await get(quizType);
 
-    await store(quizType, currentPassedAttemts || 1);
+    await store(quizType, `${currentPassedAttemts || 1}`);
   } catch (e) {
     throw new Error(`Update passed tests number error: ${e}`);
   }

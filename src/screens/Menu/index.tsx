@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useRoute } from '@react-navigation/native';
+import { useFocusEffect, useRoute } from '@react-navigation/native';
 import { Layout, Text, TopNavigation, useTheme } from '@ui-kitten/components';
 
 import { get } from '../../async-storage';
@@ -27,12 +27,12 @@ const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRoute
     })();
   }, [dispatch]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     (async () => {
       const newSubtitle = await getSubtitle(subtitle, params?.quizType as string);
       setButtonSubtitle(newSubtitle);
     })();
-  }, [params?.quizType, subtitle]);
+  });
 
   return (
     <TouchableOpacity
