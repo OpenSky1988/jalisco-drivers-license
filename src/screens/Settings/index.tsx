@@ -19,6 +19,9 @@ import { setLanguage, setThemeMode, TLanguage, TThemeMode } from '../../store/sl
 import { useBackAction } from '../../utils/hooks';
 import styles from './styles';
 
+export const languages: TLanguage[] = ['es', 'en'];
+const themeModes: TThemeMode[] = ['system', 'light', 'dark'];
+
 const Settings: React.FC = () => {
   const dispatch = useDispatch();
   const route = useRoute();
@@ -26,9 +29,6 @@ const Settings: React.FC = () => {
   const { language, themeMode } = useSelector((state: RootState) => state.settings);
 
   const BackAction = useBackAction();
-
-  const languages: TLanguage[] = ['es', 'en'];
-  const themeModes: TThemeMode[] = ['system', 'light', 'dark'];
 
   const handleLanguageChange = (index: IndexPath | IndexPath[]) => {
     const selectedLanguage = languages[(index as IndexPath).row];
