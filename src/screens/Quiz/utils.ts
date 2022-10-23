@@ -5,32 +5,17 @@ import data from '../../data/quiz';
 import { shuffleArray } from '../../utils';
 import { IQuestion } from './types';
 
-const updateWrongAnswersInDeviceStorage = async (
-  currentQuestionId: number,
-  updateCallback: (wrongAnswersNumber: number) => void,
-) => {
-  try {
-    const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
-
-    await store(DEVICE_STORE_KEYS.WRONG_ANSWERS, {
-      ...wrongAnswers,
-      [currentQuestionId]: updateCallback(wrongAnswers?.[currentQuestionId]),
-    });
-  } catch (e) {
-    throw new Error(`Update wrong answer error: ${e}`);
-  }
-};
-
-const increaseWrongAnswersInDeviceStorage = async (currentQuestionId: number) => {
-  await updateWrongAnswersInDeviceStorage(currentQuestionId, (wrongAnswersNumber: number) => {
-    return wrongAnswersNumber ? wrongAnswersNumber + 1 : 1;
-  });
-};
-
 const decreaseWrongAnswersInDeviceStorage = async (currentQuestionIndex: number) => {
   await updateWrongAnswersInDeviceStorage(currentQuestionIndex, (wrongAnswersNumber: number) => {
     return wrongAnswersNumber ? wrongAnswersNumber - 1 : 0;
   });
+};
+
+const filterFavorites = async (questions: IQuestion[]): Promise<IQuestion[]> => {
+  const favoritesIds = (await get(DEVICE_STORE_KEYS.FAVORITES)) || [];
+  const filteredFavorites = questions.filter((question) => favoritesIds.includes(question.id));
+
+  return filteredFavorites;
 };
 
 const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
@@ -44,11 +29,20 @@ const filterMistakes = async (questions: IQuestion[]): Promise<IQuestion[]> => {
   return filteredMistakes;
 };
 
-const filterFavorites = async (questions: IQuestion[]): Promise<IQuestion[]> => {
-  const favoritesIds = (await get(DEVICE_STORE_KEYS.FAVORITES)) || [];
-  const filteredFavorites = questions.filter((question) => favoritesIds.includes(question.id));
+const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
+  switch (OSlanguage) {
+    case 'es':
+      return 'es';
+    case 'en':
+    default:
+      return 'en';
+  }
+};
 
-  return filteredFavorites;
+const increaseWrongAnswersInDeviceStorage = async (currentQuestionId: number) => {
+  await updateWrongAnswersInDeviceStorage(currentQuestionId, (wrongAnswersNumber: number) => {
+    return wrongAnswersNumber ? wrongAnswersNumber + 1 : 1;
+  });
 };
 
 const questionsPrepper = (quizType: keyof typeof DEVICE_STORE_KEYS) => {
@@ -69,16 +63,6 @@ const questionsPrepper = (quizType: keyof typeof DEVICE_STORE_KEYS) => {
   return questionPreppers[quizType];
 };
 
-const getQuizLanguage = (OSlanguage: string): 'es' | 'en' => {
-  switch (OSlanguage) {
-    case 'es':
-      return 'es';
-    case 'en':
-    default:
-      return 'en';
-  }
-};
-
 const setupQuiz = async (quizType: keyof typeof DEVICE_STORE_KEYS): Promise<IQuestion[]> => {
   const OSlanguage = RNLanguageDetector.detect() as string;
   const language = getQuizLanguage(OSlanguage);
@@ -89,11 +73,27 @@ const setupQuiz = async (quizType: keyof typeof DEVICE_STORE_KEYS): Promise<IQue
   return preparedQuestions as IQuestion[];
 };
 
+const updateWrongAnswersInDeviceStorage = async (
+  currentQuestionId: number,
+  updateCallback: (wrongAnswersNumber: number) => void,
+) => {
+  try {
+    const wrongAnswers = await get(DEVICE_STORE_KEYS.WRONG_ANSWERS);
+
+    await store(DEVICE_STORE_KEYS.WRONG_ANSWERS, {
+      ...wrongAnswers,
+      [currentQuestionId]: updateCallback(wrongAnswers?.[currentQuestionId]),
+    });
+  } catch (e) {
+    throw new Error(`Update wrong answer error: ${e}`);
+  }
+};
+
 export {
-  getQuizLanguage,
   decreaseWrongAnswersInDeviceStorage,
   filterFavorites,
   filterMistakes,
+  getQuizLanguage,
   increaseWrongAnswersInDeviceStorage,
   questionsPrepper,
   setupQuiz,

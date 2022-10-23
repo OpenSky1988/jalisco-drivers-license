@@ -1,13 +1,19 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleProp, ViewStyle } from 'react-native';
 import { useTheme } from '@ui-kitten/components';
 import styles from './styles';
 
-const ThemedSafeAreaView: React.FC = ({ children }) => {
+interface IThemedSafeAreaView {
+  style?: StyleProp<ViewStyle>;
+}
+
+const ThemedSafeAreaView: React.FC<IThemedSafeAreaView> = ({ children, style }) => {
   const theme = useTheme();
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: theme['background-basic-color-1'] }]}>
+    <SafeAreaView
+      style={[styles.safeArea, { backgroundColor: theme['background-basic-color-1'] }, style]}
+    >
       {children}
     </SafeAreaView>
   );

@@ -12,6 +12,7 @@ import menuRoutes from './routes';
 import styles from './styles';
 import type { IMenuRouteItem, TProps } from './types';
 import { getSubtitle } from './utils';
+import { useSettingsAction } from './hooks';
 
 const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRouteItem & TProps) => {
   const dispatch = useDispatch();
@@ -47,10 +48,11 @@ const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRoute
 
 const Menu: React.FC<TProps> = (navigationProps) => {
   const route = useRoute();
+  const SettingsAction = useSettingsAction();
 
   return (
     <ThemedSafeAreaView>
-      <TopNavigation title={route.name} alignment="center" />
+      <TopNavigation title={route.name} alignment="center" accessoryRight={SettingsAction} />
       <Layout style={styles.container}>
         {menuRoutes.map((routeItem) => (
           <MenuButton key={routeItem.title} {...{ ...routeItem, ...navigationProps }} />
