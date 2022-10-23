@@ -28,6 +28,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const progress = useRef(new Animated.Value(0));
 
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
+  const { language } = useSelector((state: RootState) => state.settings);
 
   const currentQuestionId = questionList[currentQuestionIndex]?.id;
   const isBookmarked = useBookmarked(currentQuestionId);
@@ -44,7 +45,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   useFocusEffect(
     useCallback(() => {
       (async () => {
-        const preparedQuestions = await setupQuiz(quizType);
+        const preparedQuestions = await setupQuiz(quizType, language);
         dispatch(setQuestions(preparedQuestions));
       })();
 
@@ -52,7 +53,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         dispatch(restartQuiz());
         dispatch(setQuestions([]));
       };
-    }, [quizType, dispatch]),
+    }, [quizType, language, dispatch]),
   );
 
   const handleNext = () => {
@@ -66,7 +67,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   };
 
   const handleRestart = async () => {
-    const preparedQuestions = await setupQuiz(quizType);
+    const preparedQuestions = await setupQuiz(quizType, language);
     dispatch(setQuestions(preparedQuestions));
     dispatch(restartQuiz());
     animateProgress(0);
