@@ -13,11 +13,13 @@ import styles from './styles';
 import type { IMenuRouteItem, TProps } from './types';
 import { getSubtitle } from './utils';
 import { useSettingsAction } from './hooks';
+import { useTranslation } from 'react-i18next';
 
 const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRouteItem & TProps) => {
   const dispatch = useDispatch();
-  const [buttonSubtitle, setButtonSubtitle] = useState(subtitle);
   const theme = useTheme();
+
+  const [buttonSubtitle, setButtonSubtitle] = useState(subtitle);
 
   const navigate = () => navigation.navigate(to, params as undefined);
 
@@ -48,6 +50,7 @@ const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRoute
 
 const Menu: React.FC<TProps> = (navigationProps) => {
   const route = useRoute();
+  const { t } = useTranslation();
   const SettingsAction = useSettingsAction();
 
   return (
@@ -55,7 +58,15 @@ const Menu: React.FC<TProps> = (navigationProps) => {
       <TopNavigation title={route.name} alignment="center" accessoryRight={SettingsAction} />
       <Layout style={styles.container}>
         {menuRoutes.map((routeItem) => (
-          <MenuButton key={routeItem.title} {...{ ...routeItem, ...navigationProps }} />
+          <MenuButton
+            key={routeItem.title}
+            {...{
+              ...routeItem,
+              ...navigationProps,
+              title: t(`routes.${routeItem.title}.title`),
+              subtitle: routeItem.subtitle && t(`routes.${routeItem.subtitle}.subtitle`),
+            }}
+          />
         ))}
       </Layout>
     </ThemedSafeAreaView>
