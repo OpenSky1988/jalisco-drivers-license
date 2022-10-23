@@ -1,5 +1,8 @@
 import { DEVICE_STORE_KEYS } from '../../../async-storage/deviceStoreKeys';
+import i18n from '../../../locales/i18n';
 import { IMenuRouteItem } from '../types';
+
+const { t } = i18n;
 
 const menuRoutes: IMenuRouteItem[] = [
   {
@@ -7,7 +10,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.ORDERED,
-      title: 'ordered_quiz',
+      title: t('routes.ordered_quiz.title'),
     },
   },
   {
@@ -15,7 +18,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.RANDOMIZED,
-      title: 'randomized_quiz',
+      title: t('routes.randomized_quiz.title'),
     },
   },
   {
@@ -24,7 +27,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.MARATHON,
-      title: 'marathon',
+      title: t('routes.marathon.title'),
     },
   },
   {
@@ -33,7 +36,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.MISTAKES,
-      title: 'mistakes',
+      title: t('routes.mistakes.title'),
     },
   },
   {
@@ -42,7 +45,7 @@ const menuRoutes: IMenuRouteItem[] = [
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.FAVORITES,
-      title: 'favorites',
+      title: t('routes.favorites.title'),
     },
   },
 ];
