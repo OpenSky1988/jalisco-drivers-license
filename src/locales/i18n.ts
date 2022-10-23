@@ -9,6 +9,7 @@ i18n
   .use(RNLanguageDetector)
   .use(initReactI18next)
   .init({
+    compatibilityJSON: 'v3',
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false,

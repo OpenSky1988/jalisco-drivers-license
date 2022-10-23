@@ -1,8 +1,8 @@
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { Layout, TopNavigation } from '@ui-kitten/components';
 import React, { useCallback, useRef } from 'react';
 import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { Layout, TopNavigation } from '@ui-kitten/components';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import NextButton from '../../components/NextButton';
@@ -11,13 +11,15 @@ import Question from '../../components/Question';
 import { useBookmarked } from '../../components/Question/hooks';
 import QuestionImage from '../../components/QuestionImage';
 import QuestionOptions from '../../components/QuestionOptions';
+import QuizPlaceholder from '../../components/QuizPlaceholder';
 import ResultsModal from '../../components/ResultsModal';
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import { RootState } from '../../store';
 import { nextQuestion, restartQuiz, setQuestions } from '../../store/slices/questions';
-import { useBackAction, useBookmarkAction } from './hooks';
+import { useBackAction } from '../../utils/hooks';
+import { useBookmarkAction } from './hooks';
 import styles from './styles';
-import type { IQuestion, TNavigationProps } from './types';
+import type { TNavigationProps } from './types';
 import { setupQuiz } from './utils';
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
@@ -31,11 +33,19 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const isBookmarked = useBookmarked(currentQuestionId);
   const quizType = route.params?.quizType as keyof typeof DEVICE_STORE_KEYS;
 
+  const animateProgress = (toValue: number) => {
+    Animated.timing(progress.current, {
+      toValue,
+      duration: 1000,
+      useNativeDriver: false,
+    }).start();
+  };
+
   useFocusEffect(
     useCallback(() => {
       (async () => {
         const preparedQuestions = await setupQuiz(quizType);
-        dispatch(setQuestions(preparedQuestions as IQuestion[]));
+        dispatch(setQuestions(preparedQuestions));
       })();
 
       return () => {
@@ -45,14 +55,6 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
     }, [quizType, dispatch]),
   );
 
-  const animateProgress = (toValue: number) => {
-    Animated.timing(progress.current, {
-      toValue,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  };
-
   const handleNext = () => {
     dispatch(
       nextQuestion({
@@ -60,19 +62,17 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         questionsNumber: questionList.length - 1,
       }),
     );
-
     animateProgress(currentQuestionIndex + 1);
   };
 
-  const handleFinish = () => navigation.navigate('Menu' as never);
-
   const handleRestart = async () => {
     const preparedQuestions = await setupQuiz(quizType);
-
-    dispatch(setQuestions(preparedQuestions as IQuestion[]));
+    dispatch(setQuestions(preparedQuestions));
     dispatch(restartQuiz());
     animateProgress(0);
   };
+
+  const handleFinish = () => navigation.navigate('Menu' as never);
 
   const BookmarkAction = useBookmarkAction(currentQuestionId, isBookmarked);
   const BackAction = useBackAction();
@@ -83,22 +83,26 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         title={route.params.title}
         alignment="center"
         accessoryLeft={BackAction}
-        accessoryRight={BookmarkAction}
+        accessoryRight={questionList.length ? BookmarkAction : undefined}
       />
-      <ScrollView>
-        <Layout style={styles.container}>
-          <ProgressBar progress={progress.current} />
-          <QuestionImage />
-          <Question handleNext={handleNext} quizType={route.params?.quizType} />
-          <QuestionOptions handleNext={handleNext} />
-          <NextButton handleNext={handleNext} />
-          <ResultsModal
-            handleFinish={handleFinish}
-            handleRestart={handleRestart}
-            quizType={route.params?.quizType}
-          />
-        </Layout>
-      </ScrollView>
+      {questionList.length ? (
+        <ScrollView>
+          <Layout style={styles.container}>
+            <ProgressBar progress={progress.current} />
+            <QuestionImage />
+            <Question handleNext={handleNext} quizType={route.params?.quizType} />
+            <QuestionOptions handleNext={handleNext} />
+            <NextButton handleNext={handleNext} />
+            <ResultsModal
+              handleFinish={handleFinish}
+              handleRestart={handleRestart}
+              quizType={route.params?.quizType}
+            />
+          </Layout>
+        </ScrollView>
+      ) : (
+        <QuizPlaceholder quizType={quizType} />
+      )}
     </ThemedSafeAreaView>
   );
 };

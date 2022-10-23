@@ -1,3 +1,5 @@
+const isObject = (value: unknown) => typeof value === 'object' && value !== null;
+
 const shuffleArray = (array: unknown[]): unknown[] => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -21,7 +23,5 @@ const tryParseJSONObject = (jsonString: string | null) => {
 
   return false;
 };
-
-const isObject = (value: unknown) => typeof value === 'object' && value !== null;
 
 export { isObject, shuffleArray, tryParseJSONObject };

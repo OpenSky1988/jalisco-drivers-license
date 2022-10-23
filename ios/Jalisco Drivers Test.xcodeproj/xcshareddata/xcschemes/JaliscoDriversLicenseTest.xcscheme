@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "JaliscoDriversLicenseTest.app"
-               BlueprintName = "JaliscoDriversLicenseTest"
-               ReferencedContainer = "container:JaliscoDriversLicenseTest.xcodeproj">
+               BuildableName = "Jalisco Drivers Test.app"
+               BlueprintName = "Jalisco Drivers Test"
+               ReferencedContainer = "container:Jalisco Drivers Test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "JaliscoDriversLicenseTestTests.xctest"
-               BlueprintName = "JaliscoDriversLicenseTestTests"
-               ReferencedContainer = "container:JaliscoDriversLicenseTest.xcodeproj">
+               BuildableName = "Jalisco Drivers TestTests.xctest"
+               BlueprintName = "Jalisco Drivers TestTests"
+               ReferencedContainer = "container:Jalisco Drivers Test.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "JaliscoDriversLicenseTest.app"
-            BlueprintName = "JaliscoDriversLicenseTest"
-            ReferencedContainer = "container:JaliscoDriversLicenseTest.xcodeproj">
+            BuildableName = "Jalisco Drivers Test.app"
+            BlueprintName = "Jalisco Drivers Test"
+            ReferencedContainer = "container:Jalisco Drivers Test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "JaliscoDriversLicenseTest.app"
-            BlueprintName = "JaliscoDriversLicenseTest"
-            ReferencedContainer = "container:JaliscoDriversLicenseTest.xcodeproj">
+            BuildableName = "Jalisco Drivers Test.app"
+            BlueprintName = "Jalisco Drivers Test"
+            ReferencedContainer = "container:Jalisco Drivers Test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -6,4 +6,5 @@ type TRootStackParamList = {
     quizType?: string;
     title?: string;
   };
+  Settings: undefined;
 };

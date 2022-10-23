@@ -6,7 +6,6 @@ import { store } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { RootState } from '../../store';
 import { setFavorites } from '../../store/slices/questions';
-import { useNavigation } from '@react-navigation/native';
 
 const useBookmarkAction = (currentQuestionId: number, isBookmarked: boolean) => {
   const dispatch = useDispatch();
@@ -32,13 +31,4 @@ const useBookmarkAction = (currentQuestionId: number, isBookmarked: boolean) => 
   );
 };
 
-const useBackAction = () => {
-  const navigation = useNavigation();
-  const navigateBack = () => navigation.goBack();
-
-  const BackIcon = (props: IconProps) => <Icon {...props} name="arrow-back" />;
-
-  return () => <TopNavigationAction icon={BackIcon} onPress={navigateBack} />;
-};
-
-export { useBackAction, useBookmarkAction };
+export { useBookmarkAction };

@@ -6,11 +6,36 @@
     "question": "Pregunta {{questionId}}",
     "next": "Próximo"
   },
+  "mistakes_empty_quiz": {
+    "title": "Esta lista está vacía",
+    "subtitle": "Aquí verás preguntas respondidas incorrectamente"
+  },
+  "favorites_empty_quiz": {
+    "title": "Esta lista está vacía",
+    "subtitle": "Aquí verás preguntas marcadas"
+  },
   "result_modal": {
     "success": "¡Felicidades!",
     "failure": "¡Intentar otra vez!",
     "retry": "Reintentar cuestionario",
     "menu": "Menú"
+  },
+  "settings": {
+    "language": {
+      "title": "Idioma",
+      "options": {
+        "es": "Español",
+        "en": "Inglés"
+      }
+    },
+    "themeMode": {
+      "title": "Tema",
+      "options": {
+        "system": "Sistema",
+        "light": "Luz",
+        "dark": "Oscuro"
+      }
+    }
   },
   "routes": {
     "ordered_quiz": {
