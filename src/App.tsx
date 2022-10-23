@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { StatusBar, useColorScheme } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import * as eva from '@eva-design/eva';
 import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
@@ -28,6 +28,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
   const { language, themeMode } = useSelector((state: RootState) => state.settings);
+  const activeTheme = themeMode === 'system' ? colorScheme : themeMode;
 
   useEffect(() => {
     (async () => {
@@ -36,8 +37,9 @@ const App: React.FC = () => {
 
       dispatch(setLanguage(DSlanguage || defaultLanguage));
       dispatch(setThemeMode(DSthemeMode || colorScheme));
+      StatusBar.setBarStyle(`${activeTheme === 'dark' ? 'light' : 'dark'}-content`);
     })();
-  }, [OSlanguage, colorScheme, dispatch, defaultLanguage]);
+  }, [OSlanguage, colorScheme, dispatch, defaultLanguage, activeTheme]);
 
   useEffect(() => {
     i18n.changeLanguage(language);
