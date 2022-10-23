@@ -1,51 +1,48 @@
 import { DEVICE_STORE_KEYS } from '../../../async-storage/deviceStoreKeys';
 import { IMenuRouteItem } from '../types';
-import i18n from '../../../locales/i18n';
-
-const { t } = i18n;
 
 const menuRoutes: IMenuRouteItem[] = [
   {
-    title: t('routes.ordered_quiz.title'),
+    title: 'ordered_quiz',
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.ORDERED,
-      title: t('routes.ordered_quiz.title'),
+      title: 'ordered_quiz',
     },
   },
   {
-    title: t('routes.randomized_quiz.title'),
+    title: 'randomized_quiz',
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.RANDOMIZED,
-      title: t('routes.randomized_quiz.title'),
+      title: 'randomized_quiz',
     },
   },
   {
-    title: t('routes.marathon.title'),
-    subtitle: t('routes.marathon.subtitle'),
+    title: 'marathon',
+    subtitle: 'marathon',
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.MARATHON,
-      title: t('routes.marathon.title'),
+      title: 'marathon',
     },
   },
   {
-    title: t('routes.mistakes.title'),
-    subtitle: t('routes.mistakes.subtitle'),
+    title: 'mistakes',
+    subtitle: 'mistakes',
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.MISTAKES,
-      title: t('routes.mistakes.title'),
+      title: 'mistakes',
     },
   },
   {
-    title: t('routes.favorites.title'),
-    subtitle: t('routes.favorites.subtitle'),
+    title: 'favorites',
+    subtitle: 'favorites',
     to: 'Quiz',
     params: {
       quizType: DEVICE_STORE_KEYS.FAVORITES,
-      title: t('routes.favorites.title'),
+      title: 'favorites',
     },
   },
 ];

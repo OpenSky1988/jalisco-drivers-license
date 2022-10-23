@@ -1,10 +1,30 @@
 {
   "menu": {
+    "screen_name": "Menú",
     "successful_attemps": "Intentos exitosos: {{attemptsNumber}}"
   },
   "quiz_screen": {
+    "screen_name": "Prueba",
     "question": "Pregunta {{questionId}}",
     "next": "Próximo"
+  },
+  "settings": {
+    "screen_name": "Ajustes",
+    "language": {
+      "title": "Idioma",
+      "options": {
+        "es": "Español",
+        "en": "English"
+      }
+    },
+    "themeMode": {
+      "title": "Tema",
+      "options": {
+        "system": "Sistema",
+        "light": "Luz",
+        "dark": "Oscuro"
+      }
+    }
   },
   "mistakes_empty_quiz": {
     "title": "Esta lista está vacía",
@@ -19,23 +39,6 @@
     "failure": "¡Intentar otra vez!",
     "retry": "Reintentar cuestionario",
     "menu": "Menú"
-  },
-  "settings": {
-    "language": {
-      "title": "Idioma",
-      "options": {
-        "es": "Español",
-        "en": "Inglés"
-      }
-    },
-    "themeMode": {
-      "title": "Tema",
-      "options": {
-        "system": "Sistema",
-        "light": "Luz",
-        "dark": "Oscuro"
-      }
-    }
   },
   "routes": {
     "ordered_quiz": {
