@@ -1,6 +1,7 @@
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { Layout, TopNavigation } from '@ui-kitten/components';
 import React, { useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -26,6 +27,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const progress = useRef(new Animated.Value(0));
+  const { t } = useTranslation();
 
   const { currentQuestionIndex, questionList } = useSelector((state: RootState) => state.questions);
   const { language } = useSelector((state: RootState) => state.settings);
@@ -81,7 +83,7 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   return (
     <ThemedSafeAreaView>
       <TopNavigation
-        title={route.params.title}
+        title={t(`routes.${route.params.title}.title`)}
         alignment="center"
         accessoryLeft={BackAction}
         accessoryRight={questionList.length ? BookmarkAction : undefined}

@@ -1,4 +1,3 @@
-import { useRoute } from '@react-navigation/native';
 import {
   IndexPath,
   Layout,
@@ -24,7 +23,6 @@ const themeModes: TThemeMode[] = ['system', 'light', 'dark'];
 
 const Settings: React.FC = () => {
   const dispatch = useDispatch();
-  const route = useRoute();
   const { t } = useTranslation();
   const { language, themeMode } = useSelector((state: RootState) => state.settings);
 
@@ -42,7 +40,11 @@ const Settings: React.FC = () => {
 
   return (
     <ThemedSafeAreaView>
-      <TopNavigation title={route.name} alignment="center" accessoryLeft={BackAction} />
+      <TopNavigation
+        title={t('settings.screen_title')}
+        alignment="center"
+        accessoryLeft={BackAction}
+      />
       <Layout style={styles.container}>
         <Text style={styles.text} category="h6">
           {t('settings.language.title')}
