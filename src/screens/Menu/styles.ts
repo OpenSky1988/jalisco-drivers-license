@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../constants';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,22 +6,6 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
     paddingHorizontal: 16,
     position: 'relative',
-  },
-  menuButton: {
-    borderRadius: 16,
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    marginVertical: 10,
-    padding: 30,
-  },
-  menuButtonTitle: {
-    color: COLORS.white,
-    fontSize: 20,
-    marginBottom: 4,
-  },
-  menuButtonSubtitle: {
-    color: COLORS.white,
-    fontSize: 16,
   },
 });
 

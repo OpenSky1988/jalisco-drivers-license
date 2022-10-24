@@ -13,13 +13,11 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
+import { LANGUAGES, THEME_MODES } from '../../constants';
 import { RootState } from '../../store';
-import { setLanguage, setThemeMode, TLanguage, TThemeMode } from '../../store/slices/settings';
+import { setLanguage, setThemeMode } from '../../store/slices/settings';
 import { useBackAction } from '../../utils/hooks';
 import styles from './styles';
-
-export const languages: TLanguage[] = ['es', 'en'];
-const themeModes: TThemeMode[] = ['system', 'light', 'dark'];
 
 const Settings: React.FC = () => {
   const dispatch = useDispatch();
@@ -29,12 +27,12 @@ const Settings: React.FC = () => {
   const BackAction = useBackAction();
 
   const handleLanguageChange = (index: IndexPath | IndexPath[]) => {
-    const selectedLanguage = languages[(index as IndexPath).row];
+    const selectedLanguage = LANGUAGES[(index as IndexPath).row];
     dispatch(setLanguage(selectedLanguage));
   };
 
   const handleThemeModeChange = (index: number) => {
-    const selectedThemeMode = themeModes[index];
+    const selectedThemeMode = THEME_MODES[index];
     dispatch(setThemeMode(selectedThemeMode));
   };
 
@@ -51,7 +49,7 @@ const Settings: React.FC = () => {
         </Text>
         <Select
           style={styles.setting}
-          selectedIndex={new IndexPath(languages.indexOf(language))}
+          selectedIndex={new IndexPath(LANGUAGES.indexOf(language))}
           onSelect={handleLanguageChange}
           value={t(`settings.language.options.${language}`)}
         >
@@ -63,7 +61,7 @@ const Settings: React.FC = () => {
         </Text>
         <RadioGroup
           style={styles.setting}
-          selectedIndex={themeModes.indexOf(themeMode)}
+          selectedIndex={THEME_MODES.indexOf(themeMode)}
           onChange={handleThemeModeChange}
         >
           <Radio>{t('settings.themeMode.options.system')}</Radio>
