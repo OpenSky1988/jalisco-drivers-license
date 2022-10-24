@@ -55,11 +55,7 @@ const App: React.FC = () => {
         <NavigationContainer>
           <Navigator screenOptions={{ headerShown: false }}>
             <Screen name="Menu" component={Menu} />
-            <Screen
-              name="Quiz"
-              component={Quiz}
-              options={({ route }) => ({ title: route.params.title })}
-            />
+            <Screen name="Quiz" component={Quiz} />
             <Screen name="Settings" component={Settings} />
           </Navigator>
         </NavigationContainer>

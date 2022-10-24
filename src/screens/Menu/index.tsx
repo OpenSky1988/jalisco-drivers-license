@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useFocusEffect, useRoute } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
 import { Layout, Text, TopNavigation, useTheme } from '@ui-kitten/components';
 
 import { get } from '../../async-storage';
@@ -49,13 +49,16 @@ const MenuButton = ({ navigation, params, subtitle = '', title, to }: IMenuRoute
 };
 
 const Menu: React.FC<TProps> = (navigationProps) => {
-  const route = useRoute();
   const { t } = useTranslation();
   const SettingsAction = useSettingsAction();
 
   return (
     <ThemedSafeAreaView>
-      <TopNavigation title={route.name} alignment="center" accessoryRight={SettingsAction} />
+      <TopNavigation
+        title={t('menu.screen_title')}
+        alignment="center"
+        accessoryRight={SettingsAction}
+      />
       <Layout style={styles.container}>
         {menuRoutes.map((routeItem) => (
           <MenuButton

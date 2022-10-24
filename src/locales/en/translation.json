@@ -1,15 +1,15 @@
 {
   "menu": {
-    "screen_name": "Menu",
+    "screen_title": "Menu",
     "successful_attemps": "Successful attempts: {{attemptsNumber}}"
   },
   "quiz_screen": {
-    "screen_name": "Quiz",
+    "screen_title": "Quiz",
     "question": "Question {{questionId}}",
     "next": "Next"
   },
   "settings": {
-    "screen_name": "Settings",
+    "screen_title": "Settings",
     "language": {
       "title": "Language",
       "options": {
