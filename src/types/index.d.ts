@@ -8,3 +8,7 @@ type TRootStackParamList = {
   };
   Settings: undefined;
 };
+
+type TLanguage = 'es' | 'en';
+
+type TThemeMode = 'system' | 'light' | 'dark';
