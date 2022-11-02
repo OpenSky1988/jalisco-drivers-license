@@ -13,8 +13,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1619B884FC76A74B0EB71F96 /* Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B80EE50EFF4366D93E5B020 /* Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		820EA54428DAE22E0097D9DC /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 820EA54328DAE22E0097D9DC /* libRNSVG.a */; };
-		820EA54628DAE2600097D9DC /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 820EA54528DAE2600097D9DC /* libRNSVG.a */; };
 		82265CE9291236DA00CA274D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82265CE8291236DA00CA274D /* GoogleService-Info.plist */; };
 		82265CEA291236DA00CA274D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82265CE8291236DA00CA274D /* GoogleService-Info.plist */; };
 		F818532A0983BBDF666EB60A /* Pods_JaliscoDriversLicenseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD685185C014553A1917C2A5 /* Pods_JaliscoDriversLicenseTest.framework */; };
@@ -45,8 +43,6 @@
 		5B7EB9410499542E8C5724F5 /* Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig"; path = "Target Support Files/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B80EE50EFF4366D93E5B020 /* Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = JaliscoDriversLicenseTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		820EA54328DAE22E0097D9DC /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		820EA54528DAE2600097D9DC /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNSVG.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		82265CE8291236DA00CA274D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig"; path = "Target Support Files/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests/Pods-JaliscoDriversLicenseTest-JaliscoDriversLicenseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD685185C014553A1917C2A5 /* Pods_JaliscoDriversLicenseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JaliscoDriversLicenseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820EA54428DAE22E0097D9DC /* libRNSVG.a in Frameworks */,
 				1619B884FC76A74B0EB71F96 /* Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				820EA54628DAE2600097D9DC /* libRNSVG.a in Frameworks */,
 				F818532A0983BBDF666EB60A /* Pods_JaliscoDriversLicenseTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,8 +102,6 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				820EA54528DAE2600097D9DC /* libRNSVG.a */,
-				820EA54328DAE22E0097D9DC /* libRNSVG.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				CD685185C014553A1917C2A5 /* Pods_JaliscoDriversLicenseTest.framework */,
 				6B80EE50EFF4366D93E5B020 /* Pods_JaliscoDriversLicenseTest_JaliscoDriversLicenseTestTests.framework */,
