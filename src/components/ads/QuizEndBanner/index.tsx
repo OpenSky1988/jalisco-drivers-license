@@ -5,8 +5,8 @@ const QuizEndBanner: React.FC = () => (
   <BannerAd
     unitId={TestIds.BANNER}
     size={BannerAdSize.MEDIUM_RECTANGLE}
-    onAdLoaded={() => console.log('Advert loaded')}
-    onAdFailedToLoad={(error) => console.error('Advert failed to load: ', error)}
+    onAdLoaded={() => console.log('Quiz End Banner loaded')}
+    onAdFailedToLoad={(error) => console.error('Quiz End Banner failed to load: ', error)}
   />
 );
 
