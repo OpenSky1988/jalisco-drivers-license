@@ -9,6 +9,7 @@ import { RootState } from '../../store';
 import styles from './styles';
 import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
+import QuizEndBanner from '../ads/QuizEndBanner';
 
 const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
   const { t } = useTranslation();
@@ -31,6 +32,7 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
   return (
     <Modal animationType="slide" transparent={true} visible={showScoreModal}>
       <Layout style={styles.resultContainer}>
+        <QuizEndBanner />
         <View style={styles.result}>
           <Text style={styles.resultTitle}>
             {isSuccessfull ? t('result_modal.success') : t('result_modal.failure')}

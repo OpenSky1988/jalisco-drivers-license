@@ -6,6 +6,7 @@ import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
+import QuestionBanner from '../../components/ads/QuestionBanner';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
@@ -89,20 +90,23 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         accessoryRight={questionList.length ? BookmarkAction : undefined}
       />
       {questionList.length ? (
-        <ScrollView>
-          <Layout style={styles.container}>
-            <ProgressBar progress={progress.current} />
-            <QuestionImage />
-            <Question handleNext={handleNext} quizType={route.params?.quizType} />
-            <QuestionOptions handleNext={handleNext} />
-            <NextButton handleNext={handleNext} />
-            <ResultsModal
-              handleFinish={handleFinish}
-              handleRestart={handleRestart}
-              quizType={route.params?.quizType}
-            />
-          </Layout>
-        </ScrollView>
+        <Layout style={styles.container}>
+          <ScrollView>
+            <Layout style={styles.quizContainer}>
+              <ProgressBar progress={progress.current} />
+              <QuestionImage />
+              <Question handleNext={handleNext} quizType={route.params?.quizType} />
+              <QuestionOptions handleNext={handleNext} />
+              <NextButton handleNext={handleNext} />
+              <ResultsModal
+                handleFinish={handleFinish}
+                handleRestart={handleRestart}
+                quizType={route.params?.quizType}
+              />
+            </Layout>
+          </ScrollView>
+          <QuestionBanner />
+        </Layout>
       ) : (
         <QuizPlaceholder quizType={quizType} />
       )}

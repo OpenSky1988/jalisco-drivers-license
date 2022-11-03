@@ -8,6 +8,7 @@ import styles from './styles';
 import type { TProps } from './types';
 import { useSettingsAction } from './hooks';
 import MenuButton from '../../components/MenuButton';
+import { ScrollView } from 'react-native';
 
 const Menu: React.FC<TProps> = (navigationProps) => {
   const { t } = useTranslation();
@@ -21,17 +22,19 @@ const Menu: React.FC<TProps> = (navigationProps) => {
         accessoryRight={SettingsAction}
       />
       <Layout style={styles.container}>
-        {menuRoutes.map((routeItem) => (
-          <MenuButton
-            key={routeItem.title}
-            {...{
-              ...routeItem,
-              ...navigationProps,
-              title: t(`routes.${routeItem.title}.title`),
-              subtitle: routeItem.subtitle && t(`routes.${routeItem.subtitle}.subtitle`),
-            }}
-          />
-        ))}
+        <ScrollView>
+          {menuRoutes.map((routeItem) => (
+            <MenuButton
+              key={routeItem.title}
+              {...{
+                ...routeItem,
+                ...navigationProps,
+                title: t(`routes.${routeItem.title}.title`),
+                subtitle: routeItem.subtitle && t(`routes.${routeItem.subtitle}.subtitle`),
+              }}
+            />
+          ))}
+        </ScrollView>
       </Layout>
     </ThemedSafeAreaView>
   );

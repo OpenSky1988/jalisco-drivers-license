@@ -11,6 +11,7 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import SettingsBanner from '../../components/ads/SettingsBanner';
 
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import { LANGUAGES, THEME_MODES } from '../../constants';
@@ -68,6 +69,9 @@ const Settings: React.FC = () => {
           <Radio>{t('settings.themeMode.options.light')}</Radio>
           <Radio>{t('settings.themeMode.options.dark')}</Radio>
         </RadioGroup>
+      </Layout>
+      <Layout style={styles.adContainer}>
+        <SettingsBanner />
       </Layout>
     </ThemedSafeAreaView>
   );
