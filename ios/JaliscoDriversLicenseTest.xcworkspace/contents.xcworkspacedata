@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/alexprisazhny/Developer/JaliscoDriversLicense/ios/Jalisco Drivers Test.xcodeproj">
+      location = "group:/Users/alexprisazhny/Developer/JaliscoDriversLicense/ios/JaliscoDriversLicenseTest.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:JaliscoDriversLicenseTest.xcodeproj">
    </FileRef>
 </Workspace>

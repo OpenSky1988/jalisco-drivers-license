@@ -3,10 +3,13 @@ import { StyleSheet } from 'react-native';
 import { SIZES } from '../../constants';
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   safeArea: {
     flex: 1,
   },
-  container: {
+  quizContainer: {
     flex: 1,
     paddingBottom: 40,
     paddingTop: 20,

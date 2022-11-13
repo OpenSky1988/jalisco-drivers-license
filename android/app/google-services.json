@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "581434553465",
+    "project_id": "jalisco-driving-test-alexp",
+    "storage_bucket": "jalisco-driving-test-alexp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581434553465:android:fdc096c78f6542a4c0d0a8",
+        "android_client_info": {
+          "package_name": "com.jaliscodriverslicensetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmMa2CxlaQ5khK_HoXk-y5nMlKxLIpnd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "581434553465-ufirhia0346395iqq9rqmatg45boelck.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.JaliscoDriversLicenseTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

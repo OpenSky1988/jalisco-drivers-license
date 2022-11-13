@@ -1,8 +1,18 @@
+import { Animated } from 'react-native';
+
 import { get, store } from '../../async-storage';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import data from '../../data/quiz';
 import { shuffleArray } from '../../utils';
 import { IQuestion } from './types';
+
+const animateProgress = (progress: Animated.Value, toValue: number) => {
+  Animated.timing(progress, {
+    toValue,
+    duration: 1000,
+    useNativeDriver: false,
+  }).start();
+};
 
 const decreaseWrongAnswersInDeviceStorage = async (currentQuestionIndex: number) => {
   await updateWrongAnswersInDeviceStorage(currentQuestionIndex, (wrongAnswersNumber: number) => {
@@ -91,6 +101,7 @@ const updateWrongAnswersInDeviceStorage = async (
 };
 
 export {
+  animateProgress,
   decreaseWrongAnswersInDeviceStorage,
   filterFavorites,
   filterMistakes,

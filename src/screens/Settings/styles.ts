@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  adContainer: {
+    alignItems: 'flex-end',
+    display: 'flex',
+  },
   container: {
     flex: 1,
     paddingVertical: 40,
