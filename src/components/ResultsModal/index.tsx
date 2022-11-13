@@ -9,7 +9,7 @@ import { RootState } from '../../store';
 import styles from './styles';
 import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
-import QuizEndBanner from '../ads/QuizEndBanner';
+import QuizEndBanner from '../AdMob/QuizEndBanner';
 
 const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
   const { t } = useTranslation();

@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import SettingsBanner from '../../components/ads/SettingsBanner';
+import SettingsBanner from '../../components/AdMob/SettingsBanner';
 
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import { LANGUAGES, THEME_MODES } from '../../constants';

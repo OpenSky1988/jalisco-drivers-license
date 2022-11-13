@@ -6,7 +6,8 @@ import { Animated, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
-import QuestionBanner from '../../components/ads/QuestionBanner';
+import QuestionBanner from '../../components/AdMob/QuestionBanner';
+import quizEndInterstitial, { onClose, onLoad } from '../../components/AdMob/QuizEndInterstitial';
 import NextButton from '../../components/NextButton';
 import ProgressBar from '../../components/ProgressBar';
 import Question from '../../components/Question';
@@ -22,7 +23,7 @@ import { useBackAction } from '../../utils/hooks';
 import { useBookmarkAction } from './hooks';
 import styles from './styles';
 import type { TNavigationProps } from './types';
-import { setupQuiz } from './utils';
+import { animateProgress, setupQuiz } from './utils';
 
 const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const dispatch = useDispatch();
@@ -37,16 +38,10 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
   const isBookmarked = useBookmarked(currentQuestionId);
   const quizType = route.params?.quizType as keyof typeof DEVICE_STORE_KEYS;
 
-  const animateProgress = (toValue: number) => {
-    Animated.timing(progress.current, {
-      toValue,
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  };
-
   useFocusEffect(
     useCallback(() => {
+      quizEndInterstitial.load();
+
       (async () => {
         const preparedQuestions = await setupQuiz(quizType, language);
         dispatch(setQuestions(preparedQuestions));
@@ -66,14 +61,19 @@ const Quiz: React.FC<TNavigationProps> = ({ route }) => {
         questionsNumber: questionList.length - 1,
       }),
     );
-    animateProgress(currentQuestionIndex + 1);
+    animateProgress(progress.current, currentQuestionIndex + 1);
   };
 
   const handleRestart = async () => {
     const preparedQuestions = await setupQuiz(quizType, language);
-    dispatch(setQuestions(preparedQuestions));
-    dispatch(restartQuiz());
-    animateProgress(0);
+
+    onLoad(() => quizEndInterstitial.show());
+
+    onClose(() => {
+      dispatch(setQuestions(preparedQuestions));
+      dispatch(restartQuiz());
+      animateProgress(progress.current, 0);
+    });
   };
 
   const handleFinish = () => navigation.navigate('Menu' as never);
