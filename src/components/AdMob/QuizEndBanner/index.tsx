@@ -1,5 +1,5 @@
 import React from 'react';
-import { TestIds, BannerAd, BannerAdSize } from '@react-native-firebase/admob';
+import { TestIds, BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 
 const QuizEndBanner: React.FC = () => (
   <BannerAd
