@@ -1,8 +1,6 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-$RNFirebaseAsStaticFramework = true
-
 platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 
@@ -25,9 +23,15 @@ target 'JaliscoDriversLicenseTest' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'RNGoogleMobileAds', :path => '../node_modules/react-native-google-mobile-ads'
+
   target 'JaliscoDriversLicenseTestTests' do
     inherit! :complete
     # Pods for testing
+  end
+
+  pre_install do |installer|
+    Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
   end
 
   # Enables Flipper.
@@ -35,6 +39,16 @@ target 'JaliscoDriversLicenseTest' do
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable the next line.
   # use_flipper!()
+  
+  pre_install do |installer|
+    installer.pod_targets.each do |pod|
+      if pod.name.eql?('RNGoogleMobileAds')
+        def pod.build_type
+          Pod::BuildType.static_library
+        end
+      end
+    end
+  end
 
   post_install do |installer|
     react_native_post_install(installer)

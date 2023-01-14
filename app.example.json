@@ -1,4 +1,4 @@
-{ "ios_app_id": "ca-app-pub-8956893098135860~5603509102",
+{
   "name": "JaliscoDriversLicenseTest",
   "displayName": "Jalisco Driver's Test",
   "splash": {
@@ -6,7 +6,7 @@
     "resizeMode": "cover"
   },
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8956893098135860~3784011031",
-    "ios_app_id": "ca-app-pub-8956893098135860~5603509102"
+    "android_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx",
+    "ios_app_id": "ca-app-pub-xxxxxxxx~xxxxxxxx"
   }
 }
