@@ -1,8 +1,10 @@
+import database from '@react-native-firebase/database';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Layout, Text, useTheme } from '@ui-kitten/components';
+
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { RootState } from '../../store';
@@ -27,6 +29,9 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
         await updateSuccessfullAttemts(quizType);
       }
     })();
+    database().ref('/stats').push({
+      hehe: 'Hello',
+    });
   }, [isSuccessfull, score, quizType]);
 
   return (

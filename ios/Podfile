@@ -1,6 +1,8 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
+$RNFirebaseAsStaticFramework = true
+
 platform :ios, '11.0'
 install! 'cocoapods', :deterministic_uuids => false
 
@@ -24,6 +26,10 @@ target 'JaliscoDriversLicenseTest' do
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
   pod 'RNGoogleMobileAds', :path => '../node_modules/react-native-google-mobile-ads'
+
+  pod 'RNFBDatabase', :path => '../node_modules/@react-native-firebase/database'
+
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
 
   target 'JaliscoDriversLicenseTestTests' do
     inherit! :complete
