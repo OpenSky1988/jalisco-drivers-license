@@ -1,10 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import * as eva from '@eva-design/eva';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { useSelector } from 'react-redux';
 
 import Quiz from './screens/Quiz';
 import Menu from './screens/Menu';
@@ -12,6 +13,8 @@ import Settings from './screens/Settings';
 import { RootState } from './store';
 import theme from './theme/custom-theme.json';
 import { useLocale, useThemeMode } from './hooks';
+
+GoogleSignin.configure();
 
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 

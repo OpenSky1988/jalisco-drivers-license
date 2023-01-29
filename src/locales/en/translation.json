@@ -24,7 +24,8 @@
         "light": "Light",
         "dark": "Dark"
       }
-    }
+    },
+    "googleLogin": "Sync your stats"
   },
   "mistakes_empty_quiz": {
     "title": "This list is empty",

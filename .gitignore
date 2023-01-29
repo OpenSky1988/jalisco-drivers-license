@@ -37,7 +37,7 @@ npm-debug.log
 yarn-error.log
 firebase.json
 app.json
-
+globals.ts
 
 # BUCK
 buck-out/

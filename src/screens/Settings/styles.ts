@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../constants';
 
 const styles = StyleSheet.create({
   adContainer: {
@@ -15,6 +16,25 @@ const styles = StyleSheet.create({
   },
   setting: {
     marginBottom: 20,
+  },
+
+  // -------------------------------------
+  loginButton: {
+    display: 'flex',
+    flexDirection: 'row',
+    borderRadius: 20,
+    marginVertical: 10,
+    padding: 20,
+    width: '100%',
+  },
+  loginButtonIcon: {
+    // color: COLORS.white,
+    height: 14,
+  },
+  loginButtonText: {
+    color: COLORS.white,
+    fontSize: 20,
+    textAlign: 'center',
   },
 });
 

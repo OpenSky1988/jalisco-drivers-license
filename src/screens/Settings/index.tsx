@@ -1,4 +1,7 @@
 import {
+  Button,
+  Icon,
+  IconProps,
   IndexPath,
   Layout,
   Radio,
@@ -11,13 +14,14 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import SettingsBanner from '../../components/AdMob/SettingsBanner';
 
+import SettingsBanner from '../../components/AdMob/SettingsBanner';
 import ThemedSafeAreaView from '../../components/ThemedSafeAreaView';
 import { LANGUAGES, THEME_MODES } from '../../constants';
 import { RootState } from '../../store';
 import { setLanguage, setThemeMode } from '../../store/slices/settings';
 import { useBackAction } from '../../utils/hooks';
+import onGoogleLoginPress from '../../utils/onGoogleLoginPress';
 import styles from './styles';
 
 const Settings: React.FC = () => {
@@ -26,6 +30,7 @@ const Settings: React.FC = () => {
   const { language, themeMode } = useSelector((state: RootState) => state.settings);
 
   const BackAction = useBackAction();
+  const GoogleIcon = (props: IconProps) => <Icon {...props} name="google" />;
 
   const handleLanguageChange = (index: IndexPath | IndexPath[]) => {
     const selectedLanguage = LANGUAGES[(index as IndexPath).row];
@@ -35,6 +40,10 @@ const Settings: React.FC = () => {
   const handleThemeModeChange = (index: number) => {
     const selectedThemeMode = THEME_MODES[index];
     dispatch(setThemeMode(selectedThemeMode));
+  };
+
+  const hangleGoogleLoginPress = () => {
+    onGoogleLoginPress().then(() => console.log('Signed in with Google!'));
   };
 
   return (
@@ -69,6 +78,13 @@ const Settings: React.FC = () => {
           <Radio>{t('settings.themeMode.options.light')}</Radio>
           <Radio>{t('settings.themeMode.options.dark')}</Radio>
         </RadioGroup>
+        <Button
+          accessoryLeft={GoogleIcon}
+          onPress={hangleGoogleLoginPress}
+          style={styles.loginButton}
+        >
+          {t('settings.googleLogin')}
+        </Button>
       </Layout>
       <Layout style={styles.adContainer}>
         <SettingsBanner />

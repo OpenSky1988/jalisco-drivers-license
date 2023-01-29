@@ -24,7 +24,8 @@
         "light": "Luz",
         "dark": "Oscuro"
       }
-    }
+    },
+    "googleLogin": "Sincroniza tus estadísticas"
   },
   "mistakes_empty_quiz": {
     "title": "Esta lista está vacía",
