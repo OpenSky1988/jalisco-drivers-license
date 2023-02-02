@@ -25,7 +25,14 @@
         "dark": "Oscuro"
       }
     },
-    "googleLogin": "Sincroniza tus estadísticas"
+    "googleLogin": "Sincroniza tus estadísticas",
+    "logout": "Cerrar sesión",
+    "sync_modal": {
+      "title": "Sincronizar datos",
+      "description": "Ya tienes tus datos guardados. ¿Le gustaría restaurar los datos de la nube o anularlos en la nube con los datos actuales?",
+      "from_cloud": "Restaurar desde la nube",
+      "to_cloud": "Guardar actual"
+    }
   },
   "mistakes_empty_quiz": {
     "title": "Esta lista está vacía",

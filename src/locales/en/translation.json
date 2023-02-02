@@ -25,7 +25,14 @@
         "dark": "Dark"
       }
     },
-    "googleLogin": "Sync your stats"
+    "googleLogin": "Sync your stats",
+    "logout": "Log out",
+    "sync_modal": {
+      "title": "Sync data",
+      "description": "You already have your data stored. Would you like to restore data from cloud or override it in cloud with the current data?",
+      "from_cloud": "Restore from cloud",
+      "to_cloud": "Save current"
+    }
   },
   "mistakes_empty_quiz": {
     "title": "This list is empty",

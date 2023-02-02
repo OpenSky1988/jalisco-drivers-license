@@ -14,7 +14,9 @@ import { RootState } from './store';
 import theme from './theme/custom-theme.json';
 import { useLocale, useThemeMode } from './hooks';
 
-GoogleSignin.configure();
+GoogleSignin.configure({
+  webClientId: '581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com',
+});
 
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 

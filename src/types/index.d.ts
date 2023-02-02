@@ -12,3 +12,11 @@ type TRootStackParamList = {
 type TLanguage = 'es' | 'en';
 
 type TThemeMode = 'system' | 'light' | 'dark';
+
+type ErrnoException = Error & {
+  errno?: number;
+  code?: string;
+  path?: string;
+  syscall?: string;
+  stack?: string;
+};

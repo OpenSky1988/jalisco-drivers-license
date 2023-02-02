@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "581434553465",
+    "firebase_url": "https://jalisco-driving-test-alexp-default-rtdb.firebaseio.com",
     "project_id": "jalisco-driving-test-alexp",
     "storage_bucket": "jalisco-driving-test-alexp.appspot.com"
   },
@@ -14,7 +15,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com",
+          "client_id": "581434553465-7gbotgecqmvjfbu2prunb7eg4t1lb75r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaliscodriverslicensetest",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "581434553465-mna63ur62amqu88spn11qvkc3nfn7sgm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

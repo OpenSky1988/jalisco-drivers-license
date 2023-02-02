@@ -1,9 +1,9 @@
-import database from '@react-native-firebase/database';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Layout, Text, useTheme } from '@ui-kitten/components';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { RootState } from '../../store';
@@ -11,11 +11,13 @@ import styles from './styles';
 import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 import QuizEndBanner from '../AdMob/QuizEndBanner';
+import { storeUserData } from '../../utils/googleAuth';
 
 const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
   const { t } = useTranslation();
   const theme = useTheme();
 
+  const [isSignedIn, setSignedIn] = useState(false);
   const { questionList, score, showScoreModal } = useSelector(
     (state: RootState) => state.questions,
   );
@@ -27,17 +29,20 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
       if (quizType && quizType !== DEVICE_STORE_KEYS.MISTAKES && isSuccessfull) {
         await updateSuccessfullAttemts(quizType);
       }
-    })();
 
-    if (false) {
-      database().ref('/stats').push({
-        hehe: 'Hello',
-      });
-    }
+      const isIn = await GoogleSignin.isSignedIn();
+      setSignedIn(isIn);
+    })();
   }, [isSuccessfull, score, quizType]);
 
+  const onShow = async () => {
+    if (isSignedIn) {
+      await storeUserData();
+    }
+  };
+
   return (
-    <Modal animationType="slide" transparent={true} visible={showScoreModal}>
+    <Modal animationType="slide" onShow={onShow} transparent={true} visible={showScoreModal}>
       <Layout style={styles.resultContainer}>
         <QuizEndBanner />
         <View style={styles.result}>

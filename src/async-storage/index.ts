@@ -18,4 +18,34 @@ const get = async (key: string) => {
   }
 };
 
-export { get, store };
+const getAll = async () => {
+  try {
+    const result: any = {};
+    const keys = await AsyncStorage.getAllKeys();
+
+    for (const key of keys) {
+      const value = await AsyncStorage.getItem(key);
+      result[key] = value;
+    }
+
+    return result;
+  } catch (e) {
+    throw new Error(`Cannot read from device storage ${e}`);
+  }
+};
+
+const storeAll = async (userData: { [key: string]: string }) => {
+  try {
+    const dataKeys: string[] = Object.keys(userData);
+
+    await Promise.all(
+      dataKeys.map(async (dataKey: string) => {
+        await store(dataKey, userData[dataKey]);
+      }),
+    );
+  } catch (e) {
+    throw new Error(`Cannot put to device storage ${e}`);
+  }
+};
+
+export { get, getAll, store, storeAll };
