@@ -33,6 +33,9 @@ import {
 import styles from './styles';
 import { DEVICE_STORE_KEYS } from '../../async-storage/deviceStoreKeys';
 import { setFavorites } from '../../store/slices/questions';
+import { WITH_GOOGLE_LOGIN } from '@env';
+
+const withGoogleLogin = WITH_GOOGLE_LOGIN === 'true';
 
 const Settings: React.FC = () => {
   const dispatch = useDispatch();
@@ -46,9 +49,11 @@ const Settings: React.FC = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      await establishSignInStatus();
-    })();
+    if (withGoogleLogin) {
+      (async () => {
+        await establishSignInStatus();
+      })();
+    }
   }, []);
 
   const BackAction = useBackAction();
@@ -65,39 +70,43 @@ const Settings: React.FC = () => {
   };
 
   const hangleGoogleLoginPress = async () => {
-    await onGoogleLoginPress();
-    await establishSignInStatus();
+    if (withGoogleLogin) {
+      await onGoogleLoginPress();
+      await establishSignInStatus();
 
-    const userData = await restoreUserData();
+      const userData = await restoreUserData();
 
-    if (userData) {
-      Alert.alert(t('settings.sync_modal.title'), t('settings.sync_modal.description'), [
-        {
-          text: t('settings.sync_modal.from_cloud'),
-          onPress: async () => {
-            await storeAll(userData);
+      if (userData) {
+        Alert.alert(t('settings.sync_modal.title'), t('settings.sync_modal.description'), [
+          {
+            text: t('settings.sync_modal.from_cloud'),
+            onPress: async () => {
+              await storeAll(userData);
 
-            dispatch(setLanguage(userData.language));
-            dispatch(setThemeMode(userData.themeMode));
-            dispatch(setFavorites(userData[DEVICE_STORE_KEYS.FAVORITES]));
+              dispatch(setLanguage(userData.language));
+              dispatch(setThemeMode(userData.themeMode));
+              dispatch(setFavorites(userData[DEVICE_STORE_KEYS.FAVORITES]));
+            },
+            style: 'cancel',
           },
-          style: 'cancel',
-        },
-        {
-          text: t('settings.sync_modal.to_cloud'),
-          onPress: async () => {
-            await storeUserData();
+          {
+            text: t('settings.sync_modal.to_cloud'),
+            onPress: async () => {
+              await storeUserData();
+            },
           },
-        },
-      ]);
-    } else {
-      await storeUserData();
+        ]);
+      } else {
+        await storeUserData();
+      }
     }
   };
 
   const hangleGoogleLogoutPress = async () => {
-    await onGoogleLogoutPress();
-    await establishSignInStatus();
+    if (withGoogleLogin) {
+      await onGoogleLogoutPress();
+      await establishSignInStatus();
+    }
   };
 
   return (
@@ -132,17 +141,25 @@ const Settings: React.FC = () => {
           <Radio>{t('settings.themeMode.options.light')}</Radio>
           <Radio>{t('settings.themeMode.options.dark')}</Radio>
         </RadioGroup>
-        <Button
-          accessoryLeft={GoogleIcon}
-          disabled={isSignedIn}
-          onPress={hangleGoogleLoginPress}
-          style={styles.loginButton}
-        >
-          {t('settings.googleLogin')}
-        </Button>
-        <Button disabled={!isSignedIn} onPress={hangleGoogleLogoutPress} style={styles.loginButton}>
-          {t('settings.logout')}
-        </Button>
+        {withGoogleLogin && (
+          <>
+            <Button
+              accessoryLeft={GoogleIcon}
+              disabled={isSignedIn}
+              onPress={hangleGoogleLoginPress}
+              style={styles.loginButton}
+            >
+              {t('settings.googleLogin')}
+            </Button>
+            <Button
+              disabled={!isSignedIn}
+              onPress={hangleGoogleLogoutPress}
+              style={styles.loginButton}
+            >
+              {t('settings.logout')}
+            </Button>
+          </>
+        )}
       </Layout>
       <Layout style={styles.adContainer}>
         <SettingsBanner />

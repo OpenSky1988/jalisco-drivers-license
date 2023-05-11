@@ -1,4 +1,5 @@
 import React from 'react';
+import { WITH_GOOGLE_LOGIN } from '@env';
 import * as eva from '@eva-design/eva';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { NavigationContainer } from '@react-navigation/native';
@@ -14,9 +15,11 @@ import { RootState } from './store';
 import theme from './theme/custom-theme.json';
 import { useLocale, useThemeMode } from './hooks';
 
-GoogleSignin.configure({
-  webClientId: '581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com',
-});
+if (WITH_GOOGLE_LOGIN === 'true') {
+  GoogleSignin.configure({
+    webClientId: '581434553465-0hmeiam279hbo2524kfoi8ccbjc99lb1.apps.googleusercontent.com',
+  });
+}
 
 const { Navigator, Screen } = createNativeStackNavigator<TRootStackParamList>();
 

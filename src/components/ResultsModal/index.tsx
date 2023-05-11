@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modal, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { WITH_GOOGLE_LOGIN } from '@env';
 import { Layout, Text, useTheme } from '@ui-kitten/components';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
@@ -12,6 +13,8 @@ import { IResultsModalProps } from './types';
 import { calculateTestSuccess, updateSuccessfullAttemts } from './utils';
 import QuizEndBanner from '../AdMob/QuizEndBanner';
 import { storeUserData } from '../../utils/googleAuth';
+
+const withGoogleLogin = WITH_GOOGLE_LOGIN === 'true';
 
 const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestart, quizType }) => {
   const { t } = useTranslation();
@@ -30,13 +33,15 @@ const ResultsModal: React.FC<IResultsModalProps> = ({ handleFinish, handleRestar
         await updateSuccessfullAttemts(quizType);
       }
 
-      const isIn = await GoogleSignin.isSignedIn();
-      setSignedIn(isIn);
+      if (withGoogleLogin) {
+        const isIn = await GoogleSignin.isSignedIn();
+        setSignedIn(isIn);
+      }
     })();
   }, [isSuccessfull, score, quizType]);
 
   const onShow = async () => {
-    if (isSignedIn) {
+    if (withGoogleLogin && isSignedIn) {
       await storeUserData();
     }
   };
